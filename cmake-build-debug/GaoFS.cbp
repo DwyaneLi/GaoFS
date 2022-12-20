@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="GaoFS"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\client\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="metadata">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libmetadata.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 metadata"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="metadata/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libmetadata.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 metadata/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="path_util">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libpath_util.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 path_util"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="path_util/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libpath_util.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 path_util/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="distributor">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libdistributor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 distributor"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="distributor/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libdistributor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 distributor/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/metadata.hpp">
+			<Option target="metadata"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/path_util.hpp">
+			<Option target="path_util"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/distributor.hpp">
+			<Option target="distributor"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/metadata.cpp">
+			<Option target="metadata"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/path_util.cpp">
+			<Option target="path_util"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/distributor.cpp">
+			<Option target="distributor"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\common\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/arithmetic/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\common\arithmetic\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\client\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
