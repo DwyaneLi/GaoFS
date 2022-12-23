@@ -111,6 +111,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/common/CMakeFiles/env_util.dir/rule:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/env_util.dir/rule
+.PHONY : src/common/CMakeFiles/env_util.dir/rule
+
+# Convenience name for target.
+env_util: src/common/CMakeFiles/env_util.dir/rule
+
+.PHONY : env_util
+
+# fast build rule for target.
+env_util/fast:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/build
+.PHONY : env_util/fast
+
+# Convenience name for target.
+src/common/CMakeFiles/first_chunk.dir/rule:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/first_chunk.dir/rule
+.PHONY : src/common/CMakeFiles/first_chunk.dir/rule
+
+# Convenience name for target.
+first_chunk: src/common/CMakeFiles/first_chunk.dir/rule
+
+.PHONY : first_chunk
+
+# fast build rule for target.
+first_chunk/fast:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/build
+.PHONY : first_chunk/fast
+
+# Convenience name for target.
 src/common/CMakeFiles/metadata.dir/rule:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/metadata.dir/rule
 .PHONY : src/common/CMakeFiles/metadata.dir/rule
@@ -154,6 +184,60 @@ distributor: src/common/CMakeFiles/distributor.dir/rule
 distributor/fast:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/distributor.dir/build.make src/common/CMakeFiles/distributor.dir/build
 .PHONY : distributor/fast
+
+env_util.o: env_util.cpp.o
+
+.PHONY : env_util.o
+
+# target to build an object file
+env_util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/env_util.cpp.o
+.PHONY : env_util.cpp.o
+
+env_util.i: env_util.cpp.i
+
+.PHONY : env_util.i
+
+# target to preprocess a source file
+env_util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/env_util.cpp.i
+.PHONY : env_util.cpp.i
+
+env_util.s: env_util.cpp.s
+
+.PHONY : env_util.s
+
+# target to generate assembly for a file
+env_util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/env_util.cpp.s
+.PHONY : env_util.cpp.s
+
+first_chunk.o: first_chunk.cpp.o
+
+.PHONY : first_chunk.o
+
+# target to build an object file
+first_chunk.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/first_chunk.cpp.o
+.PHONY : first_chunk.cpp.o
+
+first_chunk.i: first_chunk.cpp.i
+
+.PHONY : first_chunk.i
+
+# target to preprocess a source file
+first_chunk.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/first_chunk.cpp.i
+.PHONY : first_chunk.cpp.i
+
+first_chunk.s: first_chunk.cpp.s
+
+.PHONY : first_chunk.s
+
+# target to generate assembly for a file
+first_chunk.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/first_chunk.cpp.s
+.PHONY : first_chunk.cpp.s
 
 metadata.o: metadata.cpp.o
 
@@ -244,9 +328,17 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... env_util"
+	@echo "... first_chunk"
 	@echo "... metadata"
 	@echo "... path_util"
 	@echo "... distributor"
+	@echo "... env_util.o"
+	@echo "... env_util.i"
+	@echo "... env_util.s"
+	@echo "... first_chunk.o"
+	@echo "... first_chunk.i"
+	@echo "... first_chunk.s"
 	@echo "... metadata.o"
 	@echo "... metadata.i"
 	@echo "... metadata.s"

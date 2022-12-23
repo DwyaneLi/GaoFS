@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="FMT"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\client\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fmt">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/libfmtd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 fmt"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="fmt/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/libfmtd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 fmt/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/ChangeLog.rst">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/README.rst">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/args.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/chrono.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/color.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/compile.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/core.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/format-inl.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/format.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/os.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/ostream.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/printf.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/ranges.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/std.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/xchar.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/src/format.cc">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/src/os.cc">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\fmt\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/support/cmake/JoinPaths.cmake">
+			<Option virtualFolder="CMake Files\external\fmt\support\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\common\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/arithmetic/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\common\arithmetic\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\client\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

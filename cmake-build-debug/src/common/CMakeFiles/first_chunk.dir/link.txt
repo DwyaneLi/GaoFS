@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfirst_chunk.a  CMakeFiles/first_chunk.dir/first_chunk.cpp.o
+/usr/bin/ranlib libfirst_chunk.a

@@ -1,1 +1,7 @@
-找不到 WSL: D:\ubuntu20.04_wsl\Ubuntu2004_wsl\ubuntu2004.exe 配置 禁用配置文件
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/dwyaneli/gaofs
+-- Module support is disabled.
+-- Version: 9.1.1
+-- Build type: Debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dwyaneli/gaofs/cmake-build-debug

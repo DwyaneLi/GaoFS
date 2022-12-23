@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named fmt
+
+# Build rule for target.
+fmt: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fmt
+.PHONY : fmt
+
+# fast build rule for target.
+fmt/fast:
+	$(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/build
+.PHONY : fmt/fast
+
+#=============================================================================
+# Target rules for targets named env_util
+
+# Build rule for target.
+env_util: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 env_util
+.PHONY : env_util
+
+# fast build rule for target.
+env_util/fast:
+	$(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/build
+.PHONY : env_util/fast
+
+#=============================================================================
+# Target rules for targets named first_chunk
+
+# Build rule for target.
+first_chunk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 first_chunk
+.PHONY : first_chunk
+
+# fast build rule for target.
+first_chunk/fast:
+	$(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/build
+.PHONY : first_chunk/fast
+
+#=============================================================================
 # Target rules for targets named metadata
 
 # Build rule for target.
@@ -157,6 +196,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... fmt"
+	@echo "... env_util"
+	@echo "... first_chunk"
 	@echo "... metadata"
 	@echo "... path_util"
 	@echo "... distributor"

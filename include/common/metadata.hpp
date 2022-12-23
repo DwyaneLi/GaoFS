@@ -6,7 +6,7 @@
 #define GAOFS_METADATA_HPP
 #pragma once //指定在创建过程中该编译指示所在的文件仅仅被编译程序包含（打开）一次
 
-#include <config.h>
+#include <config.hpp>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string>

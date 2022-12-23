@@ -53,22 +53,43 @@ CMAKE_BINARY_DIR = /home/dwyaneli/gaofs/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: external/fmt/all
 all: src/common/all
 all: src/client/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
+preinstall: external/fmt/preinstall
 preinstall: src/common/preinstall
 preinstall: src/client/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: external/fmt/clean
 clean: src/common/clean
 clean: src/client/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory external/fmt
+
+# Recursive "all" directory target.
+external/fmt/all: external/fmt/CMakeFiles/fmt.dir/all
+
+.PHONY : external/fmt/all
+
+# Recursive "preinstall" directory target.
+external/fmt/preinstall:
+
+.PHONY : external/fmt/preinstall
+
+# Recursive "clean" directory target.
+external/fmt/clean: external/fmt/CMakeFiles/fmt.dir/clean
+
+.PHONY : external/fmt/clean
 
 #=============================================================================
 # Directory level rules for directory src/client
@@ -92,6 +113,8 @@ src/client/clean:
 # Directory level rules for directory src/common
 
 # Recursive "all" directory target.
+src/common/all: src/common/CMakeFiles/env_util.dir/all
+src/common/all: src/common/CMakeFiles/first_chunk.dir/all
 src/common/all: src/common/CMakeFiles/metadata.dir/all
 src/common/all: src/common/CMakeFiles/path_util.dir/all
 src/common/all: src/common/CMakeFiles/distributor.dir/all
@@ -105,6 +128,8 @@ src/common/preinstall: src/common/arithmetic/preinstall
 .PHONY : src/common/preinstall
 
 # Recursive "clean" directory target.
+src/common/clean: src/common/CMakeFiles/env_util.dir/clean
+src/common/clean: src/common/CMakeFiles/first_chunk.dir/clean
 src/common/clean: src/common/CMakeFiles/metadata.dir/clean
 src/common/clean: src/common/CMakeFiles/path_util.dir/clean
 src/common/clean: src/common/CMakeFiles/distributor.dir/clean
@@ -131,18 +156,99 @@ src/common/arithmetic/clean:
 .PHONY : src/common/arithmetic/clean
 
 #=============================================================================
+# Target rules for target external/fmt/CMakeFiles/fmt.dir
+
+# All Build rule for target.
+external/fmt/CMakeFiles/fmt.dir/all:
+	$(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/depend
+	$(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=7,8,9 "Built target fmt"
+.PHONY : external/fmt/CMakeFiles/fmt.dir/all
+
+# Build rule for subdir invocation for target.
+external/fmt/CMakeFiles/fmt.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 external/fmt/CMakeFiles/fmt.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : external/fmt/CMakeFiles/fmt.dir/rule
+
+# Convenience name for target.
+fmt: external/fmt/CMakeFiles/fmt.dir/rule
+
+.PHONY : fmt
+
+# clean rule for target.
+external/fmt/CMakeFiles/fmt.dir/clean:
+	$(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/clean
+.PHONY : external/fmt/CMakeFiles/fmt.dir/clean
+
+#=============================================================================
+# Target rules for target src/common/CMakeFiles/env_util.dir
+
+# All Build rule for target.
+src/common/CMakeFiles/env_util.dir/all:
+	$(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/depend
+	$(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target env_util"
+.PHONY : src/common/CMakeFiles/env_util.dir/all
+
+# Build rule for subdir invocation for target.
+src/common/CMakeFiles/env_util.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/env_util.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/common/CMakeFiles/env_util.dir/rule
+
+# Convenience name for target.
+env_util: src/common/CMakeFiles/env_util.dir/rule
+
+.PHONY : env_util
+
+# clean rule for target.
+src/common/CMakeFiles/env_util.dir/clean:
+	$(MAKE) -f src/common/CMakeFiles/env_util.dir/build.make src/common/CMakeFiles/env_util.dir/clean
+.PHONY : src/common/CMakeFiles/env_util.dir/clean
+
+#=============================================================================
+# Target rules for target src/common/CMakeFiles/first_chunk.dir
+
+# All Build rule for target.
+src/common/CMakeFiles/first_chunk.dir/all: external/fmt/CMakeFiles/fmt.dir/all
+	$(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/depend
+	$(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target first_chunk"
+.PHONY : src/common/CMakeFiles/first_chunk.dir/all
+
+# Build rule for subdir invocation for target.
+src/common/CMakeFiles/first_chunk.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/first_chunk.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/common/CMakeFiles/first_chunk.dir/rule
+
+# Convenience name for target.
+first_chunk: src/common/CMakeFiles/first_chunk.dir/rule
+
+.PHONY : first_chunk
+
+# clean rule for target.
+src/common/CMakeFiles/first_chunk.dir/clean:
+	$(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/clean
+.PHONY : src/common/CMakeFiles/first_chunk.dir/clean
+
+#=============================================================================
 # Target rules for target src/common/CMakeFiles/metadata.dir
 
 # All Build rule for target.
-src/common/CMakeFiles/metadata.dir/all:
+src/common/CMakeFiles/metadata.dir/all: external/fmt/CMakeFiles/fmt.dir/all
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target metadata"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target metadata"
 .PHONY : src/common/CMakeFiles/metadata.dir/all
 
 # Build rule for subdir invocation for target.
 src/common/CMakeFiles/metadata.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/metadata.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
 .PHONY : src/common/CMakeFiles/metadata.dir/rule
@@ -164,7 +270,7 @@ src/common/CMakeFiles/metadata.dir/clean:
 src/common/CMakeFiles/path_util.dir/all:
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target path_util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target path_util"
 .PHONY : src/common/CMakeFiles/path_util.dir/all
 
 # Build rule for subdir invocation for target.
