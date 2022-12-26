@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/common/CMakeFiles/log_util.dir/rule:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/log_util.dir/rule
+.PHONY : src/common/CMakeFiles/log_util.dir/rule
+
+# Convenience name for target.
+log_util: src/common/CMakeFiles/log_util.dir/rule
+
+.PHONY : log_util
+
+# fast build rule for target.
+log_util/fast:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/build
+.PHONY : log_util/fast
+
+# Convenience name for target.
 src/common/CMakeFiles/env_util.dir/rule:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/env_util.dir/rule
 .PHONY : src/common/CMakeFiles/env_util.dir/rule
@@ -239,6 +254,33 @@ first_chunk.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/first_chunk.dir/build.make src/common/CMakeFiles/first_chunk.dir/first_chunk.cpp.s
 .PHONY : first_chunk.cpp.s
 
+log_util.o: log_util.cpp.o
+
+.PHONY : log_util.o
+
+# target to build an object file
+log_util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/log_util.cpp.o
+.PHONY : log_util.cpp.o
+
+log_util.i: log_util.cpp.i
+
+.PHONY : log_util.i
+
+# target to preprocess a source file
+log_util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/log_util.cpp.i
+.PHONY : log_util.cpp.i
+
+log_util.s: log_util.cpp.s
+
+.PHONY : log_util.s
+
+# target to generate assembly for a file
+log_util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/log_util.cpp.s
+.PHONY : log_util.cpp.s
+
 metadata.o: metadata.cpp.o
 
 .PHONY : metadata.o
@@ -327,6 +369,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... log_util"
 	@echo "... edit_cache"
 	@echo "... env_util"
 	@echo "... first_chunk"
@@ -339,6 +382,9 @@ help:
 	@echo "... first_chunk.o"
 	@echo "... first_chunk.i"
 	@echo "... first_chunk.s"
+	@echo "... log_util.o"
+	@echo "... log_util.i"
+	@echo "... log_util.s"
 	@echo "... metadata.o"
 	@echo "... metadata.i"
 	@echo "... metadata.s"

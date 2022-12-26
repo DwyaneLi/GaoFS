@@ -124,6 +124,32 @@ fmt/fast:
 .PHONY : fmt/fast
 
 #=============================================================================
+# Target rules for targets named spdlog
+
+# Build rule for target.
+spdlog: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 spdlog
+.PHONY : spdlog
+
+# fast build rule for target.
+spdlog/fast:
+	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/build
+.PHONY : spdlog/fast
+
+#=============================================================================
+# Target rules for targets named log_util
+
+# Build rule for target.
+log_util: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 log_util
+.PHONY : log_util
+
+# fast build rule for target.
+log_util/fast:
+	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/build
+.PHONY : log_util/fast
+
+#=============================================================================
 # Target rules for targets named env_util
 
 # Build rule for target.
@@ -188,6 +214,32 @@ distributor/fast:
 	$(MAKE) -f src/common/CMakeFiles/distributor.dir/build.make src/common/CMakeFiles/distributor.dir/build
 .PHONY : distributor/fast
 
+#=============================================================================
+# Target rules for targets named metadata_db
+
+# Build rule for target.
+metadata_db: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 metadata_db
+.PHONY : metadata_db
+
+# fast build rule for target.
+metadata_db/fast:
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build
+.PHONY : metadata_db/fast
+
+#=============================================================================
+# Target rules for targets named metadata_module
+
+# Build rule for target.
+metadata_module: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 metadata_module
+.PHONY : metadata_module
+
+# fast build rule for target.
+metadata_module/fast:
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build
+.PHONY : metadata_module/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,11 +249,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... fmt"
+	@echo "... spdlog"
+	@echo "... log_util"
 	@echo "... env_util"
 	@echo "... first_chunk"
 	@echo "... metadata"
 	@echo "... path_util"
 	@echo "... distributor"
+	@echo "... metadata_db"
+	@echo "... metadata_module"
 .PHONY : help
 
 

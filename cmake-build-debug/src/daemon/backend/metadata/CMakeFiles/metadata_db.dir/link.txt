@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmetadata_db.a  
+/usr/bin/ranlib libmetadata_db.a

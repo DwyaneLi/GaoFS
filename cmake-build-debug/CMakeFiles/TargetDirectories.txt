@@ -3,7 +3,11 @@
 /home/dwyaneli/gaofs/cmake-build-debug/external/fmt/CMakeFiles/edit_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/external/fmt/CMakeFiles/rebuild_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/external/fmt/CMakeFiles/fmt.dir
+/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog/CMakeFiles/spdlog.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/log_util.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/edit_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/env_util.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/first_chunk.dir
@@ -12,5 +16,13 @@
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/distributor.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/arithmetic/CMakeFiles/rebuild_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/arithmetic/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_db.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_module.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/rebuild_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/edit_cache.dir

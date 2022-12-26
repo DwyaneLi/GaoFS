@@ -8,7 +8,6 @@
 #include <string>
 #include <sys/types.h>
 #include <config.hpp>
-
 namespace gaofs::first_chunk {
 
 class First_chunk {

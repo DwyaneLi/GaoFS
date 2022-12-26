@@ -54,21 +54,27 @@ CMAKE_BINARY_DIR = /home/dwyaneli/gaofs/cmake-build-debug
 
 # The main recursive "all" target.
 all: external/fmt/all
+all: external/spdlog/all
 all: src/common/all
+all: src/daemon/all
 all: src/client/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: external/fmt/preinstall
+preinstall: external/spdlog/preinstall
 preinstall: src/common/preinstall
+preinstall: src/daemon/preinstall
 preinstall: src/client/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: external/fmt/clean
+clean: external/spdlog/clean
 clean: src/common/clean
+clean: src/daemon/clean
 clean: src/client/clean
 
 .PHONY : clean
@@ -92,6 +98,24 @@ external/fmt/clean: external/fmt/CMakeFiles/fmt.dir/clean
 .PHONY : external/fmt/clean
 
 #=============================================================================
+# Directory level rules for directory external/spdlog
+
+# Recursive "all" directory target.
+external/spdlog/all: external/spdlog/CMakeFiles/spdlog.dir/all
+
+.PHONY : external/spdlog/all
+
+# Recursive "preinstall" directory target.
+external/spdlog/preinstall:
+
+.PHONY : external/spdlog/preinstall
+
+# Recursive "clean" directory target.
+external/spdlog/clean: external/spdlog/CMakeFiles/spdlog.dir/clean
+
+.PHONY : external/spdlog/clean
+
+#=============================================================================
 # Directory level rules for directory src/client
 
 # Recursive "all" directory target.
@@ -113,6 +137,7 @@ src/client/clean:
 # Directory level rules for directory src/common
 
 # Recursive "all" directory target.
+src/common/all: src/common/CMakeFiles/log_util.dir/all
 src/common/all: src/common/CMakeFiles/env_util.dir/all
 src/common/all: src/common/CMakeFiles/first_chunk.dir/all
 src/common/all: src/common/CMakeFiles/metadata.dir/all
@@ -128,6 +153,7 @@ src/common/preinstall: src/common/arithmetic/preinstall
 .PHONY : src/common/preinstall
 
 # Recursive "clean" directory target.
+src/common/clean: src/common/CMakeFiles/log_util.dir/clean
 src/common/clean: src/common/CMakeFiles/env_util.dir/clean
 src/common/clean: src/common/CMakeFiles/first_chunk.dir/clean
 src/common/clean: src/common/CMakeFiles/metadata.dir/clean
@@ -156,6 +182,62 @@ src/common/arithmetic/clean:
 .PHONY : src/common/arithmetic/clean
 
 #=============================================================================
+# Directory level rules for directory src/daemon
+
+# Recursive "all" directory target.
+src/daemon/all: src/daemon/backend/all
+
+.PHONY : src/daemon/all
+
+# Recursive "preinstall" directory target.
+src/daemon/preinstall: src/daemon/backend/preinstall
+
+.PHONY : src/daemon/preinstall
+
+# Recursive "clean" directory target.
+src/daemon/clean: src/daemon/backend/clean
+
+.PHONY : src/daemon/clean
+
+#=============================================================================
+# Directory level rules for directory src/daemon/backend
+
+# Recursive "all" directory target.
+src/daemon/backend/all: src/daemon/backend/metadata/all
+
+.PHONY : src/daemon/backend/all
+
+# Recursive "preinstall" directory target.
+src/daemon/backend/preinstall: src/daemon/backend/metadata/preinstall
+
+.PHONY : src/daemon/backend/preinstall
+
+# Recursive "clean" directory target.
+src/daemon/backend/clean: src/daemon/backend/metadata/clean
+
+.PHONY : src/daemon/backend/clean
+
+#=============================================================================
+# Directory level rules for directory src/daemon/backend/metadata
+
+# Recursive "all" directory target.
+src/daemon/backend/metadata/all: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
+src/daemon/backend/metadata/all: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
+
+.PHONY : src/daemon/backend/metadata/all
+
+# Recursive "preinstall" directory target.
+src/daemon/backend/metadata/preinstall:
+
+.PHONY : src/daemon/backend/metadata/preinstall
+
+# Recursive "clean" directory target.
+src/daemon/backend/metadata/clean: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/clean
+src/daemon/backend/metadata/clean: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/clean
+
+.PHONY : src/daemon/backend/metadata/clean
+
+#=============================================================================
 # Target rules for target external/fmt/CMakeFiles/fmt.dir
 
 # All Build rule for target.
@@ -181,6 +263,60 @@ fmt: external/fmt/CMakeFiles/fmt.dir/rule
 external/fmt/CMakeFiles/fmt.dir/clean:
 	$(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/clean
 .PHONY : external/fmt/CMakeFiles/fmt.dir/clean
+
+#=============================================================================
+# Target rules for target external/spdlog/CMakeFiles/spdlog.dir
+
+# All Build rule for target.
+external/spdlog/CMakeFiles/spdlog.dir/all:
+	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/depend
+	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=19,20,21,22,23,24,25,26 "Built target spdlog"
+.PHONY : external/spdlog/CMakeFiles/spdlog.dir/all
+
+# Build rule for subdir invocation for target.
+external/spdlog/CMakeFiles/spdlog.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 external/spdlog/CMakeFiles/spdlog.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : external/spdlog/CMakeFiles/spdlog.dir/rule
+
+# Convenience name for target.
+spdlog: external/spdlog/CMakeFiles/spdlog.dir/rule
+
+.PHONY : spdlog
+
+# clean rule for target.
+external/spdlog/CMakeFiles/spdlog.dir/clean:
+	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/clean
+.PHONY : external/spdlog/CMakeFiles/spdlog.dir/clean
+
+#=============================================================================
+# Target rules for target src/common/CMakeFiles/log_util.dir
+
+# All Build rule for target.
+src/common/CMakeFiles/log_util.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
+	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/depend
+	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target log_util"
+.PHONY : src/common/CMakeFiles/log_util.dir/all
+
+# Build rule for subdir invocation for target.
+src/common/CMakeFiles/log_util.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 10
+	$(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/log_util.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/common/CMakeFiles/log_util.dir/rule
+
+# Convenience name for target.
+log_util: src/common/CMakeFiles/log_util.dir/rule
+
+.PHONY : log_util
+
+# clean rule for target.
+src/common/CMakeFiles/log_util.dir/clean:
+	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/clean
+.PHONY : src/common/CMakeFiles/log_util.dir/clean
 
 #=============================================================================
 # Target rules for target src/common/CMakeFiles/env_util.dir
@@ -243,7 +379,7 @@ src/common/CMakeFiles/first_chunk.dir/clean:
 src/common/CMakeFiles/metadata.dir/all: external/fmt/CMakeFiles/fmt.dir/all
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target metadata"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target metadata"
 .PHONY : src/common/CMakeFiles/metadata.dir/all
 
 # Build rule for subdir invocation for target.
@@ -270,7 +406,7 @@ src/common/CMakeFiles/metadata.dir/clean:
 src/common/CMakeFiles/path_util.dir/all:
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target path_util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=17,18 "Built target path_util"
 .PHONY : src/common/CMakeFiles/path_util.dir/all
 
 # Build rule for subdir invocation for target.
@@ -316,6 +452,64 @@ distributor: src/common/CMakeFiles/distributor.dir/rule
 src/common/CMakeFiles/distributor.dir/clean:
 	$(MAKE) -f src/common/CMakeFiles/distributor.dir/build.make src/common/CMakeFiles/distributor.dir/clean
 .PHONY : src/common/CMakeFiles/distributor.dir/clean
+
+#=============================================================================
+# Target rules for target src/daemon/backend/metadata/CMakeFiles/metadata_db.dir
+
+# All Build rule for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: external/fmt/CMakeFiles/fmt.dir/all
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFiles/metadata.dir/all
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFiles/path_util.dir/all
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/depend
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=14 "Built target metadata_db"
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
+
+# Build rule for subdir invocation for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 18
+	$(MAKE) -f CMakeFiles/Makefile2 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rule
+
+# Convenience name for target.
+metadata_db: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rule
+
+.PHONY : metadata_db
+
+# clean rule for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/clean:
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/clean
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/clean
+
+#=============================================================================
+# Target rules for target src/daemon/backend/metadata/CMakeFiles/metadata_module.dir
+
+# All Build rule for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/depend
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target metadata_module"
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
+
+# Build rule for subdir invocation for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 10
+	$(MAKE) -f CMakeFiles/Makefile2 src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/rule
+
+# Convenience name for target.
+metadata_module: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/rule
+
+.PHONY : metadata_module
+
+# clean rule for target.
+src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/clean:
+	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/clean
+.PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

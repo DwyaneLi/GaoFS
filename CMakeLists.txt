@@ -17,8 +17,14 @@ include_directories(
 add_subdirectory(external/fmt)
 set_property(TARGET fmt PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+add_subdirectory(external/spdlog)
+set_property(TARGET spdlog PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 # Common components
 add_subdirectory(src/common)
+
+# Daemon components
+add_subdirectory(src/daemon)
 
 # Client components
 add_subdirectory(src/client)

@@ -5,7 +5,6 @@
 #include <config.hpp>
 
 #include <fmt/format.h>
-
 extern "C" {
 #include <sys/stat.h>
 #include <unistd.h>

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmetadata_module.a  CMakeFiles/metadata_module.dir/metadata_module.cpp.o
+/usr/bin/ranlib libmetadata_module.a

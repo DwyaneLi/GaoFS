@@ -5,7 +5,7 @@
 		<Option title="FMT"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\client\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\client\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
@@ -126,11 +126,29 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/support/cmake/JoinPaths.cmake">
 			<Option virtualFolder="CMake Files\external\fmt\support\cmake\"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\spdlog\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/cmake/ide.cmake">
+			<Option virtualFolder="CMake Files\external\spdlog\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/cmake/utils.cmake">
+			<Option virtualFolder="CMake Files\external\spdlog\cmake\"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\common\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/arithmetic/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\common\arithmetic\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\daemon\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\daemon\backend\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/metadata/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\daemon\backend\metadata\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/client/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\client\"/>
