@@ -7,7 +7,6 @@
 
 #include <string>
 #include <stdexcept>
-
 namespace gaofs::metadata {
 
 // 父类，继承runtime_error

@@ -893,6 +893,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/exceptions.hpp">
 			<Option target="metadata_db"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/metadata_backend.hpp">
+			<Option target="metadata_db"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/metadata_module.hpp">
 			<Option target="metadata_db"/>
 			<Option target="metadata_module"/>

@@ -16,13 +16,14 @@ add_library(metadata_db STATIC)
 set(DB_COMMON_SOURCES
         PUBLIC
         ${INCLUDE_DIR}/daemon/backend/exceptions.hpp
+        ${INCLUDE_DIR}/daemon/backend/metadata/metadata_backend.hpp
         )
 set(DB_LINK_LIBRARIES
         PRIVATE
         # Required by RocksDB
         metadata_module
         metadata
-        spdlog
+        spdlog::spdlog
         path_util
         )
 target_sources(metadata_db
