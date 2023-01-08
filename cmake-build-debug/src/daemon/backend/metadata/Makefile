@@ -140,6 +140,60 @@ metadata_module/fast:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build
 .PHONY : metadata_module/fast
 
+db.o: db.cpp.o
+
+.PHONY : db.o
+
+# target to build an object file
+db.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.o
+.PHONY : db.cpp.o
+
+db.i: db.cpp.i
+
+.PHONY : db.i
+
+# target to preprocess a source file
+db.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.i
+.PHONY : db.cpp.i
+
+db.s: db.cpp.s
+
+.PHONY : db.s
+
+# target to generate assembly for a file
+db.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.s
+.PHONY : db.cpp.s
+
+merge.o: merge.cpp.o
+
+.PHONY : merge.o
+
+# target to build an object file
+merge.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.o
+.PHONY : merge.cpp.o
+
+merge.i: merge.cpp.i
+
+.PHONY : merge.i
+
+# target to preprocess a source file
+merge.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.i
+.PHONY : merge.cpp.i
+
+merge.s: merge.cpp.s
+
+.PHONY : merge.s
+
+# target to generate assembly for a file
+merge.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.s
+.PHONY : merge.cpp.s
+
 metadata_module.o: metadata_module.cpp.o
 
 .PHONY : metadata_module.o
@@ -167,6 +221,33 @@ metadata_module.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/metadata_module.cpp.s
 .PHONY : metadata_module.cpp.s
 
+rocksdb_backend.o: rocksdb_backend.cpp.o
+
+.PHONY : rocksdb_backend.o
+
+# target to build an object file
+rocksdb_backend.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o
+.PHONY : rocksdb_backend.cpp.o
+
+rocksdb_backend.i: rocksdb_backend.cpp.i
+
+.PHONY : rocksdb_backend.i
+
+# target to preprocess a source file
+rocksdb_backend.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.i
+.PHONY : rocksdb_backend.cpp.i
+
+rocksdb_backend.s: rocksdb_backend.cpp.s
+
+.PHONY : rocksdb_backend.s
+
+# target to generate assembly for a file
+rocksdb_backend.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.s
+.PHONY : rocksdb_backend.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -177,9 +258,18 @@ help:
 	@echo "... metadata_db"
 	@echo "... edit_cache"
 	@echo "... metadata_module"
+	@echo "... db.o"
+	@echo "... db.i"
+	@echo "... db.s"
+	@echo "... merge.o"
+	@echo "... merge.i"
+	@echo "... merge.s"
 	@echo "... metadata_module.o"
 	@echo "... metadata_module.i"
 	@echo "... metadata_module.s"
+	@echo "... rocksdb_backend.o"
+	@echo "... rocksdb_backend.i"
+	@echo "... rocksdb_backend.s"
 .PHONY : help
 
 

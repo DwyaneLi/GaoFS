@@ -13,7 +13,7 @@ static const char MSP = '|'; // 分隔符
 
 // 构造函数
 First_chunk::First_chunk(size_t size) : size_(size) {
-    assert(size_ < gaofs::config::rpc::chunksize);
+    assert(size_ <= gaofs::config::rpc::chunksize);
 }
 
 // 通过序列构建first_chunk

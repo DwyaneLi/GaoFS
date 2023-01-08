@@ -7,7 +7,7 @@
 
 #include <string>
 #include <stdexcept>
-namespace gaofs::metadata {
+namespace gaofs::db_exception {
 
 // 父类，继承runtime_error
 class DBException : public std::runtime_error {

@@ -57,15 +57,60 @@ include src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/flags.make
 
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.o: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/flags.make
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.o: ../src/daemon/backend/metadata/db.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/metadata_db.dir/db.cpp.o -c /home/dwyaneli/gaofs/src/daemon/backend/metadata/db.cpp
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/metadata_db.dir/db.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/daemon/backend/metadata/db.cpp > CMakeFiles/metadata_db.dir/db.cpp.i
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/metadata_db.dir/db.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/daemon/backend/metadata/db.cpp -o CMakeFiles/metadata_db.dir/db.cpp.s
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/flags.make
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o: ../src/daemon/backend/metadata/rocksdb_backend.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o -c /home/dwyaneli/gaofs/src/daemon/backend/metadata/rocksdb_backend.cpp
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/daemon/backend/metadata/rocksdb_backend.cpp > CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.i
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/daemon/backend/metadata/rocksdb_backend.cpp -o CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.s
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.o: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/flags.make
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.o: ../src/daemon/backend/metadata/merge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/metadata_db.dir/merge.cpp.o -c /home/dwyaneli/gaofs/src/daemon/backend/metadata/merge.cpp
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/metadata_db.dir/merge.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/daemon/backend/metadata/merge.cpp > CMakeFiles/metadata_db.dir/merge.cpp.i
+
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/metadata_db.dir/merge.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/daemon/backend/metadata/merge.cpp -o CMakeFiles/metadata_db.dir/merge.cpp.s
+
 # Object files for target metadata_db
-metadata_db_OBJECTS =
+metadata_db_OBJECTS = \
+"CMakeFiles/metadata_db.dir/db.cpp.o" \
+"CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o" \
+"CMakeFiles/metadata_db.dir/merge.cpp.o"
 
 # External object files for target metadata_db
 metadata_db_EXTERNAL_OBJECTS =
 
+src/daemon/backend/metadata/libmetadata_db.a: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/db.cpp.o
+src/daemon/backend/metadata/libmetadata_db.a: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o
+src/daemon/backend/metadata/libmetadata_db.a: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/merge.cpp.o
 src/daemon/backend/metadata/libmetadata_db.a: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make
 src/daemon/backend/metadata/libmetadata_db.a: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library libmetadata_db.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmetadata_db.a"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && $(CMAKE_COMMAND) -P CMakeFiles/metadata_db.dir/cmake_clean_target.cmake
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/metadata_db.dir/link.txt --verbose=$(VERBOSE)
 

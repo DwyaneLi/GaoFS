@@ -17,6 +17,8 @@ namespace gaofs::metadata {
 class AbstractMetadataBackend {
 
 public:
+    virtual  ~AbstractMetadataBackend() = default;
+
     virtual std::string get(const std::string& key) const = 0;
 
     virtual void put(const std::string& key, const std::string& val) = 0;
@@ -61,7 +63,7 @@ public:
         static_cast<T&>(*this).put_impl(key, val);
     }
 
-    void put_no_exist(const string& key, const string& val) {
+    void put_no_exist(const std::string& key, const std::string& val) {
         static_cast<T&>(*this).put_no_exist_impl(key, val);
     }
 

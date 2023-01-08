@@ -1,9 +1,10 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/dwyaneli/gaofs
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install -G "CodeBlocks - Unix Makefiles" /home/dwyaneli/gaofs
 -- Module support is disabled.
 -- Version: 9.1.1
 -- Build type: Debug
 -- Build spdlog: 1.9.2
 -- Build type: Debug
+-- Could NOT find JeMalloc (missing: JEMALLOC_LIBRARY JEMALLOC_INCLUDE_DIR) 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/dwyaneli/gaofs/cmake-build-debug

@@ -197,6 +197,9 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 //Path to a program.
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
+//No help, variable specified on the command line.
+CMAKE_PREFIX_PATH:UNINITIALIZED=/home/dwyaneli/gekkofs_test/gekkofs_deps/install
+
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
 
@@ -207,16 +210,16 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=GaoFS
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.11.0
+CMAKE_PROJECT_VERSION:STATIC=1.9.2
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=11
+CMAKE_PROJECT_VERSION_MINOR:STATIC=9
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+CMAKE_PROJECT_VERSION_PATCH:STATIC=2
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
@@ -293,15 +296,8 @@ FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
 //Enables QUIET option for all content population
 FETCHCONTENT_QUIET:BOOL=ON
 
-//When not empty, overrides where to find pre-populated content
-// for spdlog
-FETCHCONTENT_SOURCE_DIR_SPDLOG:PATH=
-
 //Enables UPDATE_DISCONNECTED behavior for all content population
 FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
-
-//Enables UPDATE_DISCONNECTED behavior just for population of spdlog
-FETCHCONTENT_UPDATES_DISCONNECTED_SPDLOG:BOOL=OFF
 
 //Value Computed by CMake
 FMT_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug/external/fmt
@@ -346,17 +342,38 @@ FMT_TEST:BOOL=OFF
 //Halt the compilation with an error on compiler warnings.
 FMT_WERROR:BOOL=OFF
 
+//Enable ROCKSDB backend
+GAOFS_ENABLE_ROCKSDB:BOOL=ON
+
 //Value Computed by CMake
 GaoFS_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug
 
 //Value Computed by CMake
 GaoFS_SOURCE_DIR:STATIC=/home/dwyaneli/gaofs
 
+//Path to a file.
+JEMALLOC_INCLUDE_DIR:PATH=JEMALLOC_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+JEMALLOC_LIBRARY:FILEPATH=JEMALLOC_LIBRARY-NOTFOUND
+
+//Path to a file.
+LZ4_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+LZ4_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so
+
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//Path to a file.
+ROCKSDB_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+ROCKSDB_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a
 
 //Build all artifacts
 SPDLOG_BUILD_ALL:BOOL=OFF
@@ -370,9 +387,6 @@ SPDLOG_BUILD_EXAMPLE:BOOL=OFF
 
 //Build header only example
 SPDLOG_BUILD_EXAMPLE_HO:BOOL=OFF
-
-//Build position independent code (-fPIC)
-SPDLOG_BUILD_PIC:BOOL=OFF
 
 //Build shared library
 SPDLOG_BUILD_SHARED:BOOL=OFF
@@ -425,15 +439,8 @@ SPDLOG_PREVENT_CHILD_FD:BOOL=OFF
 //Enable address sanitizer in tests
 SPDLOG_SANITIZE_ADDRESS:BOOL=OFF
 
-//Include as system headers (skip for clang-tidy).
-SPDLOG_SYSTEM_INCLUDES:BOOL=OFF
-
 //run clang-tidy
 SPDLOG_TIDY:BOOL=OFF
-
-//Use std::format instead of fmt library. No compile-time format
-// string checking.
-SPDLOG_USE_STD_FORMAT:BOOL=OFF
 
 //non supported option
 SPDLOG_WCHAR_FILENAMES:BOOL=OFF
@@ -643,12 +650,30 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding LZ4
+FIND_PACKAGE_MESSAGE_DETAILS_LZ4:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
+//Details about finding RocksDB
+FIND_PACKAGE_MESSAGE_DETAILS_RocksDB:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Test HAS_LIBURING
+HAS_LIBURING:INTERNAL=
+//ADVANCED property for variable: JEMALLOC_INCLUDE_DIR
+JEMALLOC_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: JEMALLOC_LIBRARY
+JEMALLOC_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LZ4_INCLUDE_DIR
+LZ4_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: LZ4_LIBRARY
+LZ4_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROCKSDB_INCLUDE_DIR
+ROCKSDB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROCKSDB_LIBRARY
+ROCKSDB_LIBRARY-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 
