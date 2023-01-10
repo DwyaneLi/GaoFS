@@ -13,8 +13,25 @@ include_directories(
         ${INCLUDE_DIR}
 )
 
+
 # 设置CMAKE_MODULE_PATH，帮助找到.cmake文件
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
+
+
+
+#find package
+# 有些编译器需要额外的std::filesystem标志，例如-lstdc++fs，它会生成一个导入std::filesystem的目标，透明地处理所有这些细节
+find_package(Filesystem REQUIRED)
+#
+
+
+
+#选项，使用哪个数据库，默认使用rocks db
+# option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
+option(GKFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
+
+
+
 
 #选项，使用哪个数据库，默认使用rocks db
 ## option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)

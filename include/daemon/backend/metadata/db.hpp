@@ -12,8 +12,10 @@
 #include <daemon/backend/metadata/metadata_backend.hpp>
 
 // 对应后端的头文件
+// TODO: 如果要用其他的backend，在这里添加头文件
+#ifdef GAOFS_ENABLE_ROCKSDB
 #include <daemon/backend/metadata/rocksdb_backend.hpp>
-
+#endif
 namespace gaofs::metadata {
 
 constexpr auto rocksdb_backend = "rocksb";
