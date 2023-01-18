@@ -419,6 +419,60 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="gaofs_daemon">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/gaofs_daemon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 gaofs_daemon"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gaofs_daemon/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/gaofs_daemon" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 gaofs_daemon/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="metadata_db">
 				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/libmetadata_db.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata"/>
@@ -871,23 +925,29 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/env_util.hpp">
 			<Option target="env_util"/>
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/first_chunk.hpp">
 			<Option target="first_chunk"/>
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/log_util.hpp">
 			<Option target="log_util"/>
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/metadata.hpp">
 			<Option target="metadata"/>
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/path_util.hpp">
 			<Option target="path_util"/>
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/distributor.hpp">
 			<Option target="distributor"/>
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/config.hpp">
 			<Option target="env_util"/>
@@ -895,15 +955,18 @@
 			<Option target="metadata"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/exceptions.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/db.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/merge.hpp">
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/metadata_backend.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/metadata_module.hpp">
@@ -911,7 +974,14 @@
 			<Option target="metadata_module"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/metadata/rocksdb_backend.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/classes/fs_data.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/daemon.hpp">
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/env_util.cpp">
 			<Option target="env_util"/>
@@ -942,6 +1012,12 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/metadata/rocksdb_backend.cpp">
 			<Option target="metadata_db"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/classes/fs_data.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/daemon.cpp">
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

@@ -215,6 +215,19 @@ distributor/fast:
 .PHONY : distributor/fast
 
 #=============================================================================
+# Target rules for targets named gaofs_daemon
+
+# Build rule for target.
+gaofs_daemon: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gaofs_daemon
+.PHONY : gaofs_daemon
+
+# fast build rule for target.
+gaofs_daemon/fast:
+	$(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/build
+.PHONY : gaofs_daemon/fast
+
+#=============================================================================
 # Target rules for targets named metadata_db
 
 # Build rule for target.
@@ -256,6 +269,7 @@ help:
 	@echo "... metadata"
 	@echo "... path_util"
 	@echo "... distributor"
+	@echo "... gaofs_daemon"
 	@echo "... metadata_db"
 	@echo "... metadata_module"
 .PHONY : help

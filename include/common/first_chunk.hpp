@@ -8,7 +8,7 @@
 #include <string>
 #include <sys/types.h>
 #include <config.hpp>
-namespace gaofs::first_chunk {
+namespace gaofs::metadata {
 
 class First_chunk {
 private:
@@ -37,5 +37,5 @@ public:
     void content(std::string content);
 };
 
-} // namespace gaofs::first_chunk
+} // namespace gaofs::metadata
 #endif //GAOFS_FIRST_CHUNK_HPP

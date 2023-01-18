@@ -45,7 +45,9 @@ MetadataDB::~MetadataDB() {
 }
 
 std::string MetadataDB::get(const std::string &key) const {
-    return backend_->get(key);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    return backend_->get(key_suffix);
 }
 
 void MetadataDB::put(const std::string &key, const std::string &val) {
@@ -53,34 +55,51 @@ void MetadataDB::put(const std::string &key, const std::string &val) {
     assert(gaofs::path::is_absolute(key));
     assert(key == "/" || !gaofs::path::has_trailing_slash(key));
 
-    backend_->put(key, val);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->put(key_suffix, val);
 }
 
 void MetadataDB::put_no_exist(const std::string &key, const std::string &val) {
     assert(gaofs::path::is_absolute(key));
     assert(key == "/" || !gaofs::path::has_trailing_slash(key));
 
-    backend_->put_no_exist(key, val);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->put_no_exist(key_suffix, val);
 }
 
 void MetadataDB::remove(const std::string &key) {
-    backend_->remove(key);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->remove(key_suffix);
 }
 
 bool MetadataDB::exists(const std::string &key) {
-    backend_->exists(key);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->exists(key_suffix);
 }
 
 void MetadataDB::increase_size(const std::string &key, size_t size, bool append) {
-    backend_->increase_size(key, size, append);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->increase_size(key_suffix, size, append);
 }
 
 void MetadataDB::decrease_size(const std::string &key, size_t size) {
-    backend_->decrease_size(key, size);
+    auto key_suffix = key;
+    key_suffix.append("_m");
+    backend_->decrease_size(key_suffix, size);
 }
 
 void MetadataDB::update(const std::string &old_key, const std::string &new_key, const std::string &val) {
-    backend_->update(old_key, new_key, val);
+    auto old_key_suffix = old_key;
+    old_key_suffix.append("_m");
+
+    auto new_key_suffix = new_key;
+    new_key_suffix.append("_m");
+    backend_->update(old_key_suffix, new_key_suffix, val);
 }
 
 std::vector<std::pair<std::string, bool>> MetadataDB::get_dirents(const std::string &dir) const {
@@ -105,9 +124,54 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> MetadataDB::get_diren
         root_path.push_back('/');
     }
 
-    return backend_->get_dirents_extended(dir);
+    return backend_->get_dirents_extended(root_path);
 }
 
+std::string MetadataDB::get_first_chunk(std::string &key) {
+    auto key_suffix = key;
+    key_suffix.append("_f");
+    return backend_->get_first_chunk(key_suffix);
+}
+
+void MetadataDB::put_first_chunk(const std::string &key, const std::string &val) {
+    // key要是绝对路径且末尾没有/ 根目录除外
+    assert(gaofs::path::is_absolute(key));
+    assert(key == "/" || !gaofs::path::has_trailing_slash(key));
+
+    auto key_suffix = key;
+    key_suffix.append("_f");
+    backend_->put_first_chunk(key_suffix, val);
+}
+
+void MetadataDB::put_no_exist_first_chunk(const std::string &key, const std::string &val) {
+    assert(gaofs::path::is_absolute(key));
+    assert(key == "/" || !gaofs::path::has_trailing_slash(key));
+
+    auto key_suffix = key;
+    key_suffix.append("_f");
+    backend_->put_no_exist_first_chunk(key_suffix, val);
+}
+
+void MetadataDB::remove_first_chunk(const std::string &key) {
+    auto key_suffix = key;
+    key_suffix.append("_f");
+    backend_->remove_first_chunk(key_suffix);
+}
+
+bool MetadataDB::exists_first_chunk(const std::string &key) {
+    auto key_suffix = key;
+    key_suffix.append("_f");
+    backend_->exists_first_chunk(key_suffix);
+}
+
+void MetadataDB::update_first_chunk(const std::string &old_key, const std::string &new_key, const std::string &val) {
+    auto old_key_suffix = old_key;
+    old_key_suffix.append("_f");
+
+    auto new_key_suffix = new_key;
+    new_key_suffix.append("_f");
+    backend_->update_first_chunk(old_key_suffix, new_key_suffix, val);
+}
 
 void MetadataDB::iterate_all() const {
     backend_->iterate_all();

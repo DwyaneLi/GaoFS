@@ -38,6 +38,7 @@ public:
 
     void optimize_database_impl();
 
+    // metadata部分
     std::string get_impl(const std::string& key) const;
 
     void put_impl(const std::string& key, const std::string& val);
@@ -58,6 +59,20 @@ public:
 
     std::vector<std::tuple<std::string, bool, size_t, time_t>> get_dirents_extended_impl(const std::string& dir) const;
 
+    //firstchunk部分
+    std::string get_first_chunk_impl(const std::string& key) const;
+
+    void put_first_chunk_impl(const std::string& key, std::string& val);
+
+    void put_no_exist_first_chunk_impl(const std::string& key, std::string& val);
+
+    void remove_first_chunk_impl(const std::string& key);
+
+    bool exists_first_chunk_impl(const std::string& key);
+
+    void update_first_chunk_impl(const std::string& old_key, const std::string& new_key, const std::string& val);
+
+    // 调试部分
     void iterate_all_impl() const;
 };
 

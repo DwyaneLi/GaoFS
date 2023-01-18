@@ -34,6 +34,7 @@ public:
     ~MetadataDB();
 
     // 各类方法
+    // metadata部分
     [[nodiscard]] std::string get(const std::string& key) const;
 
     void put(const std::string& key, const std::string& val);
@@ -56,6 +57,18 @@ public:
     [[nodiscard]] std::vector<std::tuple<std::string, bool, size_t, time_t>>
     get_dirents_extended(const std::string& dir) const;
 
+    // firstchunk部分
+    [[nodiscard]] std::string get_first_chunk(std::string& key);
+
+    void put_first_chunk(const std::string& key, const std::string& val);
+
+    void put_no_exist_first_chunk(const std::string& key, const std::string& val);
+
+    void remove_first_chunk(const std::string& key);
+
+    bool exists_first_chunk(const std::string& key);
+
+    void update_first_chunk(const std::string& old_key, const std::string& new_key, const std::string& val);
     // 调试函数，遍历
     void iterate_all() const;
 

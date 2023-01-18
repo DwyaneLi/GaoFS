@@ -18,6 +18,7 @@
 /home/dwyaneli/gaofs/cmake-build-debug/src/common/arithmetic/CMakeFiles/edit_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/rebuild_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/CMakeFiles/rebuild_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/CMakeFiles/edit_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/rebuild_cache.dir

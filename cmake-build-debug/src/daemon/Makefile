@@ -110,6 +110,75 @@ depend:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+src/daemon/CMakeFiles/gaofs_daemon.dir/rule:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/daemon/CMakeFiles/gaofs_daemon.dir/rule
+.PHONY : src/daemon/CMakeFiles/gaofs_daemon.dir/rule
+
+# Convenience name for target.
+gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/rule
+
+.PHONY : gaofs_daemon
+
+# fast build rule for target.
+gaofs_daemon/fast:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/build
+.PHONY : gaofs_daemon/fast
+
+classes/fs_data.o: classes/fs_data.cpp.o
+
+.PHONY : classes/fs_data.o
+
+# target to build an object file
+classes/fs_data.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o
+.PHONY : classes/fs_data.cpp.o
+
+classes/fs_data.i: classes/fs_data.cpp.i
+
+.PHONY : classes/fs_data.i
+
+# target to preprocess a source file
+classes/fs_data.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.i
+.PHONY : classes/fs_data.cpp.i
+
+classes/fs_data.s: classes/fs_data.cpp.s
+
+.PHONY : classes/fs_data.s
+
+# target to generate assembly for a file
+classes/fs_data.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.s
+.PHONY : classes/fs_data.cpp.s
+
+daemon.o: daemon.cpp.o
+
+.PHONY : daemon.o
+
+# target to build an object file
+daemon.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o
+.PHONY : daemon.cpp.o
+
+daemon.i: daemon.cpp.i
+
+.PHONY : daemon.i
+
+# target to preprocess a source file
+daemon.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.i
+.PHONY : daemon.cpp.i
+
+daemon.s: daemon.cpp.s
+
+.PHONY : daemon.s
+
+# target to generate assembly for a file
+daemon.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.s
+.PHONY : daemon.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -118,6 +187,13 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... gaofs_daemon"
+	@echo "... classes/fs_data.o"
+	@echo "... classes/fs_data.i"
+	@echo "... classes/fs_data.s"
+	@echo "... daemon.o"
+	@echo "... daemon.i"
+	@echo "... daemon.s"
 .PHONY : help
 
 

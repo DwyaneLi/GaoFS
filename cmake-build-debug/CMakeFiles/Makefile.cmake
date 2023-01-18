@@ -93,6 +93,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/common/CMakeFiles/metadata.dir/DependInfo.cmake"
   "src/common/CMakeFiles/path_util.dir/DependInfo.cmake"
   "src/common/CMakeFiles/distributor.dir/DependInfo.cmake"
+  "src/daemon/CMakeFiles/gaofs_daemon.dir/DependInfo.cmake"
   "src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/DependInfo.cmake"
   "src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/DependInfo.cmake"
   )

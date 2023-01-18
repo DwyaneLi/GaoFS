@@ -19,6 +19,7 @@ class AbstractMetadataBackend {
 public:
     virtual  ~AbstractMetadataBackend() = default;
 
+    // metadata部分
     virtual std::string get(const std::string& key) const = 0;
 
     virtual void put(const std::string& key, const std::string& val) = 0;
@@ -39,6 +40,21 @@ public:
 
     virtual std::vector<std::tuple<std::string, bool, size_t, time_t>> get_dirents_extended(const std::string& dir) const = 0;
 
+
+    // firstchunk部分
+    virtual std::string get_first_chunk(const std::string& key) const = 0;
+
+    virtual void put_first_chunk(const std::string& key, const std::string& val) = 0;
+
+    virtual void put_no_exist_first_chunk(const std::string& key, const std::string& val) = 0;
+
+    virtual void remove_first_chunk(const std::string& key) = 0;
+
+    virtual bool exists_first_chunk(const std::string& key) = 0;
+
+    virtual void update_first_chunk(const std::string& old_key, const std::string& new_key, const std::string& val) = 0;
+
+    // 调试部分
     virtual void iterate_all() const = 0;
 };
 
@@ -55,6 +71,7 @@ private:
     std::shared_ptr<spdlog::logger> log_;
 
 public:
+    // metadata部分
     std::string get(const std::string& key) const {
         return static_cast<T const&>(*this).get_impl(key);
     }
@@ -95,10 +112,34 @@ public:
         return static_cast<T const&>(*this).get_dirents_extended_impl(dir);
     }
 
+    // firstchunk部分
+    std::string get_first_chunk(const std::string& key) const {
+        return static_cast<T const&>(*this).get_first_chunk_impl(key);
+    }
+
+    void put_first_chunk(const std::string& key, const std::string& val) {
+        return static_cast<T&>(*this).put_first_chunk_impl(key, val);
+    }
+
+    void put_no_exist_first_chunk(const std::string& key, const std::string& val) {
+        return static_cast<T&>(*this).put_no_exist_first_chunk_impl(key, val);
+    }
+
+    void remove_first_chunk(const std::string& key) {
+        return static_cast<T&>(*this).remove_first_chunk_impl(key);
+    }
+
+    bool exists_first_chunk(const std::string& key) {
+        return static_cast<T&>(*this).exists_first_chunk_impl(key);
+    }
+
+    void update_first_chunk(const std::string& old_key, const std::string& new_key, const std::string& val) {
+        return static_cast<T&>(*this).update_first_chunk_impl(old_key, new_key, val);
+    }
+
     void iterate_all() const {
         static_cast<T const&>(*this).iterate_all_impl();
     };
-
 };
 
 } // namespace gaofs::metadata

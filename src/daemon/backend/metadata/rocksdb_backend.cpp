@@ -137,6 +137,7 @@ void RocksDBBackend::decrease_size_impl(const std::string &key, size_t size) {
     }
 }
 
+
 std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const std::string &dir) const {
     std::vector<std::pair<std::string, bool>> entries;
 
@@ -144,8 +145,9 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
     rdb::ReadOptions readOptions;
     auto it = db_->NewIterator(readOptions);
 
+    auto root_dir_key = "/_m";
     for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
-        if(it->key().size() == root_path.size()) {
+        if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
             // 跳过root
             continue;
         }
@@ -157,7 +159,7 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
             continue;
         }
 
-        name = name.substr(root_path.size());
+        name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
 
         assert(!name.empty());
 
@@ -170,6 +172,7 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
     return entries;
 }
 
+
 std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_dirents_extended_impl(
         const std::string &dir) const {
     std::vector<std::tuple<std::string, bool, size_t, time_t>> entries;
@@ -178,9 +181,10 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
     rdb::ReadOptions readOptions;
     auto it = db_->NewIterator(readOptions);
 
+    auto root_dir_key = "/_m";
     for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
-        if(it->key().size() == root_path.size()) {
-            // 跳过root
+        if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
+            // 跳过root本身
             continue;
         }
 
@@ -191,7 +195,7 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
             continue;
         }
 
-        name = name.substr(root_path.size());
+        name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
 
         assert(!name.empty());
 
@@ -202,6 +206,63 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
     }
     assert(it->status().ok());
     return entries;
+}
+
+std::string RocksDBBackend::get_first_chunk_impl(const std::string &key) const {
+    std::string val;
+
+    auto s = db_->Get(rdb::ReadOptions(), key, &val);
+    if(!s.ok()) {
+        throw_status_excpt(s);
+    }
+
+    return val;
+}
+
+void RocksDBBackend::put_first_chunk_impl(const std::string &key, std::string &val) {
+    auto s = db_->Put(write_opts_, key, val);
+    if(!s.ok()) {
+        throw_status_excpt(s);
+    }
+}
+
+void RocksDBBackend::put_no_exist_first_chunk_impl(const std::string &key, std::string &val) {
+    if(exists(key)) {
+        throw gaofs::db_exception::ExistsException(key);
+    }
+    put(key, val);
+}
+
+bool RocksDBBackend::exists_first_chunk_impl(const std::string &key) {
+    std::string val;
+
+    auto s = db_->Get(rdb::ReadOptions(), key, &val);
+    if(!s.ok()) {
+        if(s.IsNotFound()) {
+            return false;
+        } else {
+            throw_status_excpt(s);
+        }
+    }
+    return true;
+}
+
+void RocksDBBackend::remove_first_chunk_impl(const std::string &key) {
+    auto s = db_->Delete(write_opts_, key);
+    if(!s.ok()) {
+        throw_status_excpt(s);
+    }
+}
+
+void RocksDBBackend::update_first_chunk_impl(const std::string &old_key, const std::string &new_key,
+                                             const std::string &val) {
+    rdb::WriteBatch batch;
+    batch.Delete(old_key);
+    batch.Put(new_key, val);
+    auto s = db_->Write(write_opts_, &batch);
+    if(!s.ok()) {
+        throw_status_excpt(s);
+    }
 }
 
 void RocksDBBackend::iterate_all_impl() const {

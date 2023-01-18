@@ -185,6 +185,7 @@ src/common/arithmetic/clean:
 # Directory level rules for directory src/daemon
 
 # Recursive "all" directory target.
+src/daemon/all: src/daemon/CMakeFiles/gaofs_daemon.dir/all
 src/daemon/all: src/daemon/backend/all
 
 .PHONY : src/daemon/all
@@ -195,6 +196,7 @@ src/daemon/preinstall: src/daemon/backend/preinstall
 .PHONY : src/daemon/preinstall
 
 # Recursive "clean" directory target.
+src/daemon/clean: src/daemon/CMakeFiles/gaofs_daemon.dir/clean
 src/daemon/clean: src/daemon/backend/clean
 
 .PHONY : src/daemon/clean
@@ -271,7 +273,7 @@ external/fmt/CMakeFiles/fmt.dir/clean:
 external/spdlog/CMakeFiles/spdlog.dir/all:
 	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/depend
 	$(MAKE) -f external/spdlog/CMakeFiles/spdlog.dir/build.make external/spdlog/CMakeFiles/spdlog.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=22,23,24,25,26,27,28,29 "Built target spdlog"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32 "Built target spdlog"
 .PHONY : external/spdlog/CMakeFiles/spdlog.dir/all
 
 # Build rule for subdir invocation for target.
@@ -298,7 +300,7 @@ external/spdlog/CMakeFiles/spdlog.dir/clean:
 src/common/CMakeFiles/log_util.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
 	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/log_util.dir/build.make src/common/CMakeFiles/log_util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target log_util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=13,14 "Built target log_util"
 .PHONY : src/common/CMakeFiles/log_util.dir/all
 
 # Build rule for subdir invocation for target.
@@ -379,7 +381,7 @@ src/common/CMakeFiles/first_chunk.dir/clean:
 src/common/CMakeFiles/metadata.dir/all: external/fmt/CMakeFiles/fmt.dir/all
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/metadata.dir/build.make src/common/CMakeFiles/metadata.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=12,13 "Built target metadata"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target metadata"
 .PHONY : src/common/CMakeFiles/metadata.dir/all
 
 # Build rule for subdir invocation for target.
@@ -406,7 +408,7 @@ src/common/CMakeFiles/metadata.dir/clean:
 src/common/CMakeFiles/path_util.dir/all:
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/depend
 	$(MAKE) -f src/common/CMakeFiles/path_util.dir/build.make src/common/CMakeFiles/path_util.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=20,21 "Built target path_util"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=23,24 "Built target path_util"
 .PHONY : src/common/CMakeFiles/path_util.dir/all
 
 # Build rule for subdir invocation for target.
@@ -454,6 +456,42 @@ src/common/CMakeFiles/distributor.dir/clean:
 .PHONY : src/common/CMakeFiles/distributor.dir/clean
 
 #=============================================================================
+# Target rules for target src/daemon/CMakeFiles/gaofs_daemon.dir
+
+# All Build rule for target.
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: external/fmt/CMakeFiles/fmt.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/log_util.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/env_util.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/first_chunk.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/metadata.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/path_util.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/common/CMakeFiles/distributor.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
+src/daemon/CMakeFiles/gaofs_daemon.dir/all: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
+	$(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/depend
+	$(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=10,11,12 "Built target gaofs_daemon"
+.PHONY : src/daemon/CMakeFiles/gaofs_daemon.dir/all
+
+# Build rule for subdir invocation for target.
+src/daemon/CMakeFiles/gaofs_daemon.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 32
+	$(MAKE) -f CMakeFiles/Makefile2 src/daemon/CMakeFiles/gaofs_daemon.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
+.PHONY : src/daemon/CMakeFiles/gaofs_daemon.dir/rule
+
+# Convenience name for target.
+gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/rule
+
+.PHONY : gaofs_daemon
+
+# clean rule for target.
+src/daemon/CMakeFiles/gaofs_daemon.dir/clean:
+	$(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/clean
+.PHONY : src/daemon/CMakeFiles/gaofs_daemon.dir/clean
+
+#=============================================================================
 # Target rules for target src/daemon/backend/metadata/CMakeFiles/metadata_db.dir
 
 # All Build rule for target.
@@ -464,7 +502,7 @@ src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFile
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
 	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/depend
 	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=14,15,16,17 "Built target metadata_db"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=17,18,19,20 "Built target metadata_db"
 .PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
 
 # Build rule for subdir invocation for target.
@@ -491,7 +529,7 @@ src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/clean:
 src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
 	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/depend
 	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=18,19 "Built target metadata_module"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=21,22 "Built target metadata_module"
 .PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
 
 # Build rule for subdir invocation for target.
