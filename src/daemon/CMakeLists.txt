@@ -5,9 +5,11 @@ set(DAEMON_SOURCES
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/classes/fs_data.cpp
         ${CMAKE_CURRENT_LIST_DIR}/daemon.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/ops/metadentry.cpp
         PUBLIC
         ${INCLUDE_DIR}/daemon/classes/fs_data.hpp
         ${INCLUDE_DIR}/daemon/daemon.hpp
+        ${INCLUDE_DIR}/daemon/ops/metadentry.hpp
         )
 
 set(DAEMON_LINK_LIBRARIES

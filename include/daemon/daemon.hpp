@@ -16,4 +16,7 @@
 #include <common/rpc/distributor.hpp>
 
 
+// fs_data静态实例
+#define GAOFS_DATA (static_cast<gaofs::daemon::FsData*>(gaofs::daemon::FsData::getInstance()))
+
 #endif //GAOFS_DAEMON_HPP

@@ -983,6 +983,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/daemon.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/ops/metadentry.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/env_util.cpp">
 			<Option target="env_util"/>
 		</Unit>
@@ -1017,6 +1020,9 @@
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/daemon.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">

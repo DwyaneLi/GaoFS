@@ -179,6 +179,33 @@ daemon.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.s
 .PHONY : daemon.cpp.s
 
+ops/metadentry.o: ops/metadentry.cpp.o
+
+.PHONY : ops/metadentry.o
+
+# target to build an object file
+ops/metadentry.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o
+.PHONY : ops/metadentry.cpp.o
+
+ops/metadentry.i: ops/metadentry.cpp.i
+
+.PHONY : ops/metadentry.i
+
+# target to preprocess a source file
+ops/metadentry.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.i
+.PHONY : ops/metadentry.cpp.i
+
+ops/metadentry.s: ops/metadentry.cpp.s
+
+.PHONY : ops/metadentry.s
+
+# target to generate assembly for a file
+ops/metadentry.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.s
+.PHONY : ops/metadentry.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -194,6 +221,9 @@ help:
 	@echo "... daemon.o"
 	@echo "... daemon.i"
 	@echo "... daemon.s"
+	@echo "... ops/metadentry.o"
+	@echo "... ops/metadentry.i"
+	@echo "... ops/metadentry.s"
 .PHONY : help
 
 

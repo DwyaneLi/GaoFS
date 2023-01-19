@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dwyaneli/gaofs/src/daemon/classes/fs_data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/daemon.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
+  "/home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
