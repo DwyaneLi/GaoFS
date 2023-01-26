@@ -7,7 +7,7 @@
 #include <fmt/format.h>
 #include <cassert>
 
-namespace gaofs::first_chunk {
+namespace gaofs::metadata {
 
 static const char MSP = '|'; // 分隔符
 

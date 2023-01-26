@@ -953,6 +953,7 @@
 			<Option target="env_util"/>
 			<Option target="first_chunk"/>
 			<Option target="metadata"/>
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/exceptions.hpp">
 			<Option target="gaofs_daemon"/>

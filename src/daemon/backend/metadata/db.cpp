@@ -127,7 +127,7 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> MetadataDB::get_diren
     return backend_->get_dirents_extended(root_path);
 }
 
-std::string MetadataDB::get_first_chunk(std::string &key) {
+std::string MetadataDB::get_first_chunk(const std::string &key) {
     auto key_suffix = key;
     key_suffix.append("_f");
     return backend_->get_first_chunk(key_suffix);

@@ -10,6 +10,7 @@ set(DAEMON_SOURCES
         ${INCLUDE_DIR}/daemon/classes/fs_data.hpp
         ${INCLUDE_DIR}/daemon/daemon.hpp
         ${INCLUDE_DIR}/daemon/ops/metadentry.hpp
+        ${INCLUDE_DIR}/config.hpp
         )
 
 set(DAEMON_LINK_LIBRARIES

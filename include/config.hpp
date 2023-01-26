@@ -14,6 +14,9 @@ constexpr auto use_ctime = false;
 constexpr auto use_mtime = false;
 constexpr auto use_link_cnt = false;
 constexpr auto use_blocks = false;
+
+// 创建元数据时检查是否已经存在
+constexpr auto create_exist_check = true;
 } // namespace gaofs::config::metadata
 
 namespace rpc {

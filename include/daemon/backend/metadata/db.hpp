@@ -58,7 +58,7 @@ public:
     get_dirents_extended(const std::string& dir) const;
 
     // firstchunk部分
-    [[nodiscard]] std::string get_first_chunk(std::string& key);
+    [[nodiscard]] std::string get_first_chunk(const std::string& key);
 
     void put_first_chunk(const std::string& key, const std::string& val);
 
