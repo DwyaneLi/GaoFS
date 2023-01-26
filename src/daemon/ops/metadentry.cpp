@@ -70,7 +70,7 @@ void remove(const std::string& path) {
 }
 
 std::string get_str_first_chunk(const std::string& path) {
-    return GAOFS_DATA->mdb()->get_first_chunk(path)
+    return GAOFS_DATA->mdb()->get_first_chunk(path);
 }
 
 First_chunk get_first_chunk(const std::string& path) {
