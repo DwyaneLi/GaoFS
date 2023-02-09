@@ -77,8 +77,8 @@ if (GAOFS_ENABLE_ROCKSDB)
     set(DB_ROCKSDB_SOURCES
             PUBLIC
             ${INCLUDE_DIR}/daemon/backend/metadata/rocksdb_backend.hpp
-            PRIVATE
             ${INCLUDE_DIR}/daemon/backend/metadata/merge.hpp
+            PRIVATE
             ${CMAKE_CURRENT_LIST_DIR}/rocksdb_backend.cpp
             ${CMAKE_CURRENT_LIST_DIR}/merge.cpp
             )

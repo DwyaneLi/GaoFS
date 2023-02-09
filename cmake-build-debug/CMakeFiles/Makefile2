@@ -57,7 +57,6 @@ all: external/fmt/all
 all: external/spdlog/all
 all: src/common/all
 all: src/daemon/all
-all: src/client/all
 
 .PHONY : all
 
@@ -66,7 +65,6 @@ preinstall: external/fmt/preinstall
 preinstall: external/spdlog/preinstall
 preinstall: src/common/preinstall
 preinstall: src/daemon/preinstall
-preinstall: src/client/preinstall
 
 .PHONY : preinstall
 
@@ -75,7 +73,6 @@ clean: external/fmt/clean
 clean: external/spdlog/clean
 clean: src/common/clean
 clean: src/daemon/clean
-clean: src/client/clean
 
 .PHONY : clean
 
@@ -114,24 +111,6 @@ external/spdlog/preinstall:
 external/spdlog/clean: external/spdlog/CMakeFiles/spdlog.dir/clean
 
 .PHONY : external/spdlog/clean
-
-#=============================================================================
-# Directory level rules for directory src/client
-
-# Recursive "all" directory target.
-src/client/all:
-
-.PHONY : src/client/all
-
-# Recursive "preinstall" directory target.
-src/client/preinstall:
-
-.PHONY : src/client/preinstall
-
-# Recursive "clean" directory target.
-src/client/clean:
-
-.PHONY : src/client/clean
 
 #=============================================================================
 # Directory level rules for directory src/common

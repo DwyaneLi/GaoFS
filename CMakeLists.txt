@@ -31,8 +31,6 @@ find_package(Filesystem REQUIRED)
 option(GAOFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
 
 
-
-
 # fmt components
 add_subdirectory(external/fmt)
 set_property(TARGET fmt PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -47,7 +45,7 @@ add_subdirectory(src/common)
 add_subdirectory(src/daemon)
 
 # Client components
-add_subdirectory(src/client)
+# add_subdirectory(src/client)
 
 # 将从{fmt}和spdlog导入的任何CMake变量标记为高级，以便它们不会出现在CMake -gui或ccmake中。FETCHCONTENT变量也是类似的。
 mark_as_advanced(REGEX "^(FETCHCONTENT|fmt|FMT|spdlog|SPDLOG)_.*$")

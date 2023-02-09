@@ -20,7 +20,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../external/spdlog/CMakeLists.txt"
   "../external/spdlog/cmake/ide.cmake"
   "../external/spdlog/cmake/utils.cmake"
-  "../src/client/CMakeLists.txt"
   "../src/common/CMakeLists.txt"
   "../src/common/arithmetic/CMakeLists.txt"
   "../src/daemon/CMakeLists.txt"
@@ -80,7 +79,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/daemon/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/metadata/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/client/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:

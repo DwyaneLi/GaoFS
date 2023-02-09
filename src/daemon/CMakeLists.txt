@@ -1,6 +1,3 @@
-#选项，使用哪个数据库，默认使用rocks db
-# option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
-option(GAOFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
 
 add_subdirectory(backend)
 
@@ -43,3 +40,7 @@ add_executable(gaofs_daemon)
 target_sources(gaofs_daemon ${DAEMON_SOURCES})
 target_link_libraries(gaofs_daemon ${DAEMON_LINK_LIBRARIES})
 target_include_directories(gaofs_daemon ${DAEMON_INCLUDE_DIRS})
+
+install(TARGETS gaofs_daemon
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        )
