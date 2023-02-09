@@ -15,6 +15,7 @@ extern "C" {
 #include <sys/stat.h>
 }
 
+
 namespace gaofs::metadata {
 
 void RocksDBBackend::optimize_database_impl() {
@@ -146,7 +147,7 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
     auto it = db_->NewIterator(readOptions);
 
     auto root_dir_key = "/_m";
-    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
+    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path) && it->key().ends_with("_m"); it->Next()) {
         if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
             // 跳过root
             continue;
@@ -158,6 +159,7 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
             // 跳过root/xxx/xx的
             continue;
         }
+
 
         name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
 
@@ -182,7 +184,7 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
     auto it = db_->NewIterator(readOptions);
 
     auto root_dir_key = "/_m";
-    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
+    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path) && it->key().ends_with({"_f"}); it->Next()) {
         if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
             // 跳过root本身
             continue;
@@ -194,6 +196,7 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
             // 跳过root/xxx/xx的
             continue;
         }
+
 
         name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
 
@@ -219,14 +222,14 @@ std::string RocksDBBackend::get_first_chunk_impl(const std::string &key) const {
     return val;
 }
 
-void RocksDBBackend::put_first_chunk_impl(const std::string &key, std::string &val) {
+void RocksDBBackend::put_first_chunk_impl(const std::string &key, const std::string &val) {
     auto s = db_->Put(write_opts_, key, val);
     if(!s.ok()) {
         throw_status_excpt(s);
     }
 }
 
-void RocksDBBackend::put_no_exist_first_chunk_impl(const std::string &key, std::string &val) {
+void RocksDBBackend::put_no_exist_first_chunk_impl(const std::string &key, const std::string &val) {
     if(exists(key)) {
         throw gaofs::db_exception::ExistsException(key);
     }

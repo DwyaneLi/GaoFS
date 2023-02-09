@@ -118,15 +118,15 @@ public:
     }
 
     void put_first_chunk(const std::string& key, const std::string& val) {
-        return static_cast<T&>(*this).put_first_chunk_impl(key, val);
+        static_cast<T&>(*this).put_first_chunk_impl(key, val);
     }
 
     void put_no_exist_first_chunk(const std::string& key, const std::string& val) {
-        return static_cast<T&>(*this).put_no_exist_first_chunk_impl(key, val);
+        static_cast<T&>(*this).put_no_exist_first_chunk_impl(key, val);
     }
 
     void remove_first_chunk(const std::string& key) {
-        return static_cast<T&>(*this).remove_first_chunk_impl(key);
+        static_cast<T&>(*this).remove_first_chunk_impl(key);
     }
 
     bool exists_first_chunk(const std::string& key) {
@@ -134,7 +134,7 @@ public:
     }
 
     void update_first_chunk(const std::string& old_key, const std::string& new_key, const std::string& val) {
-        return static_cast<T&>(*this).update_first_chunk_impl(old_key, new_key, val);
+        static_cast<T&>(*this).update_first_chunk_impl(old_key, new_key, val);
     }
 
     void iterate_all() const {

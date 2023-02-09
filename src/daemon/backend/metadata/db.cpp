@@ -78,7 +78,7 @@ void MetadataDB::remove(const std::string &key) {
 bool MetadataDB::exists(const std::string &key) {
     auto key_suffix = key;
     key_suffix.append("_m");
-    backend_->exists(key_suffix);
+    return backend_->exists(key_suffix);
 }
 
 void MetadataDB::increase_size(const std::string &key, size_t size, bool append) {
@@ -161,7 +161,7 @@ void MetadataDB::remove_first_chunk(const std::string &key) {
 bool MetadataDB::exists_first_chunk(const std::string &key) {
     auto key_suffix = key;
     key_suffix.append("_f");
-    backend_->exists_first_chunk(key_suffix);
+    return backend_->exists_first_chunk(key_suffix);
 }
 
 void MetadataDB::update_first_chunk(const std::string &old_key, const std::string &new_key, const std::string &val) {

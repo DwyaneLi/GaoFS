@@ -28,14 +28,10 @@ find_package(Filesystem REQUIRED)
 
 #选项，使用哪个数据库，默认使用rocks db
 # option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
-option(GKFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
-
-
-
-
-#选项，使用哪个数据库，默认使用rocks db
-## option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
 option(GAOFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
+
+
+
 
 # fmt components
 add_subdirectory(external/fmt)

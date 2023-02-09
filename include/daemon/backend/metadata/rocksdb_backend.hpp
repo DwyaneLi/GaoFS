@@ -11,7 +11,6 @@
 #include <tuple>
 #include <daemon/backend/metadata/metadata_backend.hpp>
 #include <rocksdb/db.h>
-
 namespace rdb = rocksdb;
 
 namespace gaofs::metadata {
@@ -62,9 +61,9 @@ public:
     //firstchunk部分
     std::string get_first_chunk_impl(const std::string& key) const;
 
-    void put_first_chunk_impl(const std::string& key, std::string& val);
+    void put_first_chunk_impl(const std::string& key, const std::string& val);
 
-    void put_no_exist_first_chunk_impl(const std::string& key, std::string& val);
+    void put_no_exist_first_chunk_impl(const std::string& key, const std::string& val);
 
     void remove_first_chunk_impl(const std::string& key);
 

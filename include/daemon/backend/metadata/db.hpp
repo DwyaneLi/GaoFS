@@ -16,6 +16,7 @@
 #ifdef GAOFS_ENABLE_ROCKSDB
 #include <daemon/backend/metadata/rocksdb_backend.hpp>
 #endif
+
 namespace gaofs::metadata {
 
 constexpr auto rocksdb_backend = "rocksb";

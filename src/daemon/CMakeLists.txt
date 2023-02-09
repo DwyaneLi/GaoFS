@@ -1,3 +1,7 @@
+#选项，使用哪个数据库，默认使用rocks db
+# option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
+option(GAOFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
+
 add_subdirectory(backend)
 
 # 设置相应变量

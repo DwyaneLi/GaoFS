@@ -79,6 +79,8 @@ public:
 };
 
 class MetadataMergeOperator : public rdb::MergeOperator {
+
+public:
     ~MetadataMergeOperator() override = default;
 
     bool FullMergeV2(const MergeOperationInput& merge_in, MergeOperationOutput* merge_out) const override;
