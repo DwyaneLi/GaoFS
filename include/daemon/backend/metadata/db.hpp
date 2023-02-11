@@ -19,7 +19,7 @@
 
 namespace gaofs::metadata {
 
-constexpr auto rocksdb_backend = "rocksb";
+constexpr auto rocksdb_backend = "rocksdb";
 
 class MetadataDB {
 

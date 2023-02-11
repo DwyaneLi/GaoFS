@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++17
 
 CXX_DEFINES = -DGAOFS_ENABLE_ROCKSDB -DSPDLOG_COMPILED_LIB
 
-CXX_INCLUDES = -I/home/dwyaneli/gaofs/include -I/home/dwyaneli/gaofs/external/spdlog/include -I/home/dwyaneli/gaofs/external/fmt/include 
+CXX_INCLUDES = -I/home/dwyaneli/gaofs/include -I/home/dwyaneli/gaofs/external/spdlog/include -I/home/dwyaneli/gaofs/external/fmt/include -isystem /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include 
 

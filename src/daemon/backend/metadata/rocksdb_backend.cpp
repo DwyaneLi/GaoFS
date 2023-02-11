@@ -147,7 +147,7 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
     auto it = db_->NewIterator(readOptions);
 
     auto root_dir_key = "/_m";
-    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path) && it->key().ends_with("_m"); it->Next()) {
+    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
         if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
             // 跳过root
             continue;
@@ -160,6 +160,9 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
             continue;
         }
 
+        if(it->key().ends_with("_f")) {
+            continue;
+        }
 
         name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
 
@@ -184,16 +187,19 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
     auto it = db_->NewIterator(readOptions);
 
     auto root_dir_key = "/_m";
-    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path) && it->key().ends_with({"_f"}); it->Next()) {
+    for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
         if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
             // 跳过root本身
             continue;
         }
-
         // 获得文件名
         auto name = it->key().ToString();
         if(name.find_first_of('/', root_path.size()) != std::string::npos) {
             // 跳过root/xxx/xx的
+            continue;
+        }
+
+        if(it->key().ends_with("_f")) {
             continue;
         }
 
@@ -233,7 +239,7 @@ void RocksDBBackend::put_no_exist_first_chunk_impl(const std::string &key, const
     if(exists(key)) {
         throw gaofs::db_exception::ExistsException(key);
     }
-    put(key, val);
+    put_first_chunk(key, val);
 }
 
 bool RocksDBBackend::exists_first_chunk_impl(const std::string &key) {

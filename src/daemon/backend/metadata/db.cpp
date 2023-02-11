@@ -19,25 +19,25 @@ struct MetadataDBFactory {
 #ifdef GAOFS_ENABLE_ROCKSDB
             auto metadata_path = fmt::format("{}/{}", path, gaofs::metadata::rocksdb_backend);
             fs::create_directories(metadata_path);
-            GAOFS_METADATA_MOD->log()->trace("Using RocksDB directory '{}'", metadata_path);
+            //GAOFS_METADATA_MOD->log()->trace("Using RocksDB directory '{}'", metadata_path);
             return std::make_unique<RocksDBBackend>(metadata_path);
 #endif
         } // TODO: 如果要使用其他的backend的，要添加分支
 
-        GAOFS_METADATA_MOD->log()->error("No valid metadata backend selected");
+        //GAOFS_METADATA_MOD->log()->error("No valid metadata backend selected");
         exit(EXIT_FAILURE);
     }
 };
 
 MetadataDB::MetadataDB(const std::string &path, const std::string_view database) : path_(path) {
+    // 设置日志
+    // GAOFS_METADATA_MOD->log(spdlog::get(GAOFS_METADATA_MOD->LOGGER_NAME));
+    // assert(GAOFS_METADATA_MOD->log());
+    // log_ = spdlog::get(GAOFS_METADATA_MOD->LOGGER_NAME);
+    // assert(log_);
+
     // 设置backend
     backend_ = MetadataDBFactory::create(path, database);
-
-    // 设置日志
-    GAOFS_METADATA_MOD->log(spdlog::get(GAOFS_METADATA_MOD->LOGGER_NAME));
-    assert(GAOFS_METADATA_MOD->log());
-    log_ = spdlog::get(GAOFS_METADATA_MOD->LOGGER_NAME);
-    assert(log_);
 }
 
 MetadataDB::~MetadataDB() {

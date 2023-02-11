@@ -21,6 +21,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../external/spdlog/include"
   "../external/fmt/include"
+  "/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"
   )
 
 # Targets to which this target links.

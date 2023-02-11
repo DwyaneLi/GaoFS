@@ -26,6 +26,7 @@ set(DB_LINK_LIBRARIES
         # Required by RocksDB
         metadata_module
         metadata
+        first_chunk
         spdlog::spdlog
         path_util
         -ldl
@@ -88,6 +89,7 @@ if (GAOFS_ENABLE_ROCKSDB)
             )
     set(DB_LINK_LIBRARIES
             ${DB_LINK_LIBRARIES}
+            PUBLIC
             RocksDB
             )
 endif ()

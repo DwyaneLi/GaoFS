@@ -476,6 +476,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/clean:
 # All Build rule for target.
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: external/fmt/CMakeFiles/fmt.dir/all
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: external/spdlog/CMakeFiles/spdlog.dir/all
+src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFiles/first_chunk.dir/all
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFiles/metadata.dir/all
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/common/CMakeFiles/path_util.dir/all
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/all
@@ -486,7 +487,7 @@ src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all: src/daemon/backend/m
 
 # Build rule for subdir invocation for target.
 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 23
 	$(MAKE) -f CMakeFiles/Makefile2 src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles 0
 .PHONY : src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/rule

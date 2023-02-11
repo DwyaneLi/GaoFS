@@ -24,7 +24,7 @@ set(DAEMON_LINK_LIBRARIES
         log_util
         env_util
         spdlog
-        CLI11
+        # CLI11
         fmt::fmt
         path_util
         )

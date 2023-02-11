@@ -7,6 +7,7 @@
 #include <iostream>
 #include <daemon/ops/metadentry.hpp>
 #include <tuple>
+#include <daemon/backend/metadata/db.hpp>
 
 namespace fs = std::filesystem;
 
@@ -15,8 +16,17 @@ void init_environment_test() {
     fs::create_directories(metadata_path);
 
     // 初始化数据库
-    GAOFS_DATA->mdb(std::make_shared<gaofs::metadata::MetadataDB>(metadata_path, GAOFS_DATA->dbbackend()));
-
+    GAOFS_DATA->dbbackend(gaofs::metadata::rocksdb_backend);
+    try {
+        std::string_view mydbbackend = GAOFS_DATA->dbbackend();
+        std::shared_ptr<gaofs::metadata::MetadataDB> mydb = std::make_shared<gaofs::metadata::MetadataDB>(
+                metadata_path, mydbbackend);
+        GAOFS_DATA->mdb(mydb);
+    } catch(const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        throw;
+    }
+    std::cout << "lalal" << std::endl;
     // 根据config初始化选项
     GAOFS_DATA->atime_state(gaofs::config::metadata::use_atime);
     GAOFS_DATA->ctime_state(gaofs::config::metadata::use_ctime);
@@ -70,8 +80,8 @@ void init_environment_test() {
               << "/_m/1: " << _m_1_size << "\n"
               << "/_m/2: " << _m_2_size << "\n"
               << "/_m_m: " << _m_m_size << "\n"
-              << "/_m_m/1" << _m_m_1_size << "\n"
-              << "/_m_m/2" << _m_m_2_size << "\n\n" << std::endl;
+              << "/_m_m/1: " << _m_m_1_size << "\n"
+              << "/_m_m/2: " << _m_m_2_size << "\n\n" << std::endl;
 
 
     // 测试update
@@ -98,8 +108,8 @@ void init_environment_test() {
               << "/_m/1: " << _m_1_size << "\n"
               << "/_m/2: " << _m_2_size << "\n"
               << "/_m_m: " << _m_m_size << "\n"
-              << "/_m_m/1" << _m_m_1_size << "\n"
-              << "/_m_m/2" << _m_m_2_size << "\n\n" << std::endl;
+              << "/_m_m/1: " << _m_m_1_size << "\n"
+              << "/_m_m/2: " << _m_m_2_size << "\n\n" << std::endl;
 
     // 测试update size
     std::cout << "----------------------------------update size---------------------------------------" << std::endl;
@@ -119,13 +129,13 @@ void init_environment_test() {
               << "/_m/1: " << _m_1_size << "\n"
               << "/_m/2: " << _m_2_size << "\n"
               << "/_m_m: " << _m_m_size << "\n"
-              << "/_m_m/1" << _m_m_1_size << "\n"
-              << "/_m_m/2" << _m_m_2_size << "\n\n" << std::endl;
+              << "/_m_m/1: " << _m_m_1_size << "\n"
+              << "/_m_m/2: " << _m_m_2_size << "\n\n" << std::endl;
 
     // 测试remove
     std::cout << "----------------------------------remove---------------------------------------" << std::endl;
     gaofs::metadata::remove("/_m_m");
-    std::cout << "/_m_m: " << gaofs::metadata::get_size("/_m_m") << "\n" << std::endl;
+    // std::cout << "/_m_m: " << gaofs::metadata::get_size("/_m_m") << "\n" << std::endl;
     _m_m_md.size(2600);
     gaofs::metadata::create("/_m_m", _m_m_md);
 
@@ -185,8 +195,8 @@ void init_environment_test() {
     // 测试remove_first_chunk
     std::cout << "----------------------------------test remove(first_chunk)---------------------------------------" << std::endl;
     gaofs::metadata::remove_first_chunk("/_m/1");
-    std::cout << "/_m/1 firstchunk : " << gaofs::metadata::get_size_first_chunk("/_m/1");
-    _m_1_f.size(700);
+    // std::cout << "/_m/1 firstchunk : " << gaofs::metadata::get_size_first_chunk("/_m/1");
+    _m_1_f.size(1700);
     _m_1_f.content("this is /_m/1");
     gaofs::metadata::create_first_chunk("/_m/1", _m_1_f);
 
@@ -199,14 +209,17 @@ void init_environment_test() {
     for (int i = 0; i < root_dirents.size(); i++) {
         std::cout << root_dirents[i].first << " " << root_dirents[i].second << std::endl;
     }
+    std::cout << "-------------" << std::endl;
     std::cout << "/_m:" << std::endl;
     for (int i = 0; i < _m_dirents.size(); i++) {
         std::cout << _m_dirents[i].first << " " << _m_dirents[i].second << std::endl;
     }
+    std::cout << "-------------" << std::endl;
     std::cout << "/_m_m:" << std::endl;
     for (int i = 0; i < _m_m_dirents.size(); i++) {
         std::cout << _m_m_dirents[i].first << " " << _m_m_dirents[i].second << std::endl;
     }
+    std::cout << "-------------\n" << std::endl;
 
     // 测试get_dirents_extended
     std::cout << "----------------------------------test get dirents_extened---------------------------------------" << std::endl;
@@ -217,20 +230,24 @@ void init_environment_test() {
     for (int i = 0; i < root_dirents_e.size(); i++) {
         std::cout << std::get<0>(root_dirents_e[i]) << " " << std::get<2>(root_dirents_e[i]) << std::endl;
     }
+    std::cout << "-------------" << std::endl;
     std::cout << "/_m:" << std::endl;
     for (int i = 0; i < _m_dirents_e.size(); i++) {
         std::cout << std::get<0>(_m_dirents_e[i]) << " " << std::get<2>(_m_dirents_e[i]) << std::endl;
     }
+    std::cout << "-------------" << std::endl;
     std::cout << "/_m_m:" << std::endl;
     for (int i = 0; i < _m_m_dirents_e.size(); i++) {
         std::cout << std::get<0>(_m_m_dirents_e[i]) << " " << std::get<2>(_m_m_dirents_e[i]) << std::endl;
     }
+    std::cout << "-------------" << std::endl;
     std::cout << "\n" << std::endl;
 
 }
 
 int main() {
     init_environment_test();
+    std::cout << "test over" << std::endl;
     return 0;
 }
 

@@ -119,6 +119,7 @@ src/daemon/gaofs_daemon: external/spdlog/libspdlogd.a
 src/daemon/gaofs_daemon: external/fmt/libfmtd.a
 src/daemon/gaofs_daemon: src/common/libpath_util.a
 src/daemon/gaofs_daemon: src/common/libmetadata.a
+src/daemon/gaofs_daemon: src/common/libfirst_chunk.a
 src/daemon/gaofs_daemon: external/fmt/libfmtd.a
 src/daemon/gaofs_daemon: src/daemon/backend/metadata/libmetadata_module.a
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a

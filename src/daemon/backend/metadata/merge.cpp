@@ -91,6 +91,7 @@ std::string CreateOperand::serialize_params() const {
     return metadata;
 }
 
+
 bool MetadataMergeOperator::FullMergeV2(const MergeOperationInput &merge_in, MergeOperationOutput *merge_out) const {
     string prev_md_valiue;
     // operland_list里记录的是写操作序列

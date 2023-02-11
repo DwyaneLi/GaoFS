@@ -7,6 +7,7 @@
 
 #include <rocksdb/merge_operator.h>
 #include <common/metadata.hpp>
+#include <common/first_chunk.hpp>
 
 namespace rdb = rocksdb;
 
@@ -15,7 +16,8 @@ namespace gaofs::metadata {
 enum class OperandID : char {
     increase_size = 'i',
     decrease_size = 'd',
-    create = 'c'
+    create = 'c',
+    create_f = 'f'
 };
 
 class MergeOperand {
@@ -77,6 +79,7 @@ public:
 
     std::string serialize_params() const override;
 };
+
 
 class MetadataMergeOperator : public rdb::MergeOperator {
 
