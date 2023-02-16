@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdata_module.a  CMakeFiles/data_module.dir/data_module.cpp.o
+/usr/bin/ranlib libdata_module.a

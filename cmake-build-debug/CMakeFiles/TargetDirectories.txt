@@ -57,3 +57,11 @@
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_db.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/edit_cache.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_module.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/install/strip.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/install.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/list_install_components.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/storage.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/install/local.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/data_module.dir

@@ -5,7 +5,7 @@
 		<Option title="GaoFS"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
@@ -619,6 +619,106 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="storage">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/libstorage.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 storage"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="storage/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/libstorage.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 storage/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="data_module">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/libdata_module.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 data_module"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="data_module/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/libdata_module.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 data_module/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/ChangeLog.rst">
 			<Option target="fmt"/>
@@ -965,6 +1065,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/src/stdout_sinks.cpp">
 			<Option target="spdlog"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/common_defs.h">
+			<Option target="storage"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/env_util.hpp">
 			<Option target="env_util"/>
 			<Option target="gaofs_daemon"/>
@@ -987,6 +1090,7 @@
 			<Option target="path_util"/>
 			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
+			<Option target="storage"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/distributor.hpp">
 			<Option target="distributor"/>
@@ -997,6 +1101,16 @@
 			<Option target="first_chunk"/>
 			<Option target="metadata"/>
 			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/data/chunk_storage.hpp">
+			<Option target="storage"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/data/data_module.hpp">
+			<Option target="storage"/>
+			<Option target="data_module"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/data/file_handle.hpp">
+			<Option target="storage"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/exceptions.hpp">
 			<Option target="gaofs_daemon"/>
@@ -1048,6 +1162,12 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/distributor.cpp">
 			<Option target="distributor"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/chunk_storage.cpp">
+			<Option target="storage"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/data_module.cpp">
+			<Option target="data_module"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/metadata/db.cpp">
 			<Option target="metadata_db"/>
@@ -1114,6 +1234,9 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/metadata/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\daemon\backend\metadata\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\daemon\backend\data\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

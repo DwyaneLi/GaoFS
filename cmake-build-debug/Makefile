@@ -299,6 +299,32 @@ metadata_module/fast:
 	$(MAKE) -f src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build.make src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/build
 .PHONY : metadata_module/fast
 
+#=============================================================================
+# Target rules for targets named storage
+
+# Build rule for target.
+storage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 storage
+.PHONY : storage
+
+# fast build rule for target.
+storage/fast:
+	$(MAKE) -f src/daemon/backend/data/CMakeFiles/storage.dir/build.make src/daemon/backend/data/CMakeFiles/storage.dir/build
+.PHONY : storage/fast
+
+#=============================================================================
+# Target rules for targets named data_module
+
+# Build rule for target.
+data_module: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_module
+.PHONY : data_module
+
+# fast build rule for target.
+data_module/fast:
+	$(MAKE) -f src/daemon/backend/data/CMakeFiles/data_module.dir/build.make src/daemon/backend/data/CMakeFiles/data_module.dir/build
+.PHONY : data_module/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -322,6 +348,8 @@ help:
 	@echo "... gaofs_daemon"
 	@echo "... metadata_db"
 	@echo "... metadata_module"
+	@echo "... storage"
+	@echo "... data_module"
 .PHONY : help
 
 

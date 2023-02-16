@@ -1,4 +1,4 @@
-# Install script for directory: /home/dwyaneli/gaofs/src/daemon/backend
+# Install script for directory: /home/dwyaneli/gaofs/src/daemon/backend/data
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,15 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/cmake_install.cmake")
 endif()
 

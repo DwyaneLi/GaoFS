@@ -24,6 +24,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/common/arithmetic/CMakeLists.txt"
   "../src/daemon/CMakeLists.txt"
   "../src/daemon/backend/CMakeLists.txt"
+  "../src/daemon/backend/data/CMakeLists.txt"
   "../src/daemon/backend/metadata/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
@@ -79,6 +80,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/daemon/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/metadata/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/daemon/backend/data/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -94,4 +96,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/daemon/CMakeFiles/gaofs_daemon.dir/DependInfo.cmake"
   "src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/DependInfo.cmake"
   "src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/DependInfo.cmake"
+  "src/daemon/backend/data/CMakeFiles/storage.dir/DependInfo.cmake"
+  "src/daemon/backend/data/CMakeFiles/data_module.dir/DependInfo.cmake"
   )
