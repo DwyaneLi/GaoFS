@@ -5,7 +5,7 @@
 		<Option title="GaoFS"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
@@ -84,7 +84,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -108,7 +107,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -133,7 +131,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -158,7 +155,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -1096,6 +1092,9 @@
 			<Option target="distributor"/>
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_util.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/config.hpp">
 			<Option target="env_util"/>
 			<Option target="first_chunk"/>
@@ -1139,10 +1138,19 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/classes/fs_data.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/classes/rpc_data.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/daemon.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/ops/data.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/ops/metadentry.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/util.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/env_util.cpp">
@@ -1162,6 +1170,9 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/distributor.cpp">
 			<Option target="distributor"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/rpc_util.cpp">
+			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/chunk_storage.cpp">
 			<Option target="storage"/>
@@ -1184,10 +1195,19 @@
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/classes/fs_data.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/classes/rpc_data.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/daemon.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/ops/data.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/util.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">
@@ -1208,6 +1228,33 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/cmake/utils.cmake">
 			<Option virtualFolder="CMake Files\external\spdlog\cmake\"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\hermes\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/FindMercury.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/hermes_flags.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/hermes_options.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-config.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-targets.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindAbt.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindFilesystem.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
@@ -1215,6 +1262,9 @@
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindLZ4.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindMargo.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindRocksDB.cmake">

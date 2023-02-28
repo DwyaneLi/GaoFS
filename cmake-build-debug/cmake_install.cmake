@@ -49,6 +49,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/dwyaneli/gaofs/cmake-build-debug/external/hermes/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/dwyaneli/gaofs/cmake-build-debug/src/common/cmake_install.cmake")
 endif()
 

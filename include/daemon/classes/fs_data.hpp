@@ -6,6 +6,7 @@
 #define GAOFS_FS_DATA_HPP
 
 #include <daemon/backend/metadata/db.hpp>
+#include <daemon/backend/data/chunk_storage.hpp>
 
 #include <unordered_map>
 #include <map>
@@ -31,6 +32,7 @@ private:
     std::string metadir_{};
 
     // TODO: RPC management
+    std::string hosts_file_{}; // 通信地址文档
 
     // Database
     std::shared_ptr<gaofs::metadata::MetadataDB> mdb_;
@@ -38,7 +40,8 @@ private:
 
     // TODO: Parallax
 
-    // TODO Storage backend
+    // Storage backend
+    std::shared_ptr<gaofs::data::ChunkStorage> storage_;
 
     // configuable metadata
     bool atime_state_;
@@ -94,7 +97,9 @@ public:
     void close_mdb();
 
     // TODO: RPC management
+    const std::string& hosts_file() const;
 
+    void hosts_file(const std::string& hosts_file);
 
     bool atime_state() const;
 
@@ -115,6 +120,11 @@ public:
     bool blocks_state() const;
 
     void blocks_state(bool blocks_state);
+
+    // storage backend
+    const std::shared_ptr<gaofs::data::ChunkStorage>& storage() const;
+
+    void storage(const std::shared_ptr<gaofs::data::ChunkStorage>& storage);
 
     // TODO: Parallax
 

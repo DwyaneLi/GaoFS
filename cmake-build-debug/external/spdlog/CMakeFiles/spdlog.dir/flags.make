@@ -6,5 +6,5 @@ CXX_FLAGS = -g -fPIC   -std=c++17
 
 CXX_DEFINES = -DSPDLOG_COMPILED_LIB
 
-CXX_INCLUDES = -I/home/dwyaneli/gaofs/include -I/home/dwyaneli/gaofs/external/spdlog/include 
+CXX_INCLUDES = -I/home/dwyaneli/gaofs/external/spdlog/include 
 

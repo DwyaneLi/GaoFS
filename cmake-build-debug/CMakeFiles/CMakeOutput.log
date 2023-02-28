@@ -527,3 +527,108 @@ make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CM
 
 
 
+Performing C++ SOURCE FILE Test HERMES_HAS_WALL succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_77de8/fast && /usr/bin/make -f CMakeFiles/cmTC_77de8.dir/build.make CMakeFiles/cmTC_77de8.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_77de8.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_WALL   -Wall  -std=gnu++17 -o CMakeFiles/cmTC_77de8.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_77de8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77de8.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_WALL    CMakeFiles/cmTC_77de8.dir/src.cxx.o  -o cmTC_77de8 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_WEXTRA succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d701f/fast && /usr/bin/make -f CMakeFiles/cmTC_d701f.dir/build.make CMakeFiles/cmTC_d701f.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d701f.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_WEXTRA   -Wextra  -std=gnu++17 -o CMakeFiles/cmTC_d701f.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d701f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d701f.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_WEXTRA    CMakeFiles/cmTC_d701f.dir/src.cxx.o  -o cmTC_d701f 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_O0 succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a57c8/fast && /usr/bin/make -f CMakeFiles/cmTC_a57c8.dir/build.make CMakeFiles/cmTC_a57c8.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a57c8.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_O0   -O0  -std=gnu++17 -o CMakeFiles/cmTC_a57c8.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a57c8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a57c8.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_O0    CMakeFiles/cmTC_a57c8.dir/src.cxx.o  -o cmTC_a57c8 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_NO_INLINE succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f8cb0/fast && /usr/bin/make -f CMakeFiles/cmTC_f8cb0.dir/build.make CMakeFiles/cmTC_f8cb0.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f8cb0.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_NO_INLINE   -fno-inline  -std=gnu++17 -o CMakeFiles/cmTC_f8cb0.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f8cb0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8cb0.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_NO_INLINE    CMakeFiles/cmTC_f8cb0.dir/src.cxx.o  -o cmTC_f8cb0 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_STACK_PROTECTOR_ALL succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1d636/fast && /usr/bin/make -f CMakeFiles/cmTC_1d636.dir/build.make CMakeFiles/cmTC_1d636.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1d636.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_STACK_PROTECTOR_ALL   -fstack-protector-all  -std=gnu++17 -o CMakeFiles/cmTC_1d636.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_1d636
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1d636.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_STACK_PROTECTOR_ALL    CMakeFiles/cmTC_1d636.dir/src.cxx.o  -o cmTC_1d636 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_G3 succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8437a/fast && /usr/bin/make -f CMakeFiles/cmTC_8437a.dir/build.make CMakeFiles/cmTC_8437a.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8437a.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_G3   -g3  -std=gnu++17 -o CMakeFiles/cmTC_8437a.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_8437a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8437a.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_G3    CMakeFiles/cmTC_8437a.dir/src.cxx.o  -o cmTC_8437a 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HERMES_HAS_GGDB succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7ff82/fast && /usr/bin/make -f CMakeFiles/cmTC_7ff82.dir/build.make CMakeFiles/cmTC_7ff82.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7ff82.dir/src.cxx.o
+/usr/bin/c++    -DHERMES_HAS_GGDB   -ggdb  -std=gnu++17 -o CMakeFiles/cmTC_7ff82.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_7ff82
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ff82.dir/link.txt --verbose=1
+/usr/bin/c++   -DHERMES_HAS_GGDB    CMakeFiles/cmTC_7ff82.dir/src.cxx.o  -o cmTC_7ff82 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }

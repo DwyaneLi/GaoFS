@@ -108,6 +108,14 @@ void FsData::blocks_state(bool blocks_state) {
     blocks_state_ = blocks_state;
 }
 
+// storage backend
+const std::shared_ptr<gaofs::data::ChunkStorage>& FsData::storage() const {
+    return storage_;
+}
+
+void FsData::storage(const std::shared_ptr<gaofs::data::ChunkStorage> &storage) {
+    storage_ = storage;
+}
 
 // TODO: Parallax
 
@@ -116,5 +124,11 @@ void FsData::blocks_state(bool blocks_state) {
 // TODO: Prometheus
 
 // TODO: RPC management
+const std::string& FsData::hosts_file() const {
+    return hosts_file_;
+}
 
+void FsData::hosts_file(const std::string &hosts_file) {
+    hosts_file_ = hosts_file;
+}
 } // namespace gaofs::daemon

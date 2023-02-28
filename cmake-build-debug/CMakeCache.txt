@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a file.
+ABT_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+ABT_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libabt.so
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -366,6 +372,37 @@ GaoFS_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug
 //Value Computed by CMake
 GaoFS_SOURCE_DIR:STATIC=/home/dwyaneli/gaofs
 
+//Value Computed by CMake
+HERMES_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug/external/hermes
+
+//Build the examples.
+HERMES_BUILD_EXAMPLES:BOOL=OFF
+
+//Enable extra warnings and expensive tests.
+HERMES_BUILD_PEDANTIC:BOOL=OFF
+
+//Halt the compilation with an error on compiler warnings.
+HERMES_BUILD_WERROR:BOOL=OFF
+
+//Generate the doc target.
+HERMES_DOC:BOOL=OFF
+
+//Generate the install target.
+HERMES_INSTALL:BOOL=OFF
+
+//Enable logging messages (using the fmt library)
+HERMES_LOGGING:BOOL=OFF
+
+//Enable features for compatibility with Margo servers (not required
+// if Margo < v0.5.2)
+HERMES_MARGO_COMPATIBLE_RPCS:BOOL=ON
+
+//Value Computed by CMake
+HERMES_SOURCE_DIR:STATIC=/home/dwyaneli/gaofs/external/hermes
+
+//Generate the test target.
+HERMES_TEST:BOOL=OFF
+
 //Path to a file.
 JEMALLOC_INCLUDE_DIR:PATH=JEMALLOC_INCLUDE_DIR-NOTFOUND
 
@@ -377,6 +414,63 @@ LZ4_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
 
 //Path to a library.
 LZ4_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so
+
+//Path to a file.
+MARGO_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+MARGO_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmargo.so
+
+//Path to a file.
+MCHECKSUM_INCLUDE_DIR:PATH=MCHECKSUM_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+MCHECKSUM_LIBRARY_DEBUG:FILEPATH=MCHECKSUM_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+MCHECKSUM_LIBRARY_RELEASE:FILEPATH=MCHECKSUM_LIBRARY_RELEASE-NOTFOUND
+
+//Path to a file.
+MERCURY_HL_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+MERCURY_HL_LIBRARY_DEBUG:FILEPATH=MERCURY_HL_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+MERCURY_HL_LIBRARY_RELEASE:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_hl.so
+
+//Path to a file.
+MERCURY_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+MERCURY_LIBRARY_DEBUG:FILEPATH=MERCURY_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+MERCURY_LIBRARY_RELEASE:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury.so
+
+//Path to a file.
+MERCURY_UTIL_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+MERCURY_UTIL_LIBRARY_DEBUG:FILEPATH=MERCURY_UTIL_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+MERCURY_UTIL_LIBRARY_RELEASE:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_util.so
+
+//The directory containing a CMake configuration file for Mercury.
+Mercury_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/share/cmake/mercury
+
+//Path to a file.
+NA_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+NA_LIBRARY_DEBUG:FILEPATH=NA_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+NA_LIBRARY_RELEASE:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libna.so
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
@@ -463,6 +557,21 @@ SPDLOG_WCHAR_FILENAMES:BOOL=OFF
 //non supported option
 SPDLOG_WCHAR_SUPPORT:BOOL=OFF
 
+//The directory containing a CMake configuration file for Sanitizers.
+Sanitizers_DIR:PATH=Sanitizers_DIR-NOTFOUND
+
+//Path to a library.
+pkgcfg_lib_PC_MERCURY_mercury:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury.so
+
+//Path to a library.
+pkgcfg_lib_PC_MERCURY_mercury_hl:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_hl.so
+
+//Path to a library.
+pkgcfg_lib_PC_MERCURY_mercury_util:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_util.so
+
+//Path to a library.
+pkgcfg_lib_PC_MERCURY_na:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libna.so
+
 //Value Computed by CMake
 spdlog_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog
 
@@ -474,6 +583,10 @@ spdlog_SOURCE_DIR:STATIC=/home/dwyaneli/gaofs/external/spdlog
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: ABT_INCLUDE_DIR
+ABT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ABT_LIBRARY
+ABT_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -622,7 +735,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -671,14 +784,36 @@ CXX_FILESYSTEM_NO_LINK_NEEDED:INTERNAL=1
 CXX_FILESYSTEM_NO_LINK_NEEDED_COMPILED:INTERNAL=TRUE
 //Result of TRY_RUN
 CXX_FILESYSTEM_NO_LINK_NEEDED_EXITCODE:INTERNAL=0
+//Details about finding Abt
+FIND_PACKAGE_MESSAGE_DETAILS_Abt:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libabt.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
 //Details about finding LZ4
 FIND_PACKAGE_MESSAGE_DETAILS_LZ4:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
+//Details about finding Margo
+FIND_PACKAGE_MESSAGE_DETAILS_Margo:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmargo.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
+//Details about finding Mercury
+FIND_PACKAGE_MESSAGE_DETAILS_Mercury:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v2.1.0()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding RocksDB
 FIND_PACKAGE_MESSAGE_DETAILS_RocksDB:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Test HAS_LIBURING
 HAS_LIBURING:INTERNAL=
+//Test HERMES_HAS_G3
+HERMES_HAS_G3:INTERNAL=1
+//Test HERMES_HAS_GGDB
+HERMES_HAS_GGDB:INTERNAL=1
+//Test HERMES_HAS_NO_INLINE
+HERMES_HAS_NO_INLINE:INTERNAL=1
+//Test HERMES_HAS_O0
+HERMES_HAS_O0:INTERNAL=1
+//Test HERMES_HAS_STACK_PROTECTOR_ALL
+HERMES_HAS_STACK_PROTECTOR_ALL:INTERNAL=1
+//Test HERMES_HAS_WALL
+HERMES_HAS_WALL:INTERNAL=1
+//Test HERMES_HAS_WEXTRA
+HERMES_HAS_WEXTRA:INTERNAL=1
 //ADVANCED property for variable: JEMALLOC_INCLUDE_DIR
 JEMALLOC_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: JEMALLOC_LIBRARY
@@ -687,6 +822,77 @@ JEMALLOC_LIBRARY-ADVANCED:INTERNAL=1
 LZ4_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: LZ4_LIBRARY
 LZ4_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MARGO_INCLUDE_DIR
+MARGO_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MARGO_LIBRARY
+MARGO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MCHECKSUM_INCLUDE_DIR
+MCHECKSUM_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MCHECKSUM_LIBRARY_DEBUG
+MCHECKSUM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MCHECKSUM_LIBRARY_RELEASE
+MCHECKSUM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_HL_INCLUDE_DIR
+MERCURY_HL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_HL_LIBRARY_DEBUG
+MERCURY_HL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_HL_LIBRARY_RELEASE
+MERCURY_HL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_INCLUDE_DIR
+MERCURY_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_LIBRARY_DEBUG
+MERCURY_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_LIBRARY_RELEASE
+MERCURY_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_UTIL_INCLUDE_DIR
+MERCURY_UTIL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_UTIL_LIBRARY_DEBUG
+MERCURY_UTIL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MERCURY_UTIL_LIBRARY_RELEASE
+MERCURY_UTIL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: NA_INCLUDE_DIR
+NA_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: NA_LIBRARY_DEBUG
+NA_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: NA_LIBRARY_RELEASE
+NA_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+PC_MERCURY_CFLAGS:INTERNAL=-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_MERCURY_CFLAGS_I:INTERNAL=
+PC_MERCURY_CFLAGS_OTHER:INTERNAL=
+PC_MERCURY_FOUND:INTERNAL=1
+PC_MERCURY_INCLUDEDIR:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_MERCURY_INCLUDE_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_MERCURY_LDFLAGS:INTERNAL=-L/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib;-lmercury_hl;-lmercury;-lmercury_util;-lna
+PC_MERCURY_LDFLAGS_OTHER:INTERNAL=
+PC_MERCURY_LIBDIR:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_MERCURY_LIBRARIES:INTERNAL=mercury_hl;mercury;mercury_util;na
+PC_MERCURY_LIBRARY_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_MERCURY_LIBS:INTERNAL=
+PC_MERCURY_LIBS_L:INTERNAL=
+PC_MERCURY_LIBS_OTHER:INTERNAL=
+PC_MERCURY_LIBS_PATHS:INTERNAL=
+PC_MERCURY_MODULE_NAME:INTERNAL=mercury
+PC_MERCURY_PREFIX:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install
+PC_MERCURY_STATIC_CFLAGS:INTERNAL=-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_MERCURY_STATIC_CFLAGS_I:INTERNAL=
+PC_MERCURY_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_MERCURY_STATIC_INCLUDE_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_MERCURY_STATIC_LDFLAGS:INTERNAL=-L/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib;-lmercury_hl;-lmercury;-lmercury_util;-lna;-pthread;-lrt;-lfabric
+PC_MERCURY_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+PC_MERCURY_STATIC_LIBDIR:INTERNAL=
+PC_MERCURY_STATIC_LIBRARIES:INTERNAL=mercury_hl;mercury;mercury_util;na;rt;fabric
+PC_MERCURY_STATIC_LIBRARY_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_MERCURY_STATIC_LIBS:INTERNAL=
+PC_MERCURY_STATIC_LIBS_L:INTERNAL=
+PC_MERCURY_STATIC_LIBS_OTHER:INTERNAL=
+PC_MERCURY_STATIC_LIBS_PATHS:INTERNAL=
+PC_MERCURY_VERSION:INTERNAL=2.1.0
+PC_MERCURY_mercury_INCLUDEDIR:INTERNAL=
+PC_MERCURY_mercury_LIBDIR:INTERNAL=
+PC_MERCURY_mercury_PREFIX:INTERNAL=
+PC_MERCURY_mercury_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
@@ -701,4 +907,15 @@ _CXX_FILESYSTEM_HAVE_HEADER-ADVANCED:INTERNAL=1
 _CXX_FILESYSTEM_HAVE_HEADER:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+__pkg_config_arguments_PC_MERCURY:INTERNAL=QUIET;mercury
+__pkg_config_checked_PC_MERCURY:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury
+pkgcfg_lib_PC_MERCURY_mercury-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury_hl
+pkgcfg_lib_PC_MERCURY_mercury_hl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury_util
+pkgcfg_lib_PC_MERCURY_mercury_util-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_na
+pkgcfg_lib_PC_MERCURY_na-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
 

@@ -171,6 +171,33 @@ gaofs_daemon/fast:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/build
 .PHONY : gaofs_daemon/fast
 
+__/common/rpc/rpc_util.o: __/common/rpc/rpc_util.cpp.o
+
+.PHONY : __/common/rpc/rpc_util.o
+
+# target to build an object file
+__/common/rpc/rpc_util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o
+.PHONY : __/common/rpc/rpc_util.cpp.o
+
+__/common/rpc/rpc_util.i: __/common/rpc/rpc_util.cpp.i
+
+.PHONY : __/common/rpc/rpc_util.i
+
+# target to preprocess a source file
+__/common/rpc/rpc_util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.i
+.PHONY : __/common/rpc/rpc_util.cpp.i
+
+__/common/rpc/rpc_util.s: __/common/rpc/rpc_util.cpp.s
+
+.PHONY : __/common/rpc/rpc_util.s
+
+# target to generate assembly for a file
+__/common/rpc/rpc_util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.s
+.PHONY : __/common/rpc/rpc_util.cpp.s
+
 classes/fs_data.o: classes/fs_data.cpp.o
 
 .PHONY : classes/fs_data.o
@@ -197,6 +224,33 @@ classes/fs_data.s: classes/fs_data.cpp.s
 classes/fs_data.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.s
 .PHONY : classes/fs_data.cpp.s
+
+classes/rpc_data.o: classes/rpc_data.cpp.o
+
+.PHONY : classes/rpc_data.o
+
+# target to build an object file
+classes/rpc_data.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o
+.PHONY : classes/rpc_data.cpp.o
+
+classes/rpc_data.i: classes/rpc_data.cpp.i
+
+.PHONY : classes/rpc_data.i
+
+# target to preprocess a source file
+classes/rpc_data.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.i
+.PHONY : classes/rpc_data.cpp.i
+
+classes/rpc_data.s: classes/rpc_data.cpp.s
+
+.PHONY : classes/rpc_data.s
+
+# target to generate assembly for a file
+classes/rpc_data.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.s
+.PHONY : classes/rpc_data.cpp.s
 
 daemon.o: daemon.cpp.o
 
@@ -225,6 +279,33 @@ daemon.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.s
 .PHONY : daemon.cpp.s
 
+ops/data.o: ops/data.cpp.o
+
+.PHONY : ops/data.o
+
+# target to build an object file
+ops/data.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o
+.PHONY : ops/data.cpp.o
+
+ops/data.i: ops/data.cpp.i
+
+.PHONY : ops/data.i
+
+# target to preprocess a source file
+ops/data.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.i
+.PHONY : ops/data.cpp.i
+
+ops/data.s: ops/data.cpp.s
+
+.PHONY : ops/data.s
+
+# target to generate assembly for a file
+ops/data.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.s
+.PHONY : ops/data.cpp.s
+
 ops/metadentry.o: ops/metadentry.cpp.o
 
 .PHONY : ops/metadentry.o
@@ -252,6 +333,33 @@ ops/metadentry.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.s
 .PHONY : ops/metadentry.cpp.s
 
+util.o: util.cpp.o
+
+.PHONY : util.o
+
+# target to build an object file
+util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o
+.PHONY : util.cpp.o
+
+util.i: util.cpp.i
+
+.PHONY : util.i
+
+# target to preprocess a source file
+util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.i
+.PHONY : util.cpp.i
+
+util.s: util.cpp.s
+
+.PHONY : util.s
+
+# target to generate assembly for a file
+util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.s
+.PHONY : util.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -265,15 +373,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... gaofs_daemon"
+	@echo "... __/common/rpc/rpc_util.o"
+	@echo "... __/common/rpc/rpc_util.i"
+	@echo "... __/common/rpc/rpc_util.s"
 	@echo "... classes/fs_data.o"
 	@echo "... classes/fs_data.i"
 	@echo "... classes/fs_data.s"
+	@echo "... classes/rpc_data.o"
+	@echo "... classes/rpc_data.i"
+	@echo "... classes/rpc_data.s"
 	@echo "... daemon.o"
 	@echo "... daemon.i"
 	@echo "... daemon.s"
+	@echo "... ops/data.o"
+	@echo "... ops/data.i"
+	@echo "... ops/data.s"
 	@echo "... ops/metadentry.o"
 	@echo "... ops/metadentry.i"
 	@echo "... ops/metadentry.s"
+	@echo "... util.o"
+	@echo "... util.i"
+	@echo "... util.s"
 .PHONY : help
 
 

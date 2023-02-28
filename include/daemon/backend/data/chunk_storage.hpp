@@ -70,7 +70,7 @@ public:
     void trim_chunk_space(const std::string& file_path, gaofs::rpc::chnk_id_t chunk_start);
 
     // 将单个块文件截断为给定的字节长度。
-    void truncate_chunk_file(const std::string& file_path, gaofs::rpc::chnk_id_t, off_t length);
+    void truncate_chunk_file(const std::string& file_path, gaofs::rpc::chnk_id_t chunk_id, off_t length);
 
     // 获取统计信息
     [[nodiscard]] ChunkStat chunk_stat() const;

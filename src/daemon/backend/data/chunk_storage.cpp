@@ -171,6 +171,8 @@ ssize_t ChunkStorage::read_chunk(const string &file_path, gaofs::rpc::chnk_id_t 
     return read_total;
 }
 
+// 删除所有大于chunk_id_start的块
+// 如果再删除块时遇到错误，仍然会删除所有文件，然后抛出ChunkStorageException
 void ChunkStorage::trim_chunk_space(const string &file_path, gaofs::rpc::chnk_id_t chunk_start) {
     auto chunk_dir = absolute(get_chunks_dir(file_path));
     // 代表目录的结束
@@ -195,5 +197,33 @@ void ChunkStorage::trim_chunk_space(const string &file_path, gaofs::rpc::chnk_id
     }
 }
 
+// 截断某个chunk里的数据，针对单个chunk
+void ChunkStorage::truncate_chunk_file(const string &file_path, gaofs::rpc::chnk_id_t chunk_id, off_t length) {
+   auto chunk_path= absolute(get_chunk_path(file_path, chunk_id));
+   assert(length > 0 && static_cast<size_t>(length) <= chunksize_);
+   auto err = truncate(chunk_path.c_str(), length);
+   if(err == -1) {
+       auto err_str = fmt::format(
+               "{}() Failed to truncate chunk file. File: '{}', length: '{}', Error: '{}'",
+               __func__, chunk_path, length, strerror(errno));
+       throw ChunkStorageException(errno, err_str);
+   }
+}
+
+ChunkStat ChunkStorage::chunk_stat() const {
+    struct statfs sfs{};
+    if(statfs(root_path_.c_str(), &sfs) != 0) {
+        auto err_str = fmt::format(
+                "{}() Failed to get filesystem statistic for chunk directory. Error: '{}'",
+                __func__, strerror(errno));
+        throw ChunkStorageException(errno, err_str);
+    }
+
+    // 统计各项信息
+    auto bytes_total = static_cast<unsigned long long>(sfs.f_bsize) * static_cast<unsigned long long>(sfs.f_blocks);
+    auto bytes_free = static_cast<unsigned long long>(sfs.f_bsize) * static_cast<unsigned long long>(sfs.f_bavail);
+
+    return {chunksize_, bytes_total / chunksize_, bytes_free / chunksize_};
+}
 
 } // namespace gaofs::data

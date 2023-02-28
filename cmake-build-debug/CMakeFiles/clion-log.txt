@@ -4,6 +4,25 @@
 -- Build type: Debug
 -- Build spdlog: 1.9.2
 -- Build type: Debug
+-- [hermes] Version: 0.4.5
+-- [hermes] Build type: Debug
+CMake Warning at external/hermes/CMakeLists.txt:120 (find_package):
+  By not providing "FindSanitizers.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "Sanitizers", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Sanitizers" with
+  any of the following names:
+
+    SanitizersConfig.cmake
+    sanitizers-config.cmake
+
+  Add the installation prefix of "Sanitizers" to CMAKE_PREFIX_PATH or set
+  "Sanitizers_DIR" to a directory containing one of the above files.  If
+  "Sanitizers" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
 -- Could NOT find JeMalloc (missing: JEMALLOC_LIBRARY JEMALLOC_INCLUDE_DIR) 
 -- Configuring done
 -- Generating done

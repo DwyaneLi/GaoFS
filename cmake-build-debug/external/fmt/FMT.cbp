@@ -5,7 +5,7 @@
 		<Option title="FMT"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
@@ -24,7 +24,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -48,7 +47,6 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -135,6 +133,33 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/cmake/utils.cmake">
 			<Option virtualFolder="CMake Files\external\spdlog\cmake\"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\hermes\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/FindMercury.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/hermes_flags.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/hermes_options.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-config.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-targets.cmake">
+			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindAbt.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindFilesystem.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
@@ -142,6 +167,9 @@
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindLZ4.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindMargo.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindRocksDB.cmake">

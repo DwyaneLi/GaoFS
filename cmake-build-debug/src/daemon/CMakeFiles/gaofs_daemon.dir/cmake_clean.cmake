@@ -1,7 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
+  "CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
+  "CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"
+  "CMakeFiles/gaofs_daemon.dir/util.cpp.o"
   "gaofs_daemon"
   "gaofs_daemon.pdb"
 )
