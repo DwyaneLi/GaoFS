@@ -57,9 +57,22 @@ include src/daemon/CMakeFiles/gaofs_daemon.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 
+src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
+src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o: ../src/daemon/handler/srv_metadata.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o -c /home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp
+
+src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp > CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.i
+
+src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp -o CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.s
+
 src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o: ../src/common/rpc/rpc_util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o -c /home/dwyaneli/gaofs/src/common/rpc/rpc_util.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.i: cmake_force
@@ -72,7 +85,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o: ../src/daemon/util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/util.cpp.o -c /home/dwyaneli/gaofs/src/daemon/util.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.i: cmake_force
@@ -85,7 +98,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o: ../src/daemon/classes/fs_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o -c /home/dwyaneli/gaofs/src/daemon/classes/fs_data.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.i: cmake_force
@@ -98,7 +111,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o: ../src/daemon/classes/rpc_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o -c /home/dwyaneli/gaofs/src/daemon/classes/rpc_data.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.i: cmake_force
@@ -111,7 +124,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o: ../src/daemon/daemon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/daemon.cpp.o -c /home/dwyaneli/gaofs/src/daemon/daemon.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.i: cmake_force
@@ -124,7 +137,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o: ../src/daemon/ops/metadentry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o -c /home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.i: cmake_force
@@ -137,7 +150,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.s: cmake_force
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o: src/daemon/CMakeFiles/gaofs_daemon.dir/flags.make
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o: ../src/daemon/ops/data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o -c /home/dwyaneli/gaofs/src/daemon/ops/data.cpp
 
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.i: cmake_force
@@ -150,6 +163,7 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.s: cmake_force
 
 # Object files for target gaofs_daemon
 gaofs_daemon_OBJECTS = \
+"CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o" \
 "CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o" \
 "CMakeFiles/gaofs_daemon.dir/util.cpp.o" \
 "CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o" \
@@ -161,6 +175,7 @@ gaofs_daemon_OBJECTS = \
 # External object files for target gaofs_daemon
 gaofs_daemon_EXTERNAL_OBJECTS =
 
+src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o
 src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/__/common/rpc/rpc_util.cpp.o
 src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/util.cpp.o
 src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o
@@ -192,7 +207,7 @@ src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/li
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_util.so.2.1.0
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libfabric.so
 src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable gaofs_daemon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable gaofs_daemon"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/daemon && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gaofs_daemon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

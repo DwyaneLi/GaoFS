@@ -1092,6 +1092,9 @@
 			<Option target="distributor"/>
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_types.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_util.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
@@ -1142,6 +1145,12 @@
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/daemon.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/handler/rpc_defs.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/handler/rpc_util.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/ops/data.hpp">
@@ -1199,6 +1208,9 @@
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/daemon.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/ops/data.cpp">

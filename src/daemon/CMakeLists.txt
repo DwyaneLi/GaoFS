@@ -4,6 +4,7 @@ add_subdirectory(backend)
 # 设置相应变量
 set(DAEMON_SOURCES
         PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/handler/srv_metadata.cpp
         ${CMAKE_CURRENT_LIST_DIR}/../common/rpc/rpc_util.cpp
         ${CMAKE_CURRENT_LIST_DIR}/util.cpp
         ${CMAKE_CURRENT_LIST_DIR}/classes/fs_data.cpp
@@ -12,6 +13,9 @@ set(DAEMON_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/ops/metadentry.cpp
         ${CMAKE_CURRENT_LIST_DIR}/ops/data.cpp
         PUBLIC
+        ${INCLUDE_DIR}/daemon/handler/rpc_defs.hpp
+        ${INCLUDE_DIR}/daemon/handler/rpc_util.hpp
+        ${INCLUDE_DIR}/common/rpc/rpc_types.hpp
         ${INCLUDE_DIR}/common/rpc/rpc_util.hpp
         ${INCLUDE_DIR}/daemon/util.hpp
         ${INCLUDE_DIR}/daemon/classes/fs_data.hpp

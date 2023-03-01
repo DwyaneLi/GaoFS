@@ -279,6 +279,33 @@ daemon.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.s
 .PHONY : daemon.cpp.s
 
+handler/srv_metadata.o: handler/srv_metadata.cpp.o
+
+.PHONY : handler/srv_metadata.o
+
+# target to build an object file
+handler/srv_metadata.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o
+.PHONY : handler/srv_metadata.cpp.o
+
+handler/srv_metadata.i: handler/srv_metadata.cpp.i
+
+.PHONY : handler/srv_metadata.i
+
+# target to preprocess a source file
+handler/srv_metadata.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.i
+.PHONY : handler/srv_metadata.cpp.i
+
+handler/srv_metadata.s: handler/srv_metadata.cpp.s
+
+.PHONY : handler/srv_metadata.s
+
+# target to generate assembly for a file
+handler/srv_metadata.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/daemon/CMakeFiles/gaofs_daemon.dir/build.make src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.s
+.PHONY : handler/srv_metadata.cpp.s
+
 ops/data.o: ops/data.cpp.o
 
 .PHONY : ops/data.o
@@ -385,6 +412,9 @@ help:
 	@echo "... daemon.o"
 	@echo "... daemon.i"
 	@echo "... daemon.s"
+	@echo "... handler/srv_metadata.o"
+	@echo "... handler/srv_metadata.i"
+	@echo "... handler/srv_metadata.s"
 	@echo "... ops/data.o"
 	@echo "... ops/data.i"
 	@echo "... ops/data.s"

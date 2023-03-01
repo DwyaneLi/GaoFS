@@ -17,6 +17,9 @@ constexpr auto use_blocks = false;
 
 // 创建元数据时检查是否已经存在
 constexpr auto create_exist_check = true;
+
+// 是否隐式删除data
+constexpr auto implicit_data_removal = true;
 } // namespace gaofs::config::metadata
 
 namespace rpc {
