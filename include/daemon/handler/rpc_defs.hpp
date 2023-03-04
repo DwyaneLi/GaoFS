@@ -18,5 +18,14 @@ DECLARE_MARGO_RPC_HANDLER(rpc_srv_remove_metadata)
 
 DECLARE_MARGO_RPC_HANDLER(rpc_srv_remove_data)
 
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_update_metadentry)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_update_metadentry_size)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_metadentry_size)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_dirents)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_dirents_extended)
 
 #endif //GAOFS_RPC_DEFS_HPP
