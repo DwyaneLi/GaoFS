@@ -221,6 +221,44 @@ hg_return_t rpc_srv_read(hg_handle_t handle) {
     out.err = EIO;
     out.io_size = 0;
     auto ret = margo_get_input(handle, &in);
+    if(ret != HG_SUCCESS) {
+        GAOFS_DATA->spdlogger()->error("{}() Could not get RPC input data with err {}",
+                                       __func__, ret);
+        return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
+    }
+    auto hgi = margo_get_info(handle);
+    auto mid = margo_hg_info_get_instance(hgi);
+    auto bulk_size = margo_bulk_get_size(in.bulk_handle);
+
+    GAOFS_DATA->spdlogger()->debug(
+            "{}() path: '{}' chunk_start '{}' chunk_end '{}' chunk_n '{}' total_chunk_size '{}' bulk_size: '{}' offset: '{}'",
+            __func__, in.path, in.chunk_start, in.chunk_end, in.chunk_n, in.total_chunk_size, bulk_size, in.offset);
+
+    // TODO: AGIOS
+
+    /*
+     * 2.为批量传输缓冲区分配空间
+     */
+    void* bulk_buf;
+    vector<char*> bulk_buf_ptrs(in.chunk_n);
+    // 创造一个bulk_handle， 并且分配缓冲区
+    ret = margo_bulk_create(mid, 1, nullptr, &in.total_chunk_size, HG_BULK_READWRITE, &bulk_handle);
+    if(ret != HG_SUCCESS) {
+        GAOFS_DATA->spdlog()->error("{}() Failed to create bulk handle", __func__);
+        return gaofs::rpc::cleanup_respond(&handle, &in, &out, static_cast<hg_bulk_t*>(nullptr));
+    }
+    // 将bulk的访问交给bulk_handle
+    uint32_t actual_count;
+    ret = margo_bulk_access(bulk_handle, 0, in.total_chunk_size, HG_BULK_READWRITE,
+                            1, &bulk_buf, &in.total_chunk_size, &actual_count);
+    if(ret != HG_SUCCESS || actual_count != 1) {
+        GAOFS_DATA->spdlogger()->error("{}() Failed to access allocated buffer from bulk handle",
+                                       __func__);
+        return  gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
+    }
+    // TODO: FORWARDING
+
+    // 各种临时变量的初始化
 
 }
 
