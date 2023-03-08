@@ -159,6 +159,7 @@ ssize_t ChunkStorage::read_chunk(const string &file_path, gaofs::rpc::chnk_id_t 
         }
 
 #ifndef NDEBUG
+        // TODO: ndebug
         if(read + read_total < size) {
             log_->debug("Read less bytes than requested: '{}'/{}. Total read was '{}'. This is not an error!",
                         read, size - read_total, size);

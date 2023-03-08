@@ -5,6 +5,7 @@
 #include <daemon/ops/data.hpp>
 #include <daemon/backend/data/chunk_storage.hpp>
 #include <common/arithmetic/arithmetic.hpp>
+#include <daemon/backend/metadata/db.hpp>
 
 extern "C" {
 #include <mercury_types.h>
@@ -31,7 +32,7 @@ void ChunkTruncateOperation::clear_task_args() {
 // ABT_eventual* eventual;
 // 该函数由IO池驱动。因此，有一个每个守护进程允许的最大并发操作数。
 void ChunkTruncateOperation::truncate_abt(void *_arg) {
-    // TODO: 对first_chunk的处理逻辑需要添加
+    // TODO: 对first_chunk的处理逻辑需要添加, 但是0块可能不在这个结点，所以具体的处理逻辑还是得看client
     // 要使用pow2
     using namespace gaofs::utils::arithmetic;
     assert(_arg);
@@ -42,9 +43,9 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
     try {
         // 算出要截断的起始的chunk_id
         auto chunk_id_start = block_index(size, gaofs::config::rpc::chunksize);
-
         // 查看超出块起始多少，如果在这个数据块的中间，则不能删除这个块
         auto left_pad = block_overrun(size, gaofs::config::rpc::chunksize);
+
         if(left_pad != 0) {
             // 把单个块文件给截断
             GAOFS_DATA->storage()->truncate_chunk_file(path, chunk_id_start, left_pad);

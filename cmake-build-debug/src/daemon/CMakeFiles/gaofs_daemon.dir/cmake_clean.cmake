@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
+  "CMakeFiles/gaofs_daemon.dir/handler/srv_data.cpp.o"
+  "CMakeFiles/gaofs_daemon.dir/handler/srv_management.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o"
   "CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"

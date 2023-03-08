@@ -62,6 +62,56 @@ hg_return_t rpc_srv_create(hg_handle_t handle) {
     return HG_SUCCESS;
 }
 
+//统计请求读取KV存储中相应的条目。值字符串直接传递给客户端。
+//如果对象不存在或出现其他意外错误，则设置错误代码
+//其实就是返回db里已经被序列化的metadata，在client那边可以用这个值回复成metadata结构
+hg_return_t rpc_srv_stat(hg_handle_t handle) {
+    // 初始化输入输出结构
+    rpc_path_only_in_t in{};
+    rpc_stat_out_t out{};
+    auto ret = margo_get_input(handle, &in);
+    if(ret != HG_SUCCESS) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}() Failed to retrieve input from handle",
+                __func__);
+    }
+    assert(ret == HG_SUCCESS);
+    GAOFS_DATA->spdlogger()->debug(
+            "{}() path: '{}'",
+            __func__, in.path);
+    std::string val;
+
+    // 实际操作
+    try {
+        val = gaofs::metadata::get_str(in.path);
+        out.err = 0;
+        out.db_val = val.c_str();
+    } catch (const gaofs::db_exception::NotFoundException& e) {
+        GAOFS_DATA->spdlogger()->debug("{}() Entry not found: '{}'", __func__, in.path);
+        out.err = ENOENT;
+    } catch (const std::exception& e) {
+        GAOFS_DATA->spdlogger()->error("{}() Failed to get metadentry from DB: '{}'", __func__, e.what());
+    }
+
+    GAOFS_DATA->spdlogger()->debug("{}() Sending output mode '{}'",
+                __func__, out.db_val);
+
+    // 传输输出
+    auto hret = margo_respond(handle, &out);
+    if(hret != HG_SUCCESS) {
+        GAOFS_DATA->spdlogger()->error("{}() Failed to respond", __func__);
+    }
+
+    // 释放资源
+    margo_free_input(handle, &in);
+    margo_destroy(handle);
+
+    //TODO: statistics
+
+    return HG_SUCCESS;
+}
+
+
 // 处理减少file size的请求
 hg_return_t rpc_srv_decr_size(hg_handle_t handle) {
     // 初始化输入输出参数
@@ -132,11 +182,14 @@ hg_return_t rpc_srv_remove_metadata(hg_handle_t handle) {
     try {
         // 因为要获取size 和 mode，所以要获取
         auto md = gaofs::metadata::get(in.path);
+        gaofs::metadata::remove(in.path);
         out.err = 0;
         out.mode = md.mode();
         out.size = md.size();
         if constexpr(gaofs::config::metadata::implicit_data_removal) {
             if(S_ISREG(md.mode()) && (md.size()) != 0) {
+                // 删除第一块 firstchunk
+                gaofs::metadata::remove_first_chunk(in.path);
                 GAOFS_DATA->storage()->destroy_chunk_space(in.path);
             }
         }
@@ -179,6 +232,7 @@ hg_return_t rpc_srv_remove_metadata(hg_handle_t handle) {
 // 处理程序只是发出删除本地文件系统上所有块文件的命令
 // 如果有隐式删除的config，这个在之前在remove metadata里就执行了。
 // 这个和metadata没关系
+// 这里应该也不需要对first chunk进行处理，因为在上面已经删掉了
 hg_return_t rpc_srv_remove_data(hg_handle_t handle) {
     // TODO: first chunk
     // 初始化输入输出
@@ -379,8 +433,8 @@ hg_return_t rpc_srv_get_metadentry_size(hg_handle_t handle) {
 // 与上面的函数处理方式不同，这个涉及对bulk的操作
 hg_return_t rpc_srv_get_dirents(hg_handle_t handle) {
     //初始化输入输出参数
-    rpc_get_dirents_in in{};
-    rpc_get_dirents_out out{};
+    rpc_get_dirents_in_t in{};
+    rpc_get_dirents_out_t out{};
     out.err = EIO;
     out.dirents_size = 0;
     hg_bulk_t  bulk_handle = nullptr;
@@ -503,15 +557,14 @@ hg_return_t rpc_srv_get_dirents(hg_handle_t handle) {
             "{}() Sending output response err '{}' dirents_size '{}'. DONE",
             __func__, out.err, out.dirents_size);
     // TODO statistic
-
     return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
 }
 
 // 和上面那个差不多
 hg_return_t rpc_srv_get_dirents_extended(hg_handle_t handle) {
     //初始化输入输出参数
-    rpc_get_dirents_in in{};
-    rpc_get_dirents_out out{};
+    rpc_get_dirents_in_t in{};
+    rpc_get_dirents_out_t out{};
     out.err = EIO;
     out.dirents_size = 0;
     hg_bulk_t  bulk_handle = nullptr;
@@ -644,4 +697,24 @@ hg_return_t rpc_srv_get_dirents_extended(hg_handle_t handle) {
     return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
 }
 
-}
+} // namespace
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_create)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_stat)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_decr_size)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_remove_metadata)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_remove_data)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_update_metadentry)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_update_metadentry_size)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_metadentry_size)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_dirents)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_dirents_extended)

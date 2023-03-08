@@ -5,6 +5,8 @@ add_subdirectory(backend)
 set(DAEMON_SOURCES
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/handler/srv_metadata.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/handler/srv_management.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/handler/srv_data.cpp
         ${CMAKE_CURRENT_LIST_DIR}/../common/rpc/rpc_util.cpp
         ${CMAKE_CURRENT_LIST_DIR}/util.cpp
         ${CMAKE_CURRENT_LIST_DIR}/classes/fs_data.cpp

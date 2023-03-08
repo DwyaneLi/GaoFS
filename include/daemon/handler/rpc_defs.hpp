@@ -9,8 +9,12 @@ extern "C" {
 #include <margo.h>
 };
 
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_fs_config)
+
 // metadata
 DECLARE_MARGO_RPC_HANDLER(rpc_srv_create)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_stat)
 
 DECLARE_MARGO_RPC_HANDLER(rpc_srv_decr_size)
 
@@ -28,4 +32,12 @@ DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_dirents)
 
 DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_dirents_extended)
 
+// data
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_write)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_read)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_truncate)
+
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_chunk_stat)
 #endif //GAOFS_RPC_DEFS_HPP

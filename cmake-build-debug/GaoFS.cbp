@@ -1210,6 +1210,12 @@
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/daemon.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/handler/srv_data.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/daemon/handler/srv_management.cpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>

@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dwyaneli/gaofs/src/daemon/classes/fs_data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/classes/rpc_data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/classes/rpc_data.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/daemon.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o"
+  "/home/dwyaneli/gaofs/src/daemon/handler/srv_data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_data.cpp.o"
+  "/home/dwyaneli/gaofs/src/daemon/handler/srv_management.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_management.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/handler/srv_metadata.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/handler/srv_metadata.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/ops/data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/ops/data.cpp.o"
   "/home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o"
