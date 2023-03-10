@@ -75,6 +75,10 @@ MERCURY_GEN_PROC(rpc_read_data_in_t, ((hg_const_string_t)(path))((int64_t)(offse
         ((hg_uint64_t)(chunk_start))((hg_uint64_t)(chunk_end))((hg_uint64_t)(total_chunk_size))
         ((hg_bulk_t)(bulk_handle)))
 
+// rpc_srv_truncate
+MERCURY_GEN_PROC(rpc_trunc_data_in_t, ((hg_const_string_t)(path))((hg_uint64_t)(length))((hg_uint64_t)(host_id))
+        ((hg_uint64_t)(host_size)))
+
 // rpc_srv_get_chunk_stat
 MERCURY_GEN_PROC(rpc_chunk_stat_in_t, ((hg_int32_t)(dummy)))
 

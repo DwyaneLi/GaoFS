@@ -200,7 +200,7 @@ void ChunkStorage::trim_chunk_space(const string &file_path, gaofs::rpc::chnk_id
 
 // 截断某个chunk里的数据，针对单个chunk
 void ChunkStorage::truncate_chunk_file(const string &file_path, gaofs::rpc::chnk_id_t chunk_id, off_t length) {
-   auto chunk_path= absolute(get_chunk_path(file_path, chunk_id));
+   auto chunk_path = absolute(get_chunk_path(file_path, chunk_id));
    assert(length > 0 && static_cast<size_t>(length) <= chunksize_);
    auto err = truncate(chunk_path.c_str(), length);
    if(err == -1) {

@@ -73,7 +73,6 @@ hg_return_t rpc_srv_write(hg_handle_t handle) {
     }
     auto const host_id = in.host_id;
     auto const host_size = in.host_size;
-    auto path = make_shared<string>(in.path);
 
     // 存在这个主机上的chunk_id
     vector<uint64_t> chnk_ids_host(in.chunk_n);
@@ -104,7 +103,7 @@ hg_return_t rpc_srv_write(hg_handle_t handle) {
      * 计算该主机上块对应的大小，传输数据，并启动写入磁盘的任务
      * */
     // 找到第一个散列到本机上的chunk
-    // TODO：first chunk相关操作
+    // TODO：first chunk相关操作, 放到ops中去做
     for(auto chnk_id_file = in.chunk_start; chnk_id_file <= in.chunk_end && chnk_id_curr < in.chunk_n; chnk_id_file++) {
         // TODO: forwarding
         // 不是定位在本机上的直接跳过
@@ -244,7 +243,7 @@ hg_return_t rpc_srv_read(hg_handle_t handle) {
     // 创造一个bulk_handle， 并且分配缓冲区
     ret = margo_bulk_create(mid, 1, nullptr, &in.total_chunk_size, HG_BULK_READWRITE, &bulk_handle);
     if(ret != HG_SUCCESS) {
-        GAOFS_DATA->spdlog()->error("{}() Failed to create bulk handle", __func__);
+        GAOFS_DATA->spdlogger()->error("{}() Failed to create bulk handle", __func__);
         return gaofs::rpc::cleanup_respond(&handle, &in, &out, static_cast<hg_bulk_t*>(nullptr));
     }
     // 将bulk的访问交给bulk_handle
@@ -257,16 +256,114 @@ hg_return_t rpc_srv_read(hg_handle_t handle) {
         return  gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
     }
     // TODO: FORWARDING
-
+    auto const host_id = in.host_id;
+    auto const host_size = in.host_size;
     // 各种临时变量的初始化
+    // 本机上保存的块
+    vector<uint64_t> chnk_ids_host(in.chunk_n);
+    // 数组索引
+    auto chnk_id_curr = static_cast<uint64_t>(0);
+    // 块的大小
+    vector<uint64_t> chnk_sizes(in.chunk_n);
+    // 每个块在各自缓冲区的偏移
+    vector<uint64_t> local_offsets(in.chunk_n);
+    vector<uint64_t> origin_offsets(in.chunk_n);
+    // 还剩多少数据
+    auto chnk_size_left_host = in.total_chunk_size;
+    // 缓冲区移动指针
+    auto chnk_ptr = static_cast<char*>(bulk_buf);
+    // 传递大小
+    auto transfer_size = (bulk_size <= gaofs::config::rpc::chunksize) ? bulk_size : gaofs::config::rpc::chunksize;
+    // 初始化用于执行任务的类
+    gaofs::data::ChunkReadOperation chunk_read_op{in.path, in.chunk_n};
 
+    /*
+     * 3. 从文件系统中读文件内容到内存
+     */
+    for(auto chnk_id_file = in.chunk_start; chnk_id_file <= in.chunk_end && chnk_id_curr < in.chunk_n; chnk_id_file++) {
+        // 不在本机上的就直接跳过
+        if(RPC_DATA->distributor()->locate_data(in.path, chnk_id_file, in.host_size) != host_id) {
+            GAOFS_DATA->spdlogger()->trace("{}() chunkid '{}' ignored as it does not match to this host with id '{}'. chnk_id_curr '{}'",
+                                           __func__, chnk_id_file, host_id, chnk_id_curr);
+            continue;
+        }
+        // TODO： statistics
+
+        // 保存到数组中
+        chnk_ids_host[chnk_id_curr] = chnk_id_file;
+        if(chnk_id_file == in.chunk_start && in.offset > 0) {
+            size_t offset_transfer_size = 0;
+            if(in.offset + bulk_size <= gaofs::config::rpc::chunksize)
+                offset_transfer_size = bulk_size;
+            else
+                offset_transfer_size = static_cast<size_t>(gaofs::config::rpc::chunksize - in.offset);
+            // 记录相关信息
+            local_offsets[chnk_id_curr] = 0;
+            origin_offsets[chnk_id_curr] = 0;
+            bulk_buf_ptrs[chnk_id_curr] = chnk_ptr;
+            chnk_sizes[chnk_id_curr] = offset_transfer_size;
+            chnk_ptr += offset_transfer_size;
+            chnk_size_left_host -= offset_transfer_size;
+        } else {
+            local_offsets[chnk_id_curr] = in.total_chunk_size - chnk_size_left_host;
+            if(in.offset > 0) {
+                origin_offsets[chnk_id_curr] = gaofs::config::rpc::chunksize - in.offset +
+                        (chnk_id_file - in.chunk_start - 1) * gaofs::config::rpc::chunksize;
+            } else {
+                 origin_offsets[chnk_id_curr] = (chnk_id_file - in.chunk_start) * gaofs::config::rpc::chunksize;
+            }
+            if(chnk_id_curr == in.chunk_n - 1)
+                transfer_size = chnk_size_left_host;
+            bulk_buf_ptrs[chnk_id_curr] = chnk_ptr;
+            chnk_sizes[chnk_id_curr] = transfer_size;
+            chnk_ptr += transfer_size;
+            chnk_size_left_host -= transfer_size;
+        }
+
+        try {
+            // 进行将文件读取到内存然后推过去的行为
+            chunk_read_op.read_nonblock(chnk_id_curr, chnk_ids_host[chnk_id_curr], bulk_buf_ptrs[chnk_id_curr],
+                                        chnk_sizes[chnk_id_curr], (chnk_id_file == in.chunk_start)?in.offset:0);
+        } catch (const gaofs::data::ChunkReadOpException& e) {
+            GAOFS_DATA->spdlogger()->error("{}() while read_nonblock err '{}'",
+                                           __func__, e.what());
+            return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
+        }
+        chnk_id_curr++;
+    }
+
+    /*
+     * 4.等待输出结果
+     */
+    // 构造用于bulk wait的参数
+    gaofs::data::ChunkReadOperation::bulk_args bulk_args{};
+    bulk_args.mid = mid;
+    bulk_args.local_offsets = &local_offsets;
+    bulk_args.local_bulk_handle = bulk_handle;
+    bulk_args.origin_offsets = &origin_offsets;
+    bulk_args.origin_bulk_handle = in.bulk_handle;
+    bulk_args.origin_addr = hgi->addr;
+    bulk_args.chunk_ids = &chnk_ids_host;
+    // wait
+    auto read_result = chunk_read_op.wait_for_tasks_and_push_back(bulk_args);
+    out.err = read_result.first;
+    out.io_size = read_result.second;
+
+    /*
+     * 5. 传输结果并且释放资源
+     */
+    GAOFS_DATA->spdlogger()->debug("{}() Sending output response, err: {}",
+                                   __func__, out.err);
+    auto hret = gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
+    // TODO:statistics
+    return hret;
 }
 
 // 为文件截断请求提供服务，并删除这个守护进程上所有对应的块文件。
 // 截断操作包括减少元数据项的文件大小(如果元数据被哈希到这里)，并删除超过新文件大小的所有相应块。
 hg_return_t rpc_srv_truncate(hg_handle_t handle) {
     // 初始化输入输出参数
-    rpc_trunc_in_t in{};
+    rpc_trunc_data_in_t in{};
     rpc_err_out_t out{};
     out.err = EIO;
     // 获取输入结构
@@ -282,7 +379,7 @@ hg_return_t rpc_srv_truncate(hg_handle_t handle) {
     gaofs::data::ChunkTruncateOperation chunk_op{in.path};
     // 实际操作
     try {
-        chunk_op.truncate(in.length);
+        chunk_op.truncate(in.length, in.host_id, in.host_size);
     } catch (const gaofs::data::ChunkMetaOpException& e) {
         GAOFS_DATA->spdlogger()->error("{}() while truncate err '{}'",
                                        __func__, e.what());

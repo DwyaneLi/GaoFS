@@ -3,6 +3,7 @@
 //
 
 #include <daemon/ops/data.hpp>
+#include <daemon/ops/metadentry.hpp>
 #include <daemon/backend/data/chunk_storage.hpp>
 #include <common/arithmetic/arithmetic.hpp>
 #include <daemon/backend/metadata/db.hpp>
@@ -32,20 +33,39 @@ void ChunkTruncateOperation::clear_task_args() {
 // ABT_eventual* eventual;
 // 该函数由IO池驱动。因此，有一个每个守护进程允许的最大并发操作数。
 void ChunkTruncateOperation::truncate_abt(void *_arg) {
-    // TODO: 对first_chunk的处理逻辑需要添加, 但是0块可能不在这个结点，所以具体的处理逻辑还是得看client
     // 要使用pow2
     using namespace gaofs::utils::arithmetic;
     assert(_arg);
     auto* arg = static_cast<struct chunk_truncate_args*>(_arg);
     const string& path = *(arg->path);
     const size_t size = arg->size;
+    const uint64_t host_id = arg->host_id;
+    const uint64_t host_size = arg->host_size;
     int err_response = 0;
     try {
         // 算出要截断的起始的chunk_id
         auto chunk_id_start = block_index(size, gaofs::config::rpc::chunksize);
         // 查看超出块起始多少，如果在这个数据块的中间，则不能删除这个块
         auto left_pad = block_overrun(size, gaofs::config::rpc::chunksize);
+        // 如果第0块在当前结点上
+        if(RPC_DATA->distributor()->locate_data(path, chunk_id_start, host_size) == host_id) {
+            // TODO 如果是firstchunk, 目前的做法是就算leftpad为0，也不删掉first_chunk
+            if(chunk_id_start == 0) {
+                auto firstChunk = gaofs::metadata::get_first_chunk(path);
+                firstChunk.size(left_pad);
+                firstChunk.content(firstChunk.content().substr(0, left_pad));
+                chunk_id_start++;
+            } else {
+                if(left_pad != 0) {
+                    // 把单个块文件给截断
+                    GAOFS_DATA->storage()->truncate_chunk_file(path, chunk_id_start, left_pad);
 
+                    // ++是因为后面的chunk全都要被删除
+                    chunk_id_start++;
+                }
+            }
+        }
+        /*
         if(left_pad != 0) {
             // 把单个块文件给截断
             GAOFS_DATA->storage()->truncate_chunk_file(path, chunk_id_start, left_pad);
@@ -53,6 +73,7 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
             // ++是因为后面的chunk全都要被删除
             chunk_id_start++;
         }
+         */
         // 删除后面的所有chunk
         GAOFS_DATA->storage()->trim_chunk_space(path, chunk_id_start);
     } catch(const ChunkStorageException& err) {
@@ -72,7 +93,7 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
 }
 
 // 为截断操作启动微线程
-void ChunkTruncateOperation::truncate(size_t size) {
+void ChunkTruncateOperation::truncate(size_t size, uint64_t host_id, uint64_t host_size) {
     // 第一个回调一定要是空的，因为一个操作只允许有一个
     assert(!task_eventuals_[0]);
     GAOFS_DATA->spdlogger()->trace(
@@ -92,6 +113,8 @@ void ChunkTruncateOperation::truncate(size_t size) {
     auto& task_arg = task_arg_;
     task_arg.size = size;
     task_arg.path = &path_;
+    task_arg.host_id = host_id;
+    task_arg.host_size = host_size;
     task_arg_.eventual = task_eventuals_[0];
     // 启动微线程并且等着接受回调
     abt_err = ABT_task_create(RPC_DATA->io_pool(), truncate_abt, &task_arg_, &abt_tasks_[0]);

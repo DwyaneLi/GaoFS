@@ -100,6 +100,8 @@ private:
     struct chunk_truncate_args {
         const std::string* path; // 被操作的快目录的路径
         size_t  size; // 整个文件需要截断的大小
+        uint64_t host_id; // 当前结点的host_id,用于判断
+        uint64_t host_size; // host集群的大小
         ABT_eventual eventual; // 关联的回调 ABT_eventual是一个指针
     };
 
@@ -119,7 +121,7 @@ public:
     ~ChunkTruncateOperation() = default;
 
     // 对外进行truncate的接口，有rpc处理函数调用，并启动一个非阻塞的微线程
-    void truncate(size_t size);
+    void truncate(size_t size, uint64_t host_id, uint64_t host_size);
 
     // 等待微线程执行，返回0为成功，否则失败
     int wait_for_task();
@@ -137,6 +139,8 @@ private:
         gaofs::rpc::chnk_id_t chnk_id; // chunk id
         size_t size; // 要写的内容的大小
         off64_t off; // 对单个chunk的写偏移
+        uint64_t host_id; // 本机host id
+        uint64_t host_size; // host集群数量
         ABT_eventual eventual; // 回调
     };
 
