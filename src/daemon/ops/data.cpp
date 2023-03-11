@@ -7,7 +7,7 @@
 #include <daemon/backend/data/chunk_storage.hpp>
 #include <common/arithmetic/arithmetic.hpp>
 #include <daemon/backend/metadata/db.hpp>
-
+#include <algorithm>
 extern "C" {
 #include <mercury_types.h>
 }
@@ -54,6 +54,7 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
                 auto firstChunk = gaofs::metadata::get_first_chunk(path);
                 firstChunk.size(left_pad);
                 firstChunk.content(firstChunk.content().substr(0, left_pad));
+                gaofs::metadata::update_first_chunk(path, firstChunk);
                 chunk_id_start++;
             } else {
                 if(left_pad != 0) {
@@ -81,6 +82,16 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
                 "{}() {}",
                 __func__, err.what());
         err_response = err.code().value();
+    } catch(const gaofs::db_exception::NotFoundException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}() First chunk entry not found: '{}'",
+                __func__, path);
+        err_response = ENOENT;
+    } catch(const gaofs::db_exception::DBException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}(): path '{}' message '{}'",
+                __func__, path, err.what());
+        err_response = EIO;
     } catch(const exception& err) {
         GAOFS_DATA->spdlogger()->error(
                 "{}() Unexpected error truncating file '{}' to length '{}'",
@@ -181,13 +192,44 @@ void ChunkWriteOperation::write_file_abt(void *_arg) {
     // 记录写的数量
     ssize_t wrote{0};
     try {
+        // 如果是first_chunk,则进行相关处理
+        if(arg->chnk_id == 0) {
+            assert((arg->off+arg->size) <= gaofs::config::rpc::chunksize);
+            auto firstChunk = gaofs::metadata::get_first_chunk(path);;
+            auto content = firstChunk.content();
+            // 分情况处理，如果offset + size 比之前的first chunk的内容， content得扩容
+            if(arg->off + arg->size > content.size()) {
+                content.resize(arg->size + arg->off);
+            }
+
+            std::copy_n(arg->buf, arg->size, content.begin() + arg->off);
+            firstChunk.content(content);
+            firstChunk.size(content.size());
+            gaofs::metadata::update_first_chunk(path, firstChunk);
+            wrote = arg->size;
+        } else {
+            wrote = GAOFS_DATA->storage()->write_chunk(path, arg->chnk_id, arg->buf,
+                                                       arg->size, arg->off);
+        }
+        /*
         wrote = GAOFS_DATA->storage()->write_chunk(path, arg->chnk_id, arg->buf,
                                                    arg->size, arg->off);
+        */
     } catch(const ChunkStorageException& err) {
         GAOFS_DATA->spdlogger()->error(
                 "{}() {}",__func__, err.what());
         // 用负数来表示出错了，因为wrote可能是任何正数
         wrote = -(err.code().value());
+    } catch(const gaofs::db_exception::NotFoundException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}() First chunk entry not found: '{}'",
+                __func__, path);
+        wrote = -ENOENT;
+    } catch(const gaofs::db_exception::DBException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}(): path '{}' message '{}'",
+                __func__, path, err.what());
+        wrote = -EIO;
     } catch(const exception& err) {
         GAOFS_DATA->spdlogger()->error(
                 "{}() Unexpected error writing chunk {} of file {}",
@@ -303,11 +345,41 @@ void ChunkReadOperation::read_file_abt(void *_arg) {
     ssize_t read = 0;
 
     try {
+        // 对first chunk的处理
+        if(arg->chnk_id == 0) {
+            auto content = gaofs::metadata::get_content_first_chunk(path);
+            if(arg->size + arg->off >= content.size()) {
+                if(arg->off >= content.size()) {
+                    read = 0;
+                } else {
+                    read = content.size() - arg->off;
+                    std::copy(content.begin()+arg->off, content.end(), arg->buf);
+                }
+            } else {
+                read = arg->size;
+                std::copy_n(content.begin()+arg->off, arg->size, arg->buf);
+            }
+        } else {
+            read = GAOFS_DATA->storage()->read_chunk(path, arg->chnk_id, arg->buf,
+                                                     arg->size, arg->off);
+        }
+        /*
         read = GAOFS_DATA->storage()->read_chunk(path, arg->chnk_id, arg->buf,
                                                  arg->size, arg->off);
+        */
     } catch(const ChunkStorageException& err) {
         GAOFS_DATA->spdlogger()->error("{}() {}", __func__, err.what());
         read = -(err.code().value());
+    } catch(const gaofs::db_exception::NotFoundException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}() First chunk entry not found: '{}'",
+                __func__, path);
+        read = -ENOENT;
+    } catch(const gaofs::db_exception::DBException& err) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}(): path '{}' message '{}'",
+                __func__, path, err.what());
+        read = -EIO;
     } catch(const exception& err) {
         GAOFS_DATA->spdlogger()->error(
                 "{}() Unexpected error reading chunk {} of file {}",

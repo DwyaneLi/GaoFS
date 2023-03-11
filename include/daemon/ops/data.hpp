@@ -139,8 +139,6 @@ private:
         gaofs::rpc::chnk_id_t chnk_id; // chunk id
         size_t size; // 要写的内容的大小
         off64_t off; // 对单个chunk的写偏移
-        uint64_t host_id; // 本机host id
-        uint64_t host_size; // host集群数量
         ABT_eventual eventual; // 回调
     };
 
