@@ -69,6 +69,10 @@ void remove(const std::string& path) {
     }
 }
 
+bool exists(const std::string& path) {
+    return GAOFS_DATA->mdb()->exists(path);
+}
+
 std::string get_str_first_chunk(const std::string& path) {
     return GAOFS_DATA->mdb()->get_first_chunk(path);
 }
@@ -97,8 +101,18 @@ void update_first_chunk(const std::string& path, First_chunk& firstChunk) {
     GAOFS_DATA->mdb()->update_first_chunk(path, path, firstChunk.serialize());
 }
 
+// 也不处理NotFound
 void remove_first_chunk(const std::string& path) {
-    GAOFS_DATA->mdb()->remove_first_chunk(path);
+    try {
+        GAOFS_DATA->mdb()->remove_first_chunk(path);
+    } catch (const gaofs::db_exception::NotFoundException& e) {
+
+    }
+
+}
+
+bool exists_first_chunk(const std::string& path) {
+    return GAOFS_DATA->mdb()->exists_first_chunk(path);
 }
 
 } // namespace gaofs::metadata

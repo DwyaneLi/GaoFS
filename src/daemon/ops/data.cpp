@@ -49,13 +49,18 @@ void ChunkTruncateOperation::truncate_abt(void *_arg) {
         auto left_pad = block_overrun(size, gaofs::config::rpc::chunksize);
         // 如果第0块在当前结点上
         if(RPC_DATA->distributor()->locate_data(path, chunk_id_start, host_size) == host_id) {
-            // TODO 如果是firstchunk, 目前的做法是就算leftpad为0，也不删掉first_chunk
+            // first chunk处理
             if(chunk_id_start == 0) {
-                auto firstChunk = gaofs::metadata::get_first_chunk(path);
-                firstChunk.size(left_pad);
-                firstChunk.content(firstChunk.content().substr(0, left_pad));
-                gaofs::metadata::update_first_chunk(path, firstChunk);
+                if(left_pad != 0) {
+                    auto firstChunk = gaofs::metadata::get_first_chunk(path);
+                    firstChunk.content(firstChunk.content().substr(0, left_pad));
+                    firstChunk.size(firstChunk.content().size());
+                    gaofs::metadata::update_first_chunk(path, firstChunk);
+                } else {
+                    gaofs::metadata::remove_first_chunk(path);
+                }
                 chunk_id_start++;
+
             } else {
                 if(left_pad != 0) {
                     // 把单个块文件给截断
@@ -195,18 +200,31 @@ void ChunkWriteOperation::write_file_abt(void *_arg) {
         // 如果是first_chunk,则进行相关处理
         if(arg->chnk_id == 0) {
             assert((arg->off+arg->size) <= gaofs::config::rpc::chunksize);
-            auto firstChunk = gaofs::metadata::get_first_chunk(path);;
-            auto content = firstChunk.content();
-            // 分情况处理，如果offset + size 比之前的first chunk的内容， content得扩容
-            if(arg->off + arg->size > content.size()) {
-                content.resize(arg->size + arg->off);
-            }
+            // 检查是否存在firstChunk，如果没有，则创建
+            if(!gaofs::metadata::exists_first_chunk(path)) {
+                gaofs::metadata::First_chunk newFirstChunk;
+                std::string newContent;
+                newContent.resize(arg->off + arg->size);
+                std::copy_n(arg->buf, arg->size, newContent.begin() + arg->off);
+                newFirstChunk.content(newContent);
+                newFirstChunk.size(newContent.size());
+                gaofs::metadata::create_first_chunk(path, newFirstChunk);
+            } else {
+            // 已经存在
+                auto firstChunk = gaofs::metadata::get_first_chunk(path);;
+                auto content = firstChunk.content();
+                // 分情况处理，如果offset + size 比之前的first chunk的内容， content得扩容
+                if(arg->off + arg->size > content.size()) {
+                    content.resize(arg->size + arg->off);
+                }
 
-            std::copy_n(arg->buf, arg->size, content.begin() + arg->off);
-            firstChunk.content(content);
-            firstChunk.size(content.size());
-            gaofs::metadata::update_first_chunk(path, firstChunk);
+                std::copy_n(arg->buf, arg->size, content.begin() + arg->off);
+                firstChunk.content(content);
+                firstChunk.size(content.size());
+                gaofs::metadata::update_first_chunk(path, firstChunk);
+            }
             wrote = arg->size;
+
         } else {
             wrote = GAOFS_DATA->storage()->write_chunk(path, arg->chnk_id, arg->buf,
                                                        arg->size, arg->off);

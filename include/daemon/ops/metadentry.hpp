@@ -30,6 +30,8 @@ void update_size(const std::string& path, size_t io_size, off_t offset, bool app
 
 void remove(const std::string& path);
 
+bool exists(const std::string& path);
+
 // firstchunk部分
 
 First_chunk get_first_chunk(const std::string& path);
@@ -45,6 +47,8 @@ void create_first_chunk(const std::string& path, First_chunk& firstChunk);
 void update_first_chunk(const std::string& path, First_chunk& firstChunk);
 
 void remove_first_chunk(const std::string& path);
+
+bool exists_first_chunk(const std::string& path);
 
 } //namespace gaofs::metadata
 

@@ -103,7 +103,6 @@ hg_return_t rpc_srv_write(hg_handle_t handle) {
      * 计算该主机上块对应的大小，传输数据，并启动写入磁盘的任务
      * */
     // 找到第一个散列到本机上的chunk
-    // TODO：first chunk相关操作, 放到ops中去做
     for(auto chnk_id_file = in.chunk_start; chnk_id_file <= in.chunk_end && chnk_id_curr < in.chunk_n; chnk_id_file++) {
         // TODO: forwarding
         // 不是定位在本机上的直接跳过

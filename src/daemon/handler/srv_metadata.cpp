@@ -162,8 +162,8 @@ hg_return_t rpc_srv_decr_size(hg_handle_t handle) {
 // 处理程序触发KV存储条目的删除，但仍然向客户机返回文件模式和大小信息。这是因为需要大小来删除所有数据块。
 // 首先删除元数据，以确保在元数据仍然可用时数据不会被删除。这可能会导致问题，因为一个统计请求会说文件仍然存在。
 // gaofs::config::metadata::implicit_data_removal提供了隐式删除元数据节点上数据块的优化。这可以提高小文件的删除性能。
+// 所以这里会删first chunk
 hg_return_t rpc_srv_remove_metadata(hg_handle_t handle) {
-    // TODO:first chunk处理
     // 初始化输入输出参数
     rpc_rm_node_in_t in{};
     rpc_rm_metadata_out_t out{};
@@ -251,8 +251,15 @@ hg_return_t rpc_srv_remove_data(hg_handle_t handle) {
 
     // 执行具体操作
     try {
+        // 也要删除first chunk
+        gaofs::metadata::remove_first_chunk(in.path);
         GAOFS_DATA->storage()->destroy_chunk_space(in.path);
         out.err = 0;
+    } catch (const gaofs::db_exception::DBException& e) {
+        out.err = EIO;
+        GAOFS_DATA->spdlogger()->error(
+                "{}(): path '{}' message '{}'",
+                __func__, in.path, e.what());
     } catch (const gaofs::data::ChunkStorageException& e) {
         out.err = e.code().value();
         GAOFS_DATA->spdlogger()->error(

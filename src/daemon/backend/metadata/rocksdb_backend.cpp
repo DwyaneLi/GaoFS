@@ -93,7 +93,7 @@ void RocksDBBackend::put_no_exist_impl(const std::string &key, const std::string
 
 void RocksDBBackend::remove_impl(const std::string &key) {
     auto s = db_->Delete(write_opts_, key);
-    if(!s.ok()) {
+    if(!s.ok() ) {
         throw_status_excpt(s);
     }
 }
@@ -236,7 +236,7 @@ void RocksDBBackend::put_first_chunk_impl(const std::string &key, const std::str
 }
 
 void RocksDBBackend::put_no_exist_first_chunk_impl(const std::string &key, const std::string &val) {
-    if(exists(key)) {
+    if(exists_first_chunk(key)) {
         throw gaofs::db_exception::ExistsException(key);
     }
     put_first_chunk(key, val);
