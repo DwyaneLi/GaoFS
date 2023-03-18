@@ -1,4 +1,5 @@
 /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install -G "CodeBlocks - Unix Makefiles" /home/dwyaneli/gaofs
+-- [gekkofs] Maximum log message size in the client library: 1024
 -- Module support is disabled.
 -- Version: 9.1.1
 -- Build type: Debug

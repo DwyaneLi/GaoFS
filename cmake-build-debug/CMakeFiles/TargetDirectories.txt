@@ -71,3 +71,10 @@
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/storage.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/install/local.dir
 /home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/data_module.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/install/strip.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/install/local.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/install.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/list_install_components.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/rebuild_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/edit_cache.dir
+/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir

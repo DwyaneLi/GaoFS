@@ -5,7 +5,7 @@
 		<Option title="GaoFS"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;CMake Files\src\client\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
@@ -84,6 +84,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -107,6 +108,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -131,6 +133,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -155,6 +158,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -178,6 +182,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -203,6 +208,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -228,6 +234,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -251,6 +258,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -274,6 +282,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -298,6 +307,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -322,6 +332,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -346,6 +357,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -370,6 +382,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -393,6 +406,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -416,6 +430,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -439,6 +454,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -462,6 +478,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -490,6 +507,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -519,6 +537,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -546,6 +565,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -572,6 +592,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -597,6 +618,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -622,6 +644,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -647,6 +670,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -672,6 +696,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -697,6 +722,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
@@ -713,6 +739,68 @@
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gaofs_intercept">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/client/libgaofs_intercept.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/client"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
+					<Add option="-DHERMES_DEBUG_BUILD"/>
+					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
+					<Add option="-DUSE_OS_TZDB=1"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/include/common/arithmetic"/>
+					<Add directory="/home/dwyaneli/gaofs/external/hermes/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 gaofs_intercept"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gaofs_intercept/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/client/libgaofs_intercept.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/client"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
+					<Add option="-DHERMES_DEBUG_BUILD"/>
+					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
+					<Add option="-DUSE_OS_TZDB=1"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/home/dwyaneli/gaofs/include/common/arithmetic"/>
+					<Add directory="/home/dwyaneli/gaofs/external/hermes/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
+					<Add directory="/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 gaofs_intercept/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/client/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -1061,12 +1149,55 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/src/stdout_sinks.cpp">
 			<Option target="spdlog"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/env.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/logging.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/make_array.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/open_dir.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/open_file_map.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/path.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/args.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/decoder.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/detail/syscall_info.h">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/errno.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/rets.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/syscalls/syscall.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/arithmetic/arithmetic.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/common_defs.h">
 			<Option target="storage"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/env_util.hpp">
 			<Option target="env_util"/>
 			<Option target="gaofs_daemon"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/first_chunk.hpp">
 			<Option target="first_chunk"/>
@@ -1081,16 +1212,19 @@
 			<Option target="metadata"/>
 			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/path_util.hpp">
 			<Option target="path_util"/>
 			<Option target="gaofs_daemon"/>
 			<Option target="metadata_db"/>
 			<Option target="storage"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/distributor.hpp">
 			<Option target="distributor"/>
 			<Option target="gaofs_daemon"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_types.hpp">
 			<Option target="gaofs_daemon"/>
@@ -1161,6 +1295,21 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/util.hpp">
 			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/logging.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/open_dir.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/open_file_map.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/path.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/syscalls/detail/syscall_info.c">
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/env_util.cpp">
 			<Option target="env_util"/>
@@ -1273,6 +1422,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindAbt.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindDate.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindFilesystem.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
@@ -1286,6 +1438,9 @@
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindRocksDB.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindSyscall_intercept.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/CMakeLists.txt">
@@ -1305,6 +1460,9 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\daemon\backend\data\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\client\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -13,13 +13,20 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
 find_package(Mercury REQUIRED)
 find_package(Abt REQUIRED)
 find_package(Margo REQUIRED)
+find_package(Syscall_intercept REQUIRED)
 find_package(Threads REQUIRED)
 #find package
 # 有些编译器需要额外的std::filesystem标志，例如-lstdc++fs，它会生成一个导入std::filesystem的目标，透明地处理所有这些细节
 find_package(Filesystem REQUIRED)
 #
+find_package(Date REQUIRED)
 
 
+#设置最长log大小
+set(CLIENT_LOG_MESSAGE_SIZE 1024 CACHE STRING "Maximum size of a log message in the client library")
+add_definitions(-DLIBGAOFS_LOG_MESSAGE_SIZE=${CLIENT_LOG_MESSAGE_SIZE})
+message(STATUS "[gekkofs] Maximum log message size in the client library: ${CLIENT_LOG_MESSAGE_SIZE}")
+mark_as_advanced(CLIENT_LOG_MESSAGE_SIZE)
 
 #选项，使用哪个数据库，默认使用rocks db
 # option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
@@ -54,7 +61,7 @@ add_subdirectory(src/common)
 add_subdirectory(src/daemon)
 
 # Client components
-# add_subdirectory(src/client)
+add_subdirectory(src/client)
 
 # 将从{fmt}和spdlog导入的任何CMake变量标记为高级，以便它们不会出现在CMake -gui或ccmake中。FETCHCONTENT变量也是类似的。
 mark_as_advanced(REGEX "^(FETCHCONTENT|fmt|FMT|spdlog|SPDLOG)_.*$")

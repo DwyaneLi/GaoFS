@@ -418,3 +418,11 @@ hg_return_t rpc_srv_get_chunk_stat(hg_handle_t handle) {
 }
 
 } // namespace
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_chunk_stat)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_read)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_truncat)
+
+DECLARE_MARGO_RPC_HANDLER(rpc_srv_write)

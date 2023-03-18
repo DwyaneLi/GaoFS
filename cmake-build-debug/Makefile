@@ -325,6 +325,19 @@ data_module/fast:
 	$(MAKE) -f src/daemon/backend/data/CMakeFiles/data_module.dir/build.make src/daemon/backend/data/CMakeFiles/data_module.dir/build
 .PHONY : data_module/fast
 
+#=============================================================================
+# Target rules for targets named gaofs_intercept
+
+# Build rule for target.
+gaofs_intercept: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gaofs_intercept
+.PHONY : gaofs_intercept
+
+# fast build rule for target.
+gaofs_intercept/fast:
+	$(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/build
+.PHONY : gaofs_intercept/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -350,6 +363,7 @@ help:
 	@echo "... metadata_module"
 	@echo "... storage"
 	@echo "... data_module"
+	@echo "... gaofs_intercept"
 .PHONY : help
 
 

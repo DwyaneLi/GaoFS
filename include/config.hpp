@@ -5,6 +5,8 @@
 #ifndef GAOFS_CONFIG_HPP
 #define GAOFS_CONFIG_HPP
 
+#define CLIENT_ENV_PREFIX "LIBGAOFS_"
+
 namespace gaofs::config {
 
 namespace metadata {

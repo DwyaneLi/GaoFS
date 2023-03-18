@@ -16,6 +16,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "LIBGAOFS_LOG_MESSAGE_SIZE=1024"
   "SPDLOG_COMPILED_LIB"
   )
 

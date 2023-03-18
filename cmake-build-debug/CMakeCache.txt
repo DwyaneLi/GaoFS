@@ -20,6 +20,9 @@ ABT_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
 //Path to a library.
 ABT_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libabt.so
 
+//Maximum size of a log message in the client library
+CLIENT_LOG_MESSAGE_SIZE:STRING=1024
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
@@ -304,6 +307,9 @@ CXX_FILESYSTEM_IS_EXPERIMENTAL:BOOL=FALSE
 //The C++ namespace that contains the filesystem APIs
 CXX_FILESYSTEM_NAMESPACE:STRING=std::filesystem
 
+//Path to a file.
+DATE_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=/home/dwyaneli/gaofs/cmake-build-debug/_deps
 
@@ -560,6 +566,21 @@ SPDLOG_WCHAR_SUPPORT:BOOL=OFF
 //The directory containing a CMake configuration file for Sanitizers.
 Sanitizers_DIR:PATH=Sanitizers_DIR-NOTFOUND
 
+//The directory containing a CMake configuration file for Syscall_intercapt.
+Syscall_intercapt_DIR:PATH=Syscall_intercapt_DIR-NOTFOUND
+
+//Path to a file.
+Syscall_intercept_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+Syscall_intercept_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libsyscall_intercept.so
+
+//Path to a file.
+TZ_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Path to a library.
+TZ_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libtz.so
+
 //Path to a library.
 pkgcfg_lib_PC_MERCURY_mercury:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury.so
 
@@ -571,6 +592,9 @@ pkgcfg_lib_PC_MERCURY_mercury_util:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_
 
 //Path to a library.
 pkgcfg_lib_PC_MERCURY_na:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libna.so
+
+//Path to a library.
+pkgcfg_lib_PC_Syscall_intercept_syscall_intercept:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libsyscall_intercept.so
 
 //Value Computed by CMake
 spdlog_BINARY_DIR:STATIC=/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog
@@ -587,6 +611,8 @@ spdlog_SOURCE_DIR:STATIC=/home/dwyaneli/gaofs/external/spdlog
 ABT_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ABT_LIBRARY
 ABT_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CLIENT_LOG_MESSAGE_SIZE
+CLIENT_LOG_MESSAGE_SIZE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -735,7 +761,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -784,8 +810,12 @@ CXX_FILESYSTEM_NO_LINK_NEEDED:INTERNAL=1
 CXX_FILESYSTEM_NO_LINK_NEEDED_COMPILED:INTERNAL=TRUE
 //Result of TRY_RUN
 CXX_FILESYSTEM_NO_LINK_NEEDED_EXITCODE:INTERNAL=0
+//ADVANCED property for variable: DATE_INCLUDE_DIR
+DATE_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //Details about finding Abt
 FIND_PACKAGE_MESSAGE_DETAILS_Abt:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libabt.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
+//Details about finding Date
+FIND_PACKAGE_MESSAGE_DETAILS_Date:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libtz.so][v()]
 //Details about finding LZ4
 FIND_PACKAGE_MESSAGE_DETAILS_LZ4:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
 //Details about finding Margo
@@ -796,6 +826,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_Mercury:INTERNAL=[/home/dwyaneli/gekkofs_test/gekko
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding RocksDB
 FIND_PACKAGE_MESSAGE_DETAILS_RocksDB:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][v()]
+//Details about finding Syscall_intercept
+FIND_PACKAGE_MESSAGE_DETAILS_Syscall_intercept:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libsyscall_intercept.so][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Test HAS_LIBURING
@@ -891,6 +923,41 @@ PC_MERCURY_mercury_INCLUDEDIR:INTERNAL=
 PC_MERCURY_mercury_LIBDIR:INTERNAL=
 PC_MERCURY_mercury_PREFIX:INTERNAL=
 PC_MERCURY_mercury_VERSION:INTERNAL=
+PC_Syscall_intercept_CFLAGS:INTERNAL=-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include;-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/capstone
+PC_Syscall_intercept_CFLAGS_I:INTERNAL=
+PC_Syscall_intercept_CFLAGS_OTHER:INTERNAL=
+PC_Syscall_intercept_FOUND:INTERNAL=1
+PC_Syscall_intercept_INCLUDEDIR:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+PC_Syscall_intercept_INCLUDE_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include;/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/capstone
+PC_Syscall_intercept_LDFLAGS:INTERNAL=-L/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib;-lsyscall_intercept
+PC_Syscall_intercept_LDFLAGS_OTHER:INTERNAL=
+PC_Syscall_intercept_LIBDIR:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_Syscall_intercept_LIBRARIES:INTERNAL=syscall_intercept
+PC_Syscall_intercept_LIBRARY_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_Syscall_intercept_LIBS:INTERNAL=
+PC_Syscall_intercept_LIBS_L:INTERNAL=
+PC_Syscall_intercept_LIBS_OTHER:INTERNAL=
+PC_Syscall_intercept_LIBS_PATHS:INTERNAL=
+PC_Syscall_intercept_MODULE_NAME:INTERNAL=libsyscall_intercept
+PC_Syscall_intercept_PREFIX:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install
+PC_Syscall_intercept_STATIC_CFLAGS:INTERNAL=-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include;-I/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/capstone
+PC_Syscall_intercept_STATIC_CFLAGS_I:INTERNAL=
+PC_Syscall_intercept_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_Syscall_intercept_STATIC_INCLUDE_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include;/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/capstone
+PC_Syscall_intercept_STATIC_LDFLAGS:INTERNAL=-L/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib;-lsyscall_intercept;-ldl;-lcapstone
+PC_Syscall_intercept_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_Syscall_intercept_STATIC_LIBDIR:INTERNAL=
+PC_Syscall_intercept_STATIC_LIBRARIES:INTERNAL=syscall_intercept;dl;capstone
+PC_Syscall_intercept_STATIC_LIBRARY_DIRS:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
+PC_Syscall_intercept_STATIC_LIBS:INTERNAL=
+PC_Syscall_intercept_STATIC_LIBS_L:INTERNAL=
+PC_Syscall_intercept_STATIC_LIBS_OTHER:INTERNAL=
+PC_Syscall_intercept_STATIC_LIBS_PATHS:INTERNAL=
+PC_Syscall_intercept_VERSION:INTERNAL=
+PC_Syscall_intercept_libsyscall_intercept_INCLUDEDIR:INTERNAL=
+PC_Syscall_intercept_libsyscall_intercept_LIBDIR:INTERNAL=
+PC_Syscall_intercept_libsyscall_intercept_PREFIX:INTERNAL=
+PC_Syscall_intercept_libsyscall_intercept_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
@@ -901,6 +968,14 @@ ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 ROCKSDB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ROCKSDB_LIBRARY
 ROCKSDB_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Syscall_intercept_INCLUDE_DIR
+Syscall_intercept_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Syscall_intercept_LIBRARY
+Syscall_intercept_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: TZ_INCLUDE_DIR
+TZ_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: TZ_LIBRARY
+TZ_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: _CXX_FILESYSTEM_HAVE_HEADER
 _CXX_FILESYSTEM_HAVE_HEADER-ADVANCED:INTERNAL=1
 //Have include filesystem
@@ -908,7 +983,9 @@ _CXX_FILESYSTEM_HAVE_HEADER:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 __pkg_config_arguments_PC_MERCURY:INTERNAL=QUIET;mercury
+__pkg_config_arguments_PC_Syscall_intercept:INTERNAL=QUIET;libsyscall_intercept
 __pkg_config_checked_PC_MERCURY:INTERNAL=1
+__pkg_config_checked_PC_Syscall_intercept:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury
 pkgcfg_lib_PC_MERCURY_mercury-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury_hl
@@ -917,5 +994,7 @@ pkgcfg_lib_PC_MERCURY_mercury_hl-ADVANCED:INTERNAL=1
 pkgcfg_lib_PC_MERCURY_mercury_util-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_na
 pkgcfg_lib_PC_MERCURY_na-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_Syscall_intercept_syscall_intercept
+pkgcfg_lib_PC_Syscall_intercept_syscall_intercept-ADVANCED:INTERNAL=1
 prefix_result:INTERNAL=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib
 

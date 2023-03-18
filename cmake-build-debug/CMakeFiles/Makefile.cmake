@@ -8,11 +8,13 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMake/FindAbt.cmake"
+  "../CMake/FindDate.cmake"
   "../CMake/FindFilesystem.cmake"
   "../CMake/FindJeMalloc.cmake"
   "../CMake/FindLZ4.cmake"
   "../CMake/FindMargo.cmake"
   "../CMake/FindRocksDB.cmake"
+  "../CMake/FindSyscall_intercept.cmake"
   "../CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
@@ -26,6 +28,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../external/spdlog/CMakeLists.txt"
   "../external/spdlog/cmake/ide.cmake"
   "../external/spdlog/cmake/utils.cmake"
+  "../src/client/CMakeLists.txt"
   "../src/common/CMakeLists.txt"
   "../src/common/arithmetic/CMakeLists.txt"
   "../src/daemon/CMakeLists.txt"
@@ -95,6 +98,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/daemon/backend/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/metadata/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/daemon/backend/data/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/client/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -112,4 +116,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/DependInfo.cmake"
   "src/daemon/backend/data/CMakeFiles/storage.dir/DependInfo.cmake"
   "src/daemon/backend/data/CMakeFiles/data_module.dir/DependInfo.cmake"
+  "src/client/CMakeFiles/gaofs_intercept.dir/DependInfo.cmake"
   )

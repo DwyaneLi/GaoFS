@@ -5,7 +5,7 @@
 		<Option title="FMT"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;CMake Files\src\client\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
@@ -24,6 +24,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -47,6 +48,7 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
@@ -160,6 +162,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindAbt.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindDate.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindFilesystem.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
@@ -173,6 +178,9 @@
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMake/FindRocksDB.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/CMake/FindSyscall_intercept.cmake">
 			<Option virtualFolder="CMake Files\CMake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/CMakeLists.txt">
@@ -192,6 +200,9 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\daemon\backend\data\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\client\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
