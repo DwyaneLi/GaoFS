@@ -490,6 +490,24 @@ ROCKSDB_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/includ
 //Path to a library.
 ROCKSDB_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a
 
+//Enable AddressSanitizer for sanitized targets.
+SANITIZE_ADDRESS:BOOL=OFF
+
+//Enable LeakSanitizer for sanitized targets.
+SANITIZE_LEAK:BOOL=OFF
+
+//Try to link static against sanitizers.
+SANITIZE_LINK_STATIC:BOOL=OFF
+
+//Enable MemorySanitizer for sanitized targets.
+SANITIZE_MEMORY:BOOL=OFF
+
+//Enable ThreadSanitizer for sanitized targets.
+SANITIZE_THREAD:BOOL=OFF
+
+//Enable UndefinedBehaviorSanitizer for sanitized targets.
+SANITIZE_UNDEFINED:BOOL=OFF
+
 //Build all artifacts
 SPDLOG_BUILD_ALL:BOOL=OFF
 

@@ -5,7 +5,7 @@
 		<Option title="HERMES"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;CMake Files\src\client\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\external\hermes\;CMake Files\external\hermes\cmake\;CMake Files\external\hermes\externals\;CMake Files\external\hermes\externals\sanitizers-cmake\;CMake Files\external\hermes\externals\sanitizers-cmake\cmake\;CMake Files\..\;CMake Files\..\gekkofs_test\;CMake Files\..\gekkofs_test\gekkofs_deps\;CMake Files\..\gekkofs_test\gekkofs_deps\install\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\;CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\;CMake Files\CMake\;CMake Files\src\;CMake Files\src\common\;CMake Files\src\common\arithmetic\;CMake Files\src\daemon\;CMake Files\src\daemon\backend\;CMake Files\src\daemon\backend\metadata\;CMake Files\src\daemon\backend\data\;CMake Files\src\client\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/hermes"/>
@@ -47,6 +47,27 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/hermes/cmake/hermes_options.cmake">
 			<Option virtualFolder="CMake Files\external\hermes\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindASan.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindLeakSan.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindMSan.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindSanitizers.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindTSan.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/FindUBSan.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/hermes/externals/sanitizers-cmake/cmake/sanitize-helpers.cmake">
+			<Option virtualFolder="CMake Files\external\hermes\externals\sanitizers-cmake\cmake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/../gekkofs_test/gekkofs_deps/install/share/cmake/mercury/mercury-config-version.cmake">
 			<Option virtualFolder="CMake Files\..\gekkofs_test\gekkofs_deps\install\share\cmake\mercury\"/>
