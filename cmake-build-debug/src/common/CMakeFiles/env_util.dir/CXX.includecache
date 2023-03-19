@@ -6,15 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../include/common/env_util.hpp
-string
--
-
-/home/dwyaneli/gaofs/src/common/env_util.cpp
-string
--
-common/env_util.hpp
--
-cstdlib
--
-

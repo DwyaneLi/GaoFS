@@ -848,8 +848,12 @@ FIND_PACKAGE_MESSAGE_DETAILS_RocksDB:INTERNAL=[/home/dwyaneli/gekkofs_test/gekko
 FIND_PACKAGE_MESSAGE_DETAILS_Syscall_intercept:INTERNAL=[/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include][/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libsyscall_intercept.so][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Test FMT_HAS_VARIANT
+FMT_HAS_VARIANT:INTERNAL=1
 //Test HAS_LIBURING
 HAS_LIBURING:INTERNAL=
+//Have symbol strtod_l
+HAVE_STRTOD_L:INTERNAL=
 //Test HERMES_HAS_G3
 HERMES_HAS_G3:INTERNAL=1
 //Test HERMES_HAS_GGDB
@@ -986,6 +990,10 @@ ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 ROCKSDB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ROCKSDB_LIBRARY
 ROCKSDB_LIBRARY-ADVANCED:INTERNAL=1
+//Test SUPPORTS_USER_DEFINED_LITERALS
+SUPPORTS_USER_DEFINED_LITERALS:INTERNAL=1
+//Test SUPPORTS_VARIADIC_TEMPLATES
+SUPPORTS_VARIADIC_TEMPLATES:INTERNAL=1
 //ADVANCED property for variable: Syscall_intercept_INCLUDE_DIR
 Syscall_intercept_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Syscall_intercept_LIBRARY
@@ -1004,6 +1012,10 @@ __pkg_config_arguments_PC_MERCURY:INTERNAL=QUIET;mercury
 __pkg_config_arguments_PC_Syscall_intercept:INTERNAL=QUIET;libsyscall_intercept
 __pkg_config_checked_PC_MERCURY:INTERNAL=1
 __pkg_config_checked_PC_Syscall_intercept:INTERNAL=1
+//Test has_std_17_flag
+has_std_17_flag:INTERNAL=1
+//Test has_std_1z_flag
+has_std_1z_flag:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury
 pkgcfg_lib_PC_MERCURY_mercury-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_PC_MERCURY_mercury_hl

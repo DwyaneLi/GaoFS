@@ -4,7 +4,6 @@
 src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o
  ../external/fmt/include/fmt/core.h
  ../external/fmt/include/fmt/format.h
- ../external/fmt/include/fmt/xchar.h
  ../external/spdlog/include/spdlog/common-inl.h
  ../external/spdlog/include/spdlog/common.h
  ../external/spdlog/include/spdlog/details/backtracer-inl.h
@@ -46,6 +45,8 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o
  ../external/spdlog/include/spdlog/spdlog.h
  ../external/spdlog/include/spdlog/tweakme.h
  ../external/spdlog/include/spdlog/version.h
+ ../include/common/common_defs.h
+ ../include/daemon/backend/data/chunk_storage.hpp
  ../include/daemon/backend/exceptions.hpp
  ../include/daemon/backend/metadata/db.hpp
  ../include/daemon/backend/metadata/metadata_backend.hpp
@@ -90,7 +91,6 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/classes/fs_data.cpp.o
 src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o
  ../external/fmt/include/fmt/core.h
  ../external/fmt/include/fmt/format.h
- ../external/fmt/include/fmt/xchar.h
  ../external/spdlog/include/spdlog/common-inl.h
  ../external/spdlog/include/spdlog/common.h
  ../external/spdlog/include/spdlog/details/backtracer-inl.h
@@ -132,18 +132,246 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o
  ../external/spdlog/include/spdlog/spdlog.h
  ../external/spdlog/include/spdlog/tweakme.h
  ../external/spdlog/include/spdlog/version.h
+ ../include/common/common_defs.h
  ../include/common/first_chunk.hpp
  ../include/common/metadata.hpp
  ../include/common/rpc/distributor.hpp
  ../include/config.hpp
+ ../include/daemon/backend/data/chunk_storage.hpp
  ../include/daemon/backend/exceptions.hpp
  ../include/daemon/backend/metadata/db.hpp
  ../include/daemon/backend/metadata/metadata_backend.hpp
  ../include/daemon/backend/metadata/rocksdb_backend.hpp
  ../include/daemon/classes/fs_data.hpp
+ ../include/daemon/classes/rpc_data.hpp
  ../include/daemon/daemon.hpp
  ../include/daemon/ops/metadentry.hpp
  /home/dwyaneli/gaofs/src/daemon/daemon.cpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/abt.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/add.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/dec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/detail/div_base.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/div.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/inc.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/mod.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/mul.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/sub.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/data.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/detail/get_data.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/greater.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/greater_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/less.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/less_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/not_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/config/config.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/config/limits.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/deduce_d.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/dmc/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/edg/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/msvc/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/expr_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/expr_iif.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/iif.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/assert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/error.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/line.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/auto_rec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/check.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/dmc/auto_rec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/is_binary.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/is_unary.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/split.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/apply.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/detail/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/expand.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/identity.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/intercept.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_1.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_empty_variadic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/overload.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/iterate.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/local.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/self.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/library.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/adt.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/append.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/at.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/dmc/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/edg/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/edg/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/filter.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/first_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each_i.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each_product.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/rest_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/and.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitand.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitnor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitxor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bool.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/compl.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/nor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/not.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/or.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/xor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/comma.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/comma_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/detail/is_begin_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/is_begin_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/paren.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/paren_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/remove_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/deduce_r.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/deduce_z.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/dmc/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/edg/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/msvc/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params_with_a_default.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params_with_defaults.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/repeat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/repeat_from_to.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection/max.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection/min.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/binary_transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/split.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/to_list_msvc.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/filter.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/first_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each_i.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each_product.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/rest_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/subseq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/variadic_seq_to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot/detail/def.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot/slot.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/stringize.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/detail/is_single_return.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/eat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/rem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/detail/is_single_return.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/wstringize.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo-diag.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo-logging.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_bulk.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_compiler_attributes.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_config.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core_header.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core_types.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_header.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_macros.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc_bulk.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_types.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na_config.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na_types.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/advanced_options.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/cache.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/cleanable.h
@@ -182,7 +410,6 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/daemon.cpp.o
 src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o
  ../external/fmt/include/fmt/core.h
  ../external/fmt/include/fmt/format.h
- ../external/fmt/include/fmt/xchar.h
  ../external/spdlog/include/spdlog/common-inl.h
  ../external/spdlog/include/spdlog/common.h
  ../external/spdlog/include/spdlog/details/backtracer-inl.h
@@ -224,18 +451,246 @@ src/daemon/CMakeFiles/gaofs_daemon.dir/ops/metadentry.cpp.o
  ../external/spdlog/include/spdlog/spdlog.h
  ../external/spdlog/include/spdlog/tweakme.h
  ../external/spdlog/include/spdlog/version.h
+ ../include/common/common_defs.h
  ../include/common/first_chunk.hpp
  ../include/common/metadata.hpp
  ../include/common/rpc/distributor.hpp
  ../include/config.hpp
+ ../include/daemon/backend/data/chunk_storage.hpp
  ../include/daemon/backend/exceptions.hpp
  ../include/daemon/backend/metadata/db.hpp
  ../include/daemon/backend/metadata/metadata_backend.hpp
  ../include/daemon/backend/metadata/rocksdb_backend.hpp
  ../include/daemon/classes/fs_data.hpp
+ ../include/daemon/classes/rpc_data.hpp
  ../include/daemon/daemon.hpp
  ../include/daemon/ops/metadentry.hpp
  /home/dwyaneli/gaofs/src/daemon/ops/metadentry.cpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/abt.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/add.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/dec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/detail/div_base.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/div.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/inc.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/mod.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/mul.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/arithmetic/sub.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/data.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/detail/get_data.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/array/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/greater.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/greater_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/less.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/less_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/comparison/not_equal.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/config/config.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/config/limits.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/deduce_d.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/dmc/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/edg/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/msvc/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/detail/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/expr_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/expr_iif.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/iif.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/control/while.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/assert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/error.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/debug/line.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/auto_rec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/check.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/dmc/auto_rec.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/is_binary.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/is_unary.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/detail/split.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/apply.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/detail/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/expand.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/identity.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/intercept.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_1.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/is_empty_variadic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/facilities/overload.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/iterate.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/local.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/iteration/self.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/library.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/adt.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/append.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/at.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/dmc/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/edg/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/edg/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/detail/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/filter.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/first_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each_i.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/for_each_product.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/rest_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/list/transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/and.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitand.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitnor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bitxor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/bool.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/compl.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/nor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/not.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/or.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/logical/xor.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/comma.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/comma_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/detail/is_begin_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/is_begin_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/paren.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/paren_if.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/punctuation/remove_parens.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/deduce_r.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/deduce_z.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/dmc/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/edg/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/detail/msvc/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params_with_a_default.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_params_with_defaults.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_shifted_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing_binary_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/enum_trailing_params.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/for.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/repeat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/repetition/repeat_from_to.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection/max.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/selection/min.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/cat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/binary_transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/is_empty.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/split.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/detail/to_list_msvc.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/filter.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/first_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/fold_left.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/fold_right.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each_i.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/for_each_product.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/rest_n.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/subseq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/transform.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/seq/variadic_seq_to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot/detail/def.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/slot/slot.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/stringize.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/detail/is_single_return.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/eat.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/enum.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/insert.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/pop_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/pop_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/push_back.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/push_front.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/rem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/remove.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/replace.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/reverse.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/tuple/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/detail/is_single_return.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/elem.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/size.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_array.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_list.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_seq.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/variadic/to_tuple.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor/wstringize.hpp
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo-diag.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo-logging.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/margo.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_bulk.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_compiler_attributes.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_config.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core_header.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_core_types.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_header.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_macros.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc_bulk.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_types.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na_config.h
+ /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/na_types.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/advanced_options.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/cache.h
  /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/rocksdb/cleanable.h

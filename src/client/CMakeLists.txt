@@ -5,7 +5,9 @@ set(PRELOAD_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/syscalls/detail/syscall_info.c
         ${CMAKE_CURRENT_LIST_DIR}/open_file_map.cpp
         ${CMAKE_CURRENT_LIST_DIR}/open_dir.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/preload_util.cpp
     PUBLIC
+        ${INCLUDE_DIR}/client/preload_util.hpp
         ${INCLUDE_DIR}/client/syscalls.hpp
         ${INCLUDE_DIR}/client/open_file_map.hpp
         ${INCLUDE_DIR}/client/open_dir.hpp

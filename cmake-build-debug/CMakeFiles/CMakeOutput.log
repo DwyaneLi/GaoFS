@@ -632,3 +632,115 @@ make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CM
 
 Source file was:
 int main() { return 0; }
+Performing C++ SOURCE FILE Test has_std_17_flag succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e2a49/fast && /usr/bin/make -f CMakeFiles/cmTC_e2a49.dir/build.make CMakeFiles/cmTC_e2a49.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e2a49.dir/src.cxx.o
+/usr/bin/c++    -Dhas_std_17_flag   -std=c++17 -std=gnu++17 -o CMakeFiles/cmTC_e2a49.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e2a49
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2a49.dir/link.txt --verbose=1
+/usr/bin/c++   -Dhas_std_17_flag    CMakeFiles/cmTC_e2a49.dir/src.cxx.o  -o cmTC_e2a49 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test has_std_1z_flag succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a2077/fast && /usr/bin/make -f CMakeFiles/cmTC_a2077.dir/build.make CMakeFiles/cmTC_a2077.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a2077.dir/src.cxx.o
+/usr/bin/c++    -Dhas_std_1z_flag   -std=c++1z -std=gnu++17 -o CMakeFiles/cmTC_a2077.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a2077
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2077.dir/link.txt --verbose=1
+/usr/bin/c++   -Dhas_std_1z_flag    CMakeFiles/cmTC_a2077.dir/src.cxx.o  -o cmTC_a2077 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test has_std_17_flag succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_afece/fast && /usr/bin/make -f CMakeFiles/cmTC_afece.dir/build.make CMakeFiles/cmTC_afece.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_afece.dir/src.cxx.o
+/usr/bin/c++    -Dhas_std_17_flag   -std=c++17 -std=gnu++17 -o CMakeFiles/cmTC_afece.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_afece
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afece.dir/link.txt --verbose=1
+/usr/bin/c++   -Dhas_std_17_flag    CMakeFiles/cmTC_afece.dir/src.cxx.o  -o cmTC_afece 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test has_std_1z_flag succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f2ce9/fast && /usr/bin/make -f CMakeFiles/cmTC_f2ce9.dir/build.make CMakeFiles/cmTC_f2ce9.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f2ce9.dir/src.cxx.o
+/usr/bin/c++    -Dhas_std_1z_flag   -std=c++1z -std=gnu++17 -o CMakeFiles/cmTC_f2ce9.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f2ce9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2ce9.dir/link.txt --verbose=1
+/usr/bin/c++   -Dhas_std_1z_flag    CMakeFiles/cmTC_f2ce9.dir/src.cxx.o  -o cmTC_f2ce9 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test SUPPORTS_VARIADIC_TEMPLATES succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b7c91/fast && /usr/bin/make -f CMakeFiles/cmTC_b7c91.dir/build.make CMakeFiles/cmTC_b7c91.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b7c91.dir/src.cxx.o
+/usr/bin/c++    -DSUPPORTS_VARIADIC_TEMPLATES -std=c++17   -std=gnu++17 -o CMakeFiles/cmTC_b7c91.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b7c91
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7c91.dir/link.txt --verbose=1
+/usr/bin/c++   -DSUPPORTS_VARIADIC_TEMPLATES -std=c++17    CMakeFiles/cmTC_b7c91.dir/src.cxx.o  -o cmTC_b7c91 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+  template <class T, class ...Types>
+  struct S { typedef typename S<Types...>::type type; };
+  int main() {}
+Performing C++ SOURCE FILE Test SUPPORTS_USER_DEFINED_LITERALS succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2e3ab/fast && /usr/bin/make -f CMakeFiles/cmTC_2e3ab.dir/build.make CMakeFiles/cmTC_2e3ab.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2e3ab.dir/src.cxx.o
+/usr/bin/c++    -DSUPPORTS_USER_DEFINED_LITERALS -std=c++17   -std=gnu++17 -o CMakeFiles/cmTC_2e3ab.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2e3ab
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e3ab.dir/link.txt --verbose=1
+/usr/bin/c++   -DSUPPORTS_USER_DEFINED_LITERALS -std=c++17    CMakeFiles/cmTC_2e3ab.dir/src.cxx.o  -o cmTC_2e3ab 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+  void operator"" _udl(long double);
+  int main() {}
+Performing C++ SOURCE FILE Test FMT_HAS_VARIANT succeeded with the following output:
+Change Dir: /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_303e6/fast && /usr/bin/make -f CMakeFiles/cmTC_303e6.dir/build.make CMakeFiles/cmTC_303e6.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_303e6.dir/src.cxx.o
+/usr/bin/c++    -DFMT_HAS_VARIANT -std=c++1z   -std=gnu++17 -o CMakeFiles/cmTC_303e6.dir/src.cxx.o -c /home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_303e6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_303e6.dir/link.txt --verbose=1
+/usr/bin/c++   -DFMT_HAS_VARIANT -std=c++1z    CMakeFiles/cmTC_303e6.dir/src.cxx.o  -o cmTC_303e6 
+make[1]: Leaving directory '/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+  #include <variant>
+  int main() {}

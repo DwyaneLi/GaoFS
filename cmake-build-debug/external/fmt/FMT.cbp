@@ -72,9 +72,6 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/README.rst">
 			<Option target="fmt"/>
 		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/args.h">
-			<Option target="fmt"/>
-		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/chrono.h">
 			<Option target="fmt"/>
 		</Unit>
@@ -93,10 +90,13 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/format.h">
 			<Option target="fmt"/>
 		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/os.h">
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/locale.h">
 			<Option target="fmt"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/ostream.h">
+			<Option target="fmt"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/posix.h">
 			<Option target="fmt"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/printf.h">
@@ -105,16 +105,10 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/ranges.h">
 			<Option target="fmt"/>
 		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/std.h">
-			<Option target="fmt"/>
-		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/include/fmt/xchar.h">
-			<Option target="fmt"/>
-		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/src/format.cc">
 			<Option target="fmt"/>
 		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/src/os.cc">
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/src/posix.cc">
 			<Option target="fmt"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/CMakeLists.txt">
@@ -123,7 +117,7 @@
 		<Unit filename="/home/dwyaneli/gaofs/external/fmt/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\external\fmt\"/>
 		</Unit>
-		<Unit filename="/home/dwyaneli/gaofs/external/fmt/support/cmake/JoinPaths.cmake">
+		<Unit filename="/home/dwyaneli/gaofs/external/fmt/support/cmake/cxx14.cmake">
 			<Option virtualFolder="CMake Files\external\fmt\support\cmake\"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/external/spdlog/CMakeLists.txt">

@@ -70,29 +70,29 @@ external/fmt/CMakeFiles/fmt.dir/src/format.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fmt.dir/src/format.cc.s"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/external/fmt/src/format.cc -o CMakeFiles/fmt.dir/src/format.cc.s
 
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: external/fmt/CMakeFiles/fmt.dir/flags.make
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/src/os.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/fmt/CMakeFiles/fmt.dir/src/os.cc.o"
-	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fmt.dir/src/os.cc.o -c /home/dwyaneli/gaofs/external/fmt/src/os.cc
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: external/fmt/CMakeFiles/fmt.dir/flags.make
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/src/posix.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fmt.dir/src/posix.cc.o -c /home/dwyaneli/gaofs/external/fmt/src/posix.cc
 
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fmt.dir/src/os.cc.i"
-	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/external/fmt/src/os.cc > CMakeFiles/fmt.dir/src/os.cc.i
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fmt.dir/src/posix.cc.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/external/fmt/src/posix.cc > CMakeFiles/fmt.dir/src/posix.cc.i
 
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fmt.dir/src/os.cc.s"
-	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/external/fmt/src/os.cc -o CMakeFiles/fmt.dir/src/os.cc.s
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fmt.dir/src/posix.cc.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/external/fmt && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/external/fmt/src/posix.cc -o CMakeFiles/fmt.dir/src/posix.cc.s
 
 # Object files for target fmt
 fmt_OBJECTS = \
 "CMakeFiles/fmt.dir/src/format.cc.o" \
-"CMakeFiles/fmt.dir/src/os.cc.o"
+"CMakeFiles/fmt.dir/src/posix.cc.o"
 
 # External object files for target fmt
 fmt_EXTERNAL_OBJECTS =
 
 external/fmt/libfmtd.a: external/fmt/CMakeFiles/fmt.dir/src/format.cc.o
-external/fmt/libfmtd.a: external/fmt/CMakeFiles/fmt.dir/src/os.cc.o
+external/fmt/libfmtd.a: external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o
 external/fmt/libfmtd.a: external/fmt/CMakeFiles/fmt.dir/build.make
 external/fmt/libfmtd.a: external/fmt/CMakeFiles/fmt.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libfmtd.a"

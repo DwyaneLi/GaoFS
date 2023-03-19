@@ -7,6 +7,5 @@
     <mapping directory="$PROJECT_DIR$/external/hermes/externals/fmt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/hermes/externals/sanitizers-cmake" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/spdlog" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/fmt" vcs="Git" />
   </component>
 </project>

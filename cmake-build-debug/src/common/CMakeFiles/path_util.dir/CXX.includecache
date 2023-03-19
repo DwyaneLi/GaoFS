@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../include/common/path_util.hpp
-string
--
-vector
--
-
-/home/dwyaneli/gaofs/src/common/path_util.cpp
-common/path_util.hpp
--
-cstring
--
-system_error
--
-cassert
--
-

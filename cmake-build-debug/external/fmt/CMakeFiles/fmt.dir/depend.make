@@ -6,9 +6,9 @@ external/fmt/CMakeFiles/fmt.dir/src/format.cc.o: ../external/fmt/include/fmt/for
 external/fmt/CMakeFiles/fmt.dir/src/format.cc.o: ../external/fmt/include/fmt/format.h
 external/fmt/CMakeFiles/fmt.dir/src/format.cc.o: ../external/fmt/src/format.cc
 
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/include/fmt/core.h
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/include/fmt/format-inl.h
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/include/fmt/format.h
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/include/fmt/os.h
-external/fmt/CMakeFiles/fmt.dir/src/os.cc.o: ../external/fmt/src/os.cc
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/include/fmt/core.h
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/include/fmt/format-inl.h
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/include/fmt/format.h
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/include/fmt/posix.h
+external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o: ../external/fmt/src/posix.cc
 

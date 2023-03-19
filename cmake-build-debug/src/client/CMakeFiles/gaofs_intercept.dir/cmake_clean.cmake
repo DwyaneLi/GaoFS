@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/path.cpp.o"
+  "CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o"
   "libgaofs_intercept.pdb"
   "libgaofs_intercept.so"

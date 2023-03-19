@@ -279,6 +279,33 @@ path.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.s
 .PHONY : path.cpp.s
 
+preload_util.o: preload_util.cpp.o
+
+.PHONY : preload_util.o
+
+# target to build an object file
+preload_util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o
+.PHONY : preload_util.cpp.o
+
+preload_util.i: preload_util.cpp.i
+
+.PHONY : preload_util.i
+
+# target to preprocess a source file
+preload_util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.i
+.PHONY : preload_util.cpp.i
+
+preload_util.s: preload_util.cpp.s
+
+.PHONY : preload_util.s
+
+# target to generate assembly for a file
+preload_util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.s
+.PHONY : preload_util.cpp.s
+
 syscalls/detail/syscall_info.o: syscalls/detail/syscall_info.c.o
 
 .PHONY : syscalls/detail/syscall_info.o
@@ -331,6 +358,9 @@ help:
 	@echo "... path.o"
 	@echo "... path.i"
 	@echo "... path.s"
+	@echo "... preload_util.o"
+	@echo "... preload_util.i"
+	@echo "... preload_util.s"
 	@echo "... syscalls/detail/syscall_info.o"
 	@echo "... syscalls/detail/syscall_info.i"
 	@echo "... syscalls/detail/syscall_info.s"

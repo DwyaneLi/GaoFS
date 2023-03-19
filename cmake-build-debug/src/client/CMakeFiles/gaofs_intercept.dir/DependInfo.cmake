@@ -31,6 +31,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dwyaneli/gaofs/src/client/open_dir.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
   "/home/dwyaneli/gaofs/src/client/open_file_map.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
   "/home/dwyaneli/gaofs/src/client/path.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/preload_util.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

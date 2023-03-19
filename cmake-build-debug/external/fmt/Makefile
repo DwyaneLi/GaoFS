@@ -198,32 +198,32 @@ src/format.cc.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/format.cc.s
 .PHONY : src/format.cc.s
 
-src/os.o: src/os.cc.o
+src/posix.o: src/posix.cc.o
 
-.PHONY : src/os.o
+.PHONY : src/posix.o
 
 # target to build an object file
-src/os.cc.o:
-	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/os.cc.o
-.PHONY : src/os.cc.o
+src/posix.cc.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/posix.cc.o
+.PHONY : src/posix.cc.o
 
-src/os.i: src/os.cc.i
+src/posix.i: src/posix.cc.i
 
-.PHONY : src/os.i
+.PHONY : src/posix.i
 
 # target to preprocess a source file
-src/os.cc.i:
-	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/os.cc.i
-.PHONY : src/os.cc.i
+src/posix.cc.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/posix.cc.i
+.PHONY : src/posix.cc.i
 
-src/os.s: src/os.cc.s
+src/posix.s: src/posix.cc.s
 
-.PHONY : src/os.s
+.PHONY : src/posix.s
 
 # target to generate assembly for a file
-src/os.cc.s:
-	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/os.cc.s
-.PHONY : src/os.cc.s
+src/posix.cc.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f external/fmt/CMakeFiles/fmt.dir/build.make external/fmt/CMakeFiles/fmt.dir/src/posix.cc.s
+.PHONY : src/posix.cc.s
 
 # Help Target
 help:
@@ -241,9 +241,9 @@ help:
 	@echo "... src/format.o"
 	@echo "... src/format.i"
 	@echo "... src/format.s"
-	@echo "... src/os.o"
-	@echo "... src/os.i"
-	@echo "... src/os.s"
+	@echo "... src/posix.o"
+	@echo "... src/posix.i"
+	@echo "... src/posix.s"
 .PHONY : help
 
 

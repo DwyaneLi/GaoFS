@@ -15,92 +15,92 @@
 namespace gaofs::filemap {
 
 // 里面的某些方法要用到opendir
-    class Opendir;
+class OpenDir;
 
-    enum class OpenFile_flags {
-        append = 0,
-        creat,
-        trunc,
-        rdonly, // 只读
-        wronly, // 只写
-        rdwr,   // 可读可写
-        cloexec,
-        flag_count // 用来计数
-    };
+enum class OpenFile_flags {
+    append = 0,
+    creat,
+    trunc,
+    rdonly, // 只读
+    wronly, // 只写
+    rdwr,   // 可读可写
+    cloexec,
+    flag_count // 用来计数
+};
 
-    enum class FileType {
-        regular,
-        directory
-    };
+enum class FileType {
+    regular,
+    directory
+};
 
 
-    class OpenFile {
+class OpenFile {
 
-    protected:
-        FileType type_;
-        std::string path_; // 相对于挂载路径的path
-        std::array<bool, static_cast<int >(OpenFile_flags::flag_count)> flags_ = {{false}};
-        unsigned long pos_;
+protected:
+    FileType type_;
+    std::string path_; // 相对于挂载路径的path
+    std::array<bool, static_cast<int >(OpenFile_flags::flag_count)> flags_ = {{false}};
+    unsigned long pos_;
 
-        // 对于文件的互斥锁
-        std::mutex pos_mutex;
-        std::mutex flag_mutex;
+    // 对于文件的互斥锁
+    std::mutex pos_mutex_;
+    std::mutex flag_mutex_;
 
-    public:
-        OpenFile(const std::string& path, int flags, FileType type = FileType::regular);
+public:
+    OpenFile(const std::string& path, int flags, FileType type = FileType::regular);
 
-        // 析构函数
-        ~OpenFile() = default;
+    // 析构函数
+    ~OpenFile() = default;
 
-        // getter and setter
-        std::string path() const;
+    // getter and setter
+    std::string path() const;
 
-        void path(const std::string& path_);
+    void path(const std::string& path_);
 
-        unsigned long pos();
+    unsigned long pos();
 
-        void pos(unsigned long pos_);
+    void pos(unsigned long pos_);
 
-        bool get_flag(OpenFile_flags flag);
+    bool get_flag(OpenFile_flags flag);
 
-        void set_flag(OpenFile_flags flag, bool value);
+    void set_flag(OpenFile_flags flag, bool value);
 
-        FileType type() const;
-    };
+    FileType type() const;
+};
 
-    class OpenFileMap {
+class OpenFileMap {
 
-    private:
-        std::map<int, std::shared_ptr<OpenFile>> files_; // 打开的文件
-        std::recursive_mutex files_mutex_;
+private:
+    std::map<int, std::shared_ptr<OpenFile>> files_; // 打开的文件
+    std::recursive_mutex files_mutex_;
 
-        int safe_generate_fd_idx_();
+    int safe_generate_fd_idx_();
 
-        int fd_idx;
-        std::mutex fd_idx_mutex;
-        std::atomic<bool> fd_validation_needed; // 原子类，保护这个量
+    int fd_idx;
+    std::mutex fd_idx_mutex;
+    std::atomic<bool> fd_validation_needed; // 原子类，保护这个量
 
-    public:
-        OpenFileMap();
+public:
+    OpenFileMap();
 
-        std::shared_ptr<OpenFile> get(int fd);
+    std::shared_ptr<OpenFile> get(int fd);
 
-        std::shared_ptr<OpenDir> get_dir(int dirfd);
+    std::shared_ptr<OpenDir> get_dir(int dirfd);
 
-        bool exist(int fd);
+    bool exist(int fd);
 
-        int add(std::shared_ptr<OpenFile>);
+    int add(std::shared_ptr<OpenFile>);
 
-        bool remove(int fd);
+    bool remove(int fd);
 
-        int dup(int oldfd);
+    int dup(int oldfd);
 
-        int dup2(int oldfd, int newfd);
+    int dup2(int oldfd, int newfd);
 
-        int generate_fd_idx();
+    int generate_fd_idx();
 
-        int get_fd_idx();
-    };
+    int get_fd_idx();
+};
 
 } // namespace gaofs::filemap
 
