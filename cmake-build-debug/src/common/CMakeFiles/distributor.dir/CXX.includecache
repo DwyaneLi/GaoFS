@@ -6,25 +6,3 @@
 
 #IncludeRegexTransform: 
 
-../include/common/rpc/distributor.hpp
-config.hpp
--
-vector
--
-string
--
-numeric
--
-unordered_map
--
-fstream
--
-map
--
-
-../include/config.hpp
-
-/home/dwyaneli/gaofs/src/common/rpc/distributor.cpp
-common/rpc/distributor.hpp
--
-

@@ -6,7 +6,7 @@
 #define GAOFS_DATA_HPP
 
 #include <daemon/daemon.hpp>
-#include <common/common_defs.h>
+#include <common/common_defs.hpp>
 
 #include <string>
 #include <vector>

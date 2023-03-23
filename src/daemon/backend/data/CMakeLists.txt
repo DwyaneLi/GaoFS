@@ -25,7 +25,7 @@ target_sources(storage
         ${INCLUDE_DIR}/daemon/backend/data/chunk_storage.hpp
         PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}/chunk_storage.cpp
-        ${INCLUDE_DIR}/common/common_defs.h
+        ${INCLUDE_DIR}/common/common_defs.hpp
         ${INCLUDE_DIR}/daemon/backend/data/file_handle.hpp
         )
 

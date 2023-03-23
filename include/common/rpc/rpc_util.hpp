@@ -2,8 +2,8 @@
 // Created by DELL on 2023/2/27.
 //
 
-#ifndef GAOFS_RPC_UTIL_HPP
-#define GAOFS_RPC_UTIL_HPP
+#ifndef GAOFS_COMMON_RPC_UTIL_HPP
+#define GAOFS_COMMON_RPC_UTIL_HPP
 
 #include <string>
 
@@ -23,4 +23,4 @@ std::string get_my_hostname(bool short_hostname = false);
 
 // TODO: 有一个不使用的函数get_host_by_name
 }
-#endif //GAOFS_RPC_UTIL_HPP
+#endif //GAOFS_COMMON_RPC_UTIL_HPP

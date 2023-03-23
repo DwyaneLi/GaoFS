@@ -5,7 +5,7 @@
 #ifndef GAOFS_PRELOAD_UTIL_HPP
 #define GAOFS_PRELOAD_UTIL_HPP
 
-// TODO: include
+#include <client/preload.hpp>
 #include <common/metadata.hpp>
 #include <string>
 #include <iostream>
@@ -28,6 +28,7 @@ struct MetadentryUpdateFlags {
     bool path = false;
 };
 
+
 } // gaofs::metadata
 
 // Hermes instance
@@ -47,14 +48,15 @@ constexpr typename std::underlying_type<E>::type to_underlying(E e) {
 }
 
 // 通过rpc获取metadata
-std::optional<gkfs::metadata::Metadata> get_metadata(const std::string& path, bool follow_links = false);
+std::optional<gaofs::metadata::Metadata> get_metadata(const std::string& path, bool follow_links = false);
 
 // 把metadata转换成一个stat结构
 int metadata_to_stat(const std::string& path, const gaofs::metadata::Metadata& md, struct stat& attr);
 
 void load_hosts();
 
-void load_forwarding_map();
+// TODO: enable forwarding
+//void load_forwarding_map();
 
 std::vector<std::pair<std::string, std::string>> read_hosts_file();
 

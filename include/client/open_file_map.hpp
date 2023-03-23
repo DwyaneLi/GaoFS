@@ -89,13 +89,13 @@ public:
 
     bool exist(int fd);
 
-    int add(std::shared_ptr<OpenFile>);
+    int add(std::shared_ptr<OpenFile> open_file);
 
     bool remove(int fd);
 
-    int dup(int oldfd);
+    int dup(const int oldfd);
 
-    int dup2(int oldfd, int newfd);
+    int dup2(const int oldfd, const int newfd);
 
     int generate_fd_idx();
 

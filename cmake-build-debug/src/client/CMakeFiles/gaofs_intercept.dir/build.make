@@ -57,9 +57,61 @@ include src/client/CMakeFiles/gaofs_intercept.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o: ../src/client/rpc/forward_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o -c /home/dwyaneli/gaofs/src/client/rpc/forward_data.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/rpc/forward_data.cpp > CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/rpc/forward_data.cpp -o CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.s
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o: ../src/client/rpc/forward_metadata.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o -c /home/dwyaneli/gaofs/src/client/rpc/forward_metadata.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/rpc/forward_metadata.cpp > CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/rpc/forward_metadata.cpp -o CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.s
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o: ../src/client/rpc/forward_management.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o -c /home/dwyaneli/gaofs/src/client/rpc/forward_management.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/rpc/forward_management.cpp > CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/rpc/forward_management.cpp -o CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.s
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o: ../src/client/rpc/rpc_types.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o -c /home/dwyaneli/gaofs/src/client/rpc/rpc_types.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/rpc/rpc_types.cpp > CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/rpc/rpc_types.cpp -o CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.s
+
 src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o: ../src/client/path.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/path.cpp.o -c /home/dwyaneli/gaofs/src/client/path.cpp
 
 src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.i: cmake_force
@@ -72,7 +124,7 @@ src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.s: cmake_force
 
 src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o: ../src/client/logging.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/logging.cpp.o -c /home/dwyaneli/gaofs/src/client/logging.cpp
 
 src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.i: cmake_force
@@ -85,7 +137,7 @@ src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.s: cmake_force
 
 src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o: ../src/client/syscalls/detail/syscall_info.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o   -c /home/dwyaneli/gaofs/src/client/syscalls/detail/syscall_info.c
 
 src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.i: cmake_force
@@ -98,7 +150,7 @@ src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.s: cmak
 
 src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o: ../src/client/open_file_map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o -c /home/dwyaneli/gaofs/src/client/open_file_map.cpp
 
 src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.i: cmake_force
@@ -111,7 +163,7 @@ src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.s: cmake_force
 
 src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o: ../src/client/open_dir.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o -c /home/dwyaneli/gaofs/src/client/open_dir.cpp
 
 src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.i: cmake_force
@@ -124,7 +176,7 @@ src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.s: cmake_force
 
 src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
 src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o: ../src/client/preload_util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o -c /home/dwyaneli/gaofs/src/client/preload_util.cpp
 
 src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.i: cmake_force
@@ -135,24 +187,62 @@ src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/preload_util.cpp.s"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/preload_util.cpp -o CMakeFiles/gaofs_intercept.dir/preload_util.cpp.s
 
+src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o: ../src/client/preload.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/preload.cpp.o -c /home/dwyaneli/gaofs/src/client/preload.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/preload.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/preload.cpp > CMakeFiles/gaofs_intercept.dir/preload.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/preload.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/preload.cpp -o CMakeFiles/gaofs_intercept.dir/preload.cpp.s
+
+src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o: src/client/CMakeFiles/gaofs_intercept.dir/flags.make
+src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o: ../src/client/preload_context.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o -c /home/dwyaneli/gaofs/src/client/preload_context.cpp
+
+src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gaofs_intercept.dir/preload_context.cpp.i"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dwyaneli/gaofs/src/client/preload_context.cpp > CMakeFiles/gaofs_intercept.dir/preload_context.cpp.i
+
+src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gaofs_intercept.dir/preload_context.cpp.s"
+	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dwyaneli/gaofs/src/client/preload_context.cpp -o CMakeFiles/gaofs_intercept.dir/preload_context.cpp.s
+
 # Object files for target gaofs_intercept
 gaofs_intercept_OBJECTS = \
+"CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o" \
+"CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o" \
+"CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o" \
+"CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o" \
 "CMakeFiles/gaofs_intercept.dir/path.cpp.o" \
 "CMakeFiles/gaofs_intercept.dir/logging.cpp.o" \
 "CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o" \
 "CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o" \
 "CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o" \
-"CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
+"CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o" \
+"CMakeFiles/gaofs_intercept.dir/preload.cpp.o" \
+"CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o"
 
 # External object files for target gaofs_intercept
 gaofs_intercept_EXTERNAL_OBJECTS =
 
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/syscalls/detail/syscall_info.c.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o
+src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/build.make
 src/client/libgaofs_intercept.so: src/common/libmetadata.a
 src/client/libgaofs_intercept.so: src/common/libdistributor.a
@@ -168,7 +258,7 @@ src/client/libgaofs_intercept.so: /home/dwyaneli/gekkofs_test/gekkofs_deps/insta
 src/client/libgaofs_intercept.so: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury.so
 src/client/libgaofs_intercept.so: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_hl.so
 src/client/libgaofs_intercept.so: src/client/CMakeFiles/gaofs_intercept.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libgaofs_intercept.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dwyaneli/gaofs/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX shared library libgaofs_intercept.so"
 	cd /home/dwyaneli/gaofs/cmake-build-debug/src/client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gaofs_intercept.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

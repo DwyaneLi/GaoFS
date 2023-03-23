@@ -427,6 +427,9 @@ MARGO_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
 //Path to a library.
 MARGO_LIBRARY:FILEPATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmargo.so
 
+//Number of file descriptors reserved for internal use
+MAX_INTERNAL_FDS:STRING=256
+
 //Path to a file.
 MCHECKSUM_INCLUDE_DIR:PATH=MCHECKSUM_INCLUDE_DIR-NOTFOUND
 

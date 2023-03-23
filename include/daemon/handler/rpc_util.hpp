@@ -2,8 +2,8 @@
 // Created by DELL on 2023/2/28.
 //
 
-#ifndef GAOFS_RPC_UTIL_HPP
-#define GAOFS_RPC_UTIL_HPP
+#ifndef GAOFS_DAEMON_RPC_UTIL_HPP
+#define GAOFS_DAEMON_RPC_UTIL_HPP
 
 extern "C" {
 #include <mercury_types.h>
@@ -98,4 +98,4 @@ inline hg_return_t cleanup_respond(hg_handle_t* handle, OutputType* output) {
 
 } // namespace gaofs::rpc
 
-#endif //GAOFS_RPC_UTIL_HPP
+#endif //GAOFS_DAEMON_RPC_UTIL_HPP

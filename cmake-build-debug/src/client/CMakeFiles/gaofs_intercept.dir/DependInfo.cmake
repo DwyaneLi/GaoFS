@@ -14,6 +14,8 @@ set(CMAKE_TARGET_DEFINITIONS_C
   "HERMES_DEBUG_BUILD"
   "HERMES_MARGO_COMPATIBLE_MODE"
   "LIBGAOFS_LOG_MESSAGE_SIZE=1024"
+  "MAX_INTERNAL_FDS=256"
+  "MAX_OPEN_FDS=1024"
   "USE_OS_TZDB=1"
   "gaofs_intercept_EXPORTS"
   )
@@ -31,7 +33,13 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dwyaneli/gaofs/src/client/open_dir.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
   "/home/dwyaneli/gaofs/src/client/open_file_map.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
   "/home/dwyaneli/gaofs/src/client/path.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/preload.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/preload_context.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o"
   "/home/dwyaneli/gaofs/src/client/preload_util.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/rpc/forward_data.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/rpc/forward_management.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/rpc/forward_metadata.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/rpc/rpc_types.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -40,6 +48,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "HERMES_DEBUG_BUILD"
   "HERMES_MARGO_COMPATIBLE_MODE"
   "LIBGAOFS_LOG_MESSAGE_SIZE=1024"
+  "MAX_INTERNAL_FDS=256"
+  "MAX_OPEN_FDS=1024"
   "USE_OS_TZDB=1"
   "gaofs_intercept_EXPORTS"
   )

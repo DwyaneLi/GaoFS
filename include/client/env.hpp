@@ -13,7 +13,7 @@
 namespace gaofs::env {
 
     static constexpr auto LOG = ADD_PREFIX("LOG");
-
+    // TODO: GAOFS_DEBUG_BUILD
 #ifdef GAOFS_DEBUG_BUILD
     static constexpr auto LOG_DEBUG_VERBOSITY = ADD_PREFIX("LOG_DEBUG_VERBOSITY");
 static constexpr auto LOG_SYSCALL_FILTER = ADD_PREFIX("LOG_SYSCALL_FILTER");

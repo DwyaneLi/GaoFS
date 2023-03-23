@@ -21,6 +21,21 @@ find_package(Filesystem REQUIRED)
 #
 find_package(Date REQUIRED)
 
+#设置内部用的文件描述符的数量
+set(MAX_INTERNAL_FDS 256 CACHE STRING "Number of file descriptors reserved for internal use")
+add_definitions(-DMAX_INTERNAL_FDS=${MAX_INTERNAL_FDS})
+message(STATUS "[gekkofs] File descriptors reserved for internal use: ${MAX_INTERNAL_FDS}")
+
+#获取一个进程最大可以打开的文件数量
+#todo: 搞懂
+execute_process(COMMAND getconf OPEN_MAX
+        OUTPUT_VARIABLE GETCONF_MAX_FDS
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET)
+if (NOT GETCONF_MAX_FDS)
+    set(GETCONF_MAX_FDS=512)
+endif ()
+add_definitions(-DMAX_OPEN_FDS=${GETCONF_MAX_FDS})
 
 #设置最长log大小
 set(CLIENT_LOG_MESSAGE_SIZE 1024 CACHE STRING "Maximum size of a log message in the client library")

@@ -8,6 +8,13 @@
 #define CLIENT_ENV_PREFIX "LIBGAOFS_"
 
 namespace gaofs::config {
+constexpr auto hostfile_path = "./gaofs_hosts.txt";
+
+namespace log {
+constexpr auto client_log_path = "/tmp/gaofs_client.log";
+constexpr auto client_log_level = "info,errors,critical,hermes";
+
+} // namespace log
 
 namespace metadata {
 // metadata处用的设置

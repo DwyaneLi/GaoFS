@@ -2,8 +2,8 @@
 // Created by DELL on 2023/2/28.
 //
 
-#ifndef GAOFS_RPC_TYPES_HPP
-#define GAOFS_RPC_TYPES_HPP
+#ifndef LFS_RPC_TYPES_HPP
+#define LFS_RPC_TYPES_HPP
 
 extern "C" {
 // 它提供了hg_string_t和hg_const_string_t类型，它们分别是char*和const char*的类型defs，必须用来表示以空结束的字符串。
@@ -85,4 +85,4 @@ MERCURY_GEN_PROC(rpc_chunk_stat_in_t, ((hg_int32_t)(dummy)))
 MERCURY_GEN_PROC(rpc_chunk_stat_out_t, ((hg_int32_t)(err))((hg_uint64_t)(chunk_size))
         ((hg_uint64_t)(chunk_total))((hg_uint64_t)(chunk_free)))
 
-#endif //GAOFS_RPC_TYPES_HPP
+#endif //LFS_RPC_TYPES_HPP

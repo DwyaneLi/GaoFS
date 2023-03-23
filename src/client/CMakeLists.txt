@@ -1,12 +1,25 @@
 set(PRELOAD_SOURCES
     PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_data.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_metadata.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_management.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/rpc/rpc_types.cpp
         ${CMAKE_CURRENT_LIST_DIR}/path.cpp
         ${CMAKE_CURRENT_LIST_DIR}/logging.cpp
         ${CMAKE_CURRENT_LIST_DIR}/syscalls/detail/syscall_info.c
         ${CMAKE_CURRENT_LIST_DIR}/open_file_map.cpp
         ${CMAKE_CURRENT_LIST_DIR}/open_dir.cpp
         ${CMAKE_CURRENT_LIST_DIR}/preload_util.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/preload.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/preload_context.cpp
     PUBLIC
+        ${INCLUDE_DIR}/client/preload_util.hpp
+        ${INCLUDE_DIR}/client/preload.hpp
+        ${INCLUDE_DIR}/client/preload_context.hpp
+        ${INCLUDE_DIR}/client/rpc/forward_data.hpp
+        ${INCLUDE_DIR}/client/rpc/forward_metadata.hpp
+        ${INCLUDE_DIR}/client/rpc/forward_management.hpp
+        ${INCLUDE_DIR}/client/rpc/rpc_types.hpp
         ${INCLUDE_DIR}/client/preload_util.hpp
         ${INCLUDE_DIR}/client/syscalls.hpp
         ${INCLUDE_DIR}/client/open_file_map.hpp

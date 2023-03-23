@@ -279,6 +279,60 @@ path.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/path.cpp.s
 .PHONY : path.cpp.s
 
+preload.o: preload.cpp.o
+
+.PHONY : preload.o
+
+# target to build an object file
+preload.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.o
+.PHONY : preload.cpp.o
+
+preload.i: preload.cpp.i
+
+.PHONY : preload.i
+
+# target to preprocess a source file
+preload.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.i
+.PHONY : preload.cpp.i
+
+preload.s: preload.cpp.s
+
+.PHONY : preload.s
+
+# target to generate assembly for a file
+preload.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload.cpp.s
+.PHONY : preload.cpp.s
+
+preload_context.o: preload_context.cpp.o
+
+.PHONY : preload_context.o
+
+# target to build an object file
+preload_context.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.o
+.PHONY : preload_context.cpp.o
+
+preload_context.i: preload_context.cpp.i
+
+.PHONY : preload_context.i
+
+# target to preprocess a source file
+preload_context.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.i
+.PHONY : preload_context.cpp.i
+
+preload_context.s: preload_context.cpp.s
+
+.PHONY : preload_context.s
+
+# target to generate assembly for a file
+preload_context.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_context.cpp.s
+.PHONY : preload_context.cpp.s
+
 preload_util.o: preload_util.cpp.o
 
 .PHONY : preload_util.o
@@ -305,6 +359,114 @@ preload_util.s: preload_util.cpp.s
 preload_util.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/preload_util.cpp.s
 .PHONY : preload_util.cpp.s
+
+rpc/forward_data.o: rpc/forward_data.cpp.o
+
+.PHONY : rpc/forward_data.o
+
+# target to build an object file
+rpc/forward_data.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.o
+.PHONY : rpc/forward_data.cpp.o
+
+rpc/forward_data.i: rpc/forward_data.cpp.i
+
+.PHONY : rpc/forward_data.i
+
+# target to preprocess a source file
+rpc/forward_data.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.i
+.PHONY : rpc/forward_data.cpp.i
+
+rpc/forward_data.s: rpc/forward_data.cpp.s
+
+.PHONY : rpc/forward_data.s
+
+# target to generate assembly for a file
+rpc/forward_data.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_data.cpp.s
+.PHONY : rpc/forward_data.cpp.s
+
+rpc/forward_management.o: rpc/forward_management.cpp.o
+
+.PHONY : rpc/forward_management.o
+
+# target to build an object file
+rpc/forward_management.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.o
+.PHONY : rpc/forward_management.cpp.o
+
+rpc/forward_management.i: rpc/forward_management.cpp.i
+
+.PHONY : rpc/forward_management.i
+
+# target to preprocess a source file
+rpc/forward_management.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.i
+.PHONY : rpc/forward_management.cpp.i
+
+rpc/forward_management.s: rpc/forward_management.cpp.s
+
+.PHONY : rpc/forward_management.s
+
+# target to generate assembly for a file
+rpc/forward_management.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_management.cpp.s
+.PHONY : rpc/forward_management.cpp.s
+
+rpc/forward_metadata.o: rpc/forward_metadata.cpp.o
+
+.PHONY : rpc/forward_metadata.o
+
+# target to build an object file
+rpc/forward_metadata.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.o
+.PHONY : rpc/forward_metadata.cpp.o
+
+rpc/forward_metadata.i: rpc/forward_metadata.cpp.i
+
+.PHONY : rpc/forward_metadata.i
+
+# target to preprocess a source file
+rpc/forward_metadata.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.i
+.PHONY : rpc/forward_metadata.cpp.i
+
+rpc/forward_metadata.s: rpc/forward_metadata.cpp.s
+
+.PHONY : rpc/forward_metadata.s
+
+# target to generate assembly for a file
+rpc/forward_metadata.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/forward_metadata.cpp.s
+.PHONY : rpc/forward_metadata.cpp.s
+
+rpc/rpc_types.o: rpc/rpc_types.cpp.o
+
+.PHONY : rpc/rpc_types.o
+
+# target to build an object file
+rpc/rpc_types.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.o
+.PHONY : rpc/rpc_types.cpp.o
+
+rpc/rpc_types.i: rpc/rpc_types.cpp.i
+
+.PHONY : rpc/rpc_types.i
+
+# target to preprocess a source file
+rpc/rpc_types.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.i
+.PHONY : rpc/rpc_types.cpp.i
+
+rpc/rpc_types.s: rpc/rpc_types.cpp.s
+
+.PHONY : rpc/rpc_types.s
+
+# target to generate assembly for a file
+rpc/rpc_types.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/rpc/rpc_types.cpp.s
+.PHONY : rpc/rpc_types.cpp.s
 
 syscalls/detail/syscall_info.o: syscalls/detail/syscall_info.c.o
 
@@ -358,9 +520,27 @@ help:
 	@echo "... path.o"
 	@echo "... path.i"
 	@echo "... path.s"
+	@echo "... preload.o"
+	@echo "... preload.i"
+	@echo "... preload.s"
+	@echo "... preload_context.o"
+	@echo "... preload_context.i"
+	@echo "... preload_context.s"
 	@echo "... preload_util.o"
 	@echo "... preload_util.i"
 	@echo "... preload_util.s"
+	@echo "... rpc/forward_data.o"
+	@echo "... rpc/forward_data.i"
+	@echo "... rpc/forward_data.s"
+	@echo "... rpc/forward_management.o"
+	@echo "... rpc/forward_management.i"
+	@echo "... rpc/forward_management.s"
+	@echo "... rpc/forward_metadata.o"
+	@echo "... rpc/forward_metadata.i"
+	@echo "... rpc/forward_metadata.s"
+	@echo "... rpc/rpc_types.o"
+	@echo "... rpc/rpc_types.i"
+	@echo "... rpc/rpc_types.s"
 	@echo "... syscalls/detail/syscall_info.o"
 	@echo "... syscalls/detail/syscall_info.i"
 	@echo "... syscalls/detail/syscall_info.s"

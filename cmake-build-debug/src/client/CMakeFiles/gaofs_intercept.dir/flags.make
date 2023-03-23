@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_FLAGS = -g -fPIC   -pthread -Wall -Wextra -O0 -fno-inline -fstack-protector-all -g3 -ggdb
 
-C_DEFINES = -DHERMES_DEBUG_BUILD -DHERMES_MARGO_COMPATIBLE_MODE -DLIBGAOFS_LOG_MESSAGE_SIZE=1024 -DUSE_OS_TZDB=1 -Dgaofs_intercept_EXPORTS
+C_DEFINES = -DHERMES_DEBUG_BUILD -DHERMES_MARGO_COMPATIBLE_MODE -DLIBGAOFS_LOG_MESSAGE_SIZE=1024 -DMAX_INTERNAL_FDS=256 -DMAX_OPEN_FDS=1024 -DUSE_OS_TZDB=1 -Dgaofs_intercept_EXPORTS
 
 C_INCLUDES = -I/home/dwyaneli/gaofs/include -I/home/dwyaneli/gaofs/include/common/arithmetic -I/home/dwyaneli/gaofs/external/hermes/include -I/home/dwyaneli/gaofs/external/fmt/include -isystem /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include 
 
 CXX_FLAGS = -g -fPIC   -pthread -Wall -Wextra -O0 -fno-inline -fstack-protector-all -g3 -ggdb -std=gnu++17
 
-CXX_DEFINES = -DHERMES_DEBUG_BUILD -DHERMES_MARGO_COMPATIBLE_MODE -DLIBGAOFS_LOG_MESSAGE_SIZE=1024 -DUSE_OS_TZDB=1 -Dgaofs_intercept_EXPORTS
+CXX_DEFINES = -DHERMES_DEBUG_BUILD -DHERMES_MARGO_COMPATIBLE_MODE -DLIBGAOFS_LOG_MESSAGE_SIZE=1024 -DMAX_INTERNAL_FDS=256 -DMAX_OPEN_FDS=1024 -DUSE_OS_TZDB=1 -Dgaofs_intercept_EXPORTS
 
 CXX_INCLUDES = -I/home/dwyaneli/gaofs/include -I/home/dwyaneli/gaofs/include/common/arithmetic -I/home/dwyaneli/gaofs/external/hermes/include -I/home/dwyaneli/gaofs/external/fmt/include -isystem /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include 
 

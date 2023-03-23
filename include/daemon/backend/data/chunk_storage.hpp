@@ -10,7 +10,7 @@
 #include <memory>
 #include <system_error>
 
-#include <common/common_defs.h>
+#include <common/common_defs.hpp>
 
 /* Forward declarations */
 namespace spdlog {
