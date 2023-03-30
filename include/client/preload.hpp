@@ -22,6 +22,6 @@ void init_ld_env_if_needed();
 //同理, destructor让系统在main()函数退出或者调用了exit()之后,调用我们的函数.
 void init_preload() __attribute__((constructor));
 
-void destory_preload() __attribute__((destructor));
+void destroy_preload() __attribute__((destructor));
 
 #endif //GAOFS_PRELOAD_HPP

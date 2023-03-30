@@ -1,0 +1,921 @@
+//
+// Created by DELL on 2023/3/28.
+//
+
+#include <client/hooks.hpp>
+#include <client/preload_util.hpp>
+#include <client/logging.hpp>
+#include <client/gaofs_functions.hpp>
+#include <client/path.hpp>
+#include <client/open_dir.hpp>
+
+#include <common/path_util.hpp>
+
+#include <memory>
+
+extern "C" {
+#include <libsyscall_intercept_hook_point.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+}
+
+// hook其实就是判断是不是在挂载目录下然后根据路径做相应的处理
+// 本地的就用本地的
+// gekkofs挂载目录下的就用gekkofs的
+namespace {
+
+// 对error的包装
+inline int with_errno(int ret) {
+    return (ret < 0) ? -errno : ret;
+}
+
+} // namespace
+
+// 不被拦截的syscall的封装
+template <class... Args>
+inline long syscall_no_intercept_wrapper(long syscall_number, Args... args) {
+    long result;
+    int error;
+    result = syscall_no_intercept(syscall_number, args...);
+    error = syscall_error_code(result);
+    if(error != 0) {
+        return -error;
+    }
+    return result;
+}
+
+namespace gaofs::hook {
+
+int hook_openat(int dirfd, const char* cpath, int flags, mode_t mode) {
+
+    LOG(DEBUG, "{}() called with fd: {}, path: \"{}\", flags: {}, mode: {}",
+        __func__, dirfd, cpath, flags, mode);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown :
+            return syscall_no_intercept(SYS_openat, dirfd, cpath, flags, mode);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept(SYS_openat, dirfd, resolved.c_str(), flags, mode);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir :
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal :
+            return with_errno(gaofs::syscall::gaofs_open(resolved, mode, flags));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+
+int hook_close(int fd) {
+
+    LOG(DEBUG, "{}() called with fd: {}", __func__, fd);
+
+    if(CTX->file_map()->exist(fd)) {
+        // 和服务端没有关系
+        CTX->file_map()->remove(fd);
+        return 0;
+    }
+
+    if(CTX->is_internal_fd(fd)) {
+        // 忽略他
+        return 0;
+    }
+
+    return syscall_no_intercept_wrapper(SYS_close, fd);
+}
+
+/*
+* fstat区别于另外两个系统调用的地方在于，fstat系统调用接受的是 一个“文件描述符”，而另外两个则直接接受“文件全路径”。
+* 文件描述符是需要我们用open系统调用后才能得到的，而文件全路经直接写就可以了。
+* stat和lstat的区别：当文件是一个符号链接时，lstat返回的是该符号链接本身的信息；而stat返回的是该链接指向的文件的信息。
+*（似乎有些晕吧，这样记，lstat比stat多了一个l，因此它是有本事处理符号链接文件的，因此当遇到符号链接文件时，lstat当然不会放过。
+* 而 stat系统调用没有这个本事，它只能对符号链接文件睁一只眼闭一只眼，直接去处理链接所指文件喽）
+*/
+int hook_stat(const char* path, struct stat* buf) {
+
+    LOG(DEBUG, "{}() called with path: \"{}\", buf: {}", __func__, path,
+        fmt::ptr(buf));
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path, false)) {
+        return with_errno(gaofs::syscall::gaofs_stat(rel_path, buf));
+    }
+
+    return syscall_no_intercept_wrapper(SYS_stat, rel_path.c_str(), buf);
+}
+
+
+// TODO: STATX_TYPE
+#ifdef STATX_TYPE
+int hook_statx(int dirfd, const char* path, int flags, unsigned int mask,
+           struct ::statx* buf) {
+
+    LOG(DEBUG,
+        "{}() called with dirfd: '{}', path: \"{}\", flags: '{}', mask: '{}', buf: '{}'",
+        __func__, dirfd, path, flags, mask, fmt::ptr(buf));
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, path, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept(SYS_statx, dirfd, path, flags, mask,
+                                        buf);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept(SYS_statx, dirfd, resolved.c_str(),
+                                        flags, mask, buf);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            return with_errno(gaofs::syscall::gaofs_statx(dirfd, resolved.c_str(),
+                                                        flags, mask, buf));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+
+    return syscall_no_intercept(SYS_statx, dirfd, path, flags, mask, buf);
+}
+#endif
+
+int hook_lstat(const char* path, struct stat* buf) {
+
+    LOG(DEBUG, "{}() called with path: \"{}\", buf: {}", __func__, path,
+        fmt::ptr(buf));
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path)) {
+        return with_errno(gaofs::syscall::gaofs_stat(rel_path, buf));
+    }
+    return syscall_no_intercept_wrapper(SYS_lstat, rel_path.c_str(), buf);
+}
+
+int hook_fstat(unsigned int fd, struct stat* buf) {
+
+    LOG(DEBUG, "{}() called with fd: {}, buf: {}", __func__, fd, fmt::ptr(buf));
+
+    if(CTX->file_map()->exist(fd)) {
+        auto path = CTX->file_map()->get(fd)->path();
+        return with_errno(gaofs::syscall::gaofs_stat(path, buf));
+    }
+    return syscall_no_intercept_wrapper(SYS_fstat, fd, buf);
+}
+
+int hook_fstatat(int dirfd, const char* cpath, struct stat* buf, int flags) {
+
+    LOG(DEBUG, "{}() called with path: \"{}\", fd: {}, buf: {}, flags: {}",
+        __func__, cpath, dirfd, fmt::ptr(buf), flags);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved, flags);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_newfstatat, dirfd, cpath,
+                                                buf, flags);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_newfstatat, dirfd,
+                                                resolved.c_str(), buf, flags);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            return with_errno(gaofs::syscall::gaofs_stat(resolved, buf));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+int hook_read(unsigned int fd, void* buf, size_t count) {
+
+    LOG(DEBUG, "{}() called with fd: {}, buf: {} count: {}", __func__, fd,
+        fmt::ptr(buf), count);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_read(fd, buf, count));
+    }
+    return syscall_no_intercept_wrapper(SYS_read, fd, buf, count);
+}
+
+int hook_pread(unsigned int fd, char* buf, size_t count, loff_t pos) {
+
+    LOG(DEBUG, "{}() called with fd: {}, buf: {}, count: {}, pos: {}", __func__,
+        fd, fmt::ptr(buf), count, pos);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_pread_ws(fd, buf, count, pos));
+    }
+    /* Since kernel 2.6: pread() became pread64(), and pwrite() became
+     * pwrite64(). */
+    return syscall_no_intercept_wrapper(SYS_pread64, fd, buf, count, pos);
+}
+
+
+int hook_readv(unsigned long fd, const struct iovec* iov, unsigned long iovcnt) {
+
+    LOG(DEBUG, "{}() called with fd: {}, iov: {}, iovcnt: {}", __func__, fd,
+        fmt::ptr(iov), iovcnt);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_readv(fd, iov, iovcnt));
+    }
+    return syscall_no_intercept_wrapper(SYS_readv, fd, iov, iovcnt);
+}
+
+int hook_preadv(unsigned long fd, const struct iovec* iov, unsigned long iovcnt,
+            unsigned long pos_l, unsigned long pos_h) {
+
+    LOG(DEBUG,
+        "{}() called with fd: {}, iov: {}, iovcnt: {}, "
+        "pos_l: {},"
+        "pos_h: {}",
+        __func__, fd, fmt::ptr(iov), iovcnt, pos_l, pos_h);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_preadv(fd, iov, iovcnt, pos_l));
+    }
+    return syscall_no_intercept_wrapper(SYS_preadv, fd, iov, iovcnt, pos_l);
+}
+
+int hook_write(unsigned int fd, const char* buf, size_t count) {
+    LOG(DEBUG, "{}() called with fd: {}, buf: {}, count {}", __func__, fd,
+        fmt::ptr(buf), count);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_write(fd, buf, count));
+    }
+    return syscall_no_intercept_wrapper(SYS_write, fd, buf, count);
+}
+
+
+int hook_pwrite(unsigned int fd, const char* buf, size_t count, loff_t pos) {
+    LOG(DEBUG, "{}() called with fd: {}, buf: {}, count: {}, pos: {}", __func__,
+        fd, fmt::ptr(buf), count, pos);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_pwrite_ws(fd, buf, count, pos));
+    }
+    /* Since kernel 2.6: pread() became pread64(), and pwrite() became
+     * pwrite64(). */
+    return syscall_no_intercept_wrapper(SYS_pwrite64, fd, buf, count, pos);
+}
+
+
+int hook_writev(unsigned long fd, const struct iovec* iov, unsigned long iovcnt) {
+
+    LOG(DEBUG, "{}() called with fd: {}, iov: {}, iovcnt: {}", __func__, fd,
+        fmt::ptr(iov), iovcnt);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_writev(fd, iov, iovcnt));
+    }
+    return syscall_no_intercept_wrapper(SYS_writev, fd, iov, iovcnt);
+}
+
+int hook_pwritev(unsigned long fd, const struct iovec* iov, unsigned long iovcnt,
+             unsigned long pos_l, unsigned long pos_h) {
+
+    LOG(DEBUG,
+        "{}() called with fd: {}, iov: {}, iovcnt: {}, "
+        "pos_l: {},"
+        "pos_h: {}",
+        __func__, fd, fmt::ptr(iov), iovcnt, pos_l, pos_h);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_pwritev(fd, iov, iovcnt, pos_l));
+    }
+    return syscall_no_intercept_wrapper(SYS_pwritev, fd, iov, iovcnt, pos_l);
+}
+
+int hook_unlinkat(int dirfd, const char* cpath, int flags) {
+    LOG(DEBUG, "{}() called with dirfd: {}, path: \"{}\", flags: {}", __func__,
+        dirfd, cpath, flags);
+
+    if((flags & ~AT_REMOVEDIR) != 0) {
+        LOG(ERROR, "{}() Flags unknown: {}", __func__, flags);
+        return -EINVAL;
+    }
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved, false);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_unlinkat, dirfd, cpath,
+                                                flags);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_unlinkat, dirfd,
+                                                resolved.c_str(), flags);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            if(flags & AT_REMOVEDIR) {
+                return with_errno(gaofs::syscall::gaofs_rmdir(resolved));
+            } else {
+                return with_errno(gaofs::syscall::gaofs_remove(resolved));
+            }
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+// 软连接，不支持
+int hook_symlinkat(const char* oldname, int newdfd, const char* newname) {
+
+    LOG(DEBUG, "{}() called with oldname: \"{}\", newfd: {}, newname: \"{}\"",
+        __func__, oldname, newdfd, newname);
+
+    std::string oldname_resolved;
+    if(CTX->relativize_path(oldname, oldname_resolved)) {
+        LOG(WARNING, "{}() operation not supported", __func__);
+        return -ENOTSUP;
+    }
+
+    std::string newname_resolved;
+    auto rstatus =
+            CTX->relativize_fd_path(newdfd, newname, newname_resolved, false);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_symlinkat, oldname, newdfd,
+                                                newname);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_symlinkat, oldname, newdfd,
+                                                newname_resolved.c_str());
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            LOG(WARNING, "{}() operation not supported", __func__);
+            return -ENOTSUP;
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown", __func__);
+            return -EINVAL;
+    }
+}
+
+// mask用于权限判断, 对于外部文件有用
+int hook_access(const char* path, int mask) {
+
+    LOG(DEBUG, "{}() called path: \"{}\", mask: {}", __func__, path, mask);
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path)) {
+        auto ret = gaofs::syscall::gaofs_access(rel_path, mask);
+        if(ret < 0) {
+            return -errno;
+        }
+        return ret;
+    }
+    return syscall_no_intercept_wrapper(SYS_access, rel_path.c_str(), mask);
+}
+
+// 和上面那个差不多, 只不过和路径有关
+int hook_faccessat(int dirfd, const char* cpath, int mode) {
+
+    LOG(DEBUG, "{}() called with dirfd: {}, path: \"{}\", mode: {}", __func__,
+        dirfd, cpath, mode);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_faccessat, dirfd, cpath,
+                                                mode);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_faccessat, dirfd,
+                                                resolved.c_str(), mode);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            return with_errno(gaofs::syscall::gaofs_access(resolved, mode));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+// todo: faccessat2
+#ifdef SYS_faccessat2
+int hook_faccessat2(int dirfd, const char* cpath, int mode, int flags) {
+
+    LOG(DEBUG,
+        "{}() called with dirfd: '{}', path: '{}', mode: '{}', flags: '{}'",
+        __func__, dirfd, cpath, mode, flags);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_faccessat2, dirfd, cpath,
+                                                mode, flags);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_faccessat2, dirfd,
+                                                resolved.c_str(), mode, flags);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            // we do not use permissions and therefore do not handle `flags` for
+            // now
+            return with_errno(gaofs::syscall::gaofs_access(resolved, mode));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+#endif
+
+off_t hook_lseek(unsigned int fd, off_t offset, unsigned int whence) {
+
+    LOG(DEBUG, "{}() called with fd: {}, offset: {}, whence: {}", __func__, fd,
+        offset, whence);
+
+    if(CTX->file_map()->exist(fd)) {
+        auto off_ret = gaofs::syscall::gaofs_lseek(
+                fd, static_cast<off64_t>(offset), whence);
+        if(off_ret > std::numeric_limits<off_t>::max()) {
+            return -EOVERFLOW;
+        } else if(off_ret < 0) {
+            return -errno;
+        }
+        LOG(DEBUG, "{}() returning {}", __func__, off_ret);
+        return off_ret;
+    }
+    return syscall_no_intercept_wrapper(SYS_lseek, fd, offset, whence);
+}
+
+int hook_truncate(const char* path, long length) {
+
+    LOG(DEBUG, "{}() called with path: {}, offset: {}", __func__, path, length);
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path)) {
+        return with_errno(gaofs::syscall::gaofs_truncate(rel_path, length));
+    }
+    return syscall_no_intercept_wrapper(SYS_truncate, rel_path.c_str(), length);
+}
+
+int hook_ftruncate(unsigned int fd, unsigned long length) {
+
+    LOG(DEBUG, "{}() called with fd: {}, offset: {}", __func__, fd, length);
+
+    if(CTX->file_map()->exist(fd)) {
+        auto path = CTX->file_map()->get(fd)->path();
+        return with_errno(gaofs::syscall::gaofs_truncate(path, length));
+    }
+    return syscall_no_intercept_wrapper(SYS_ftruncate, fd, length);
+}
+
+int hook_dup(unsigned int fd) {
+
+    LOG(DEBUG, "{}() called with oldfd: {}", __func__, fd);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_dup(fd));
+    }
+    return syscall_no_intercept_wrapper(SYS_dup, fd);
+}
+
+int hook_dup2(unsigned int oldfd, unsigned int newfd) {
+
+    LOG(DEBUG, "{}() called with oldfd: {}, newfd: {}", __func__, oldfd, newfd);
+
+    if(CTX->file_map()->exist(oldfd)) {
+        return with_errno(gaofs::syscall::gaofs_dup2(oldfd, newfd));
+    }
+    return syscall_no_intercept_wrapper(SYS_dup2, oldfd, newfd);
+}
+
+// 不支持
+int hook_dup3(unsigned int oldfd, unsigned int newfd, int flags) {
+
+    LOG(DEBUG, "{}() called with oldfd: {}, newfd: {}, flags: {}", __func__,
+        oldfd, newfd, flags);
+
+    if(CTX->file_map()->exist(oldfd)) {
+        // TODO implement O_CLOEXEC flag first which is used with fcntl(2)
+        // It is in glibc since kernel 2.9. So maybe not that important :)
+        LOG(WARNING, "{}() Not supported", __func__);
+        return -ENOTSUP;
+    }
+    return syscall_no_intercept_wrapper(SYS_dup3, oldfd, newfd, flags);
+}
+
+int hook_getdents(unsigned int fd, struct linux_dirent* dirp, unsigned int count) {
+
+    LOG(DEBUG, "{}() called with fd: {}, dirp: {}, count: {}", __func__, fd,
+        fmt::ptr(dirp), count);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_getdents(fd, dirp, count));
+    }
+    return syscall_no_intercept_wrapper(SYS_getdents, fd, dirp, count);
+}
+
+int hook_getdents64(unsigned int fd, struct linux_dirent64* dirp,
+                unsigned int count) {
+
+    LOG(DEBUG, "{}() called with fd: {}, dirp: {}, count: {}", __func__, fd,
+        fmt::ptr(dirp), count);
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_getdents64(fd, dirp, count));
+    }
+    return syscall_no_intercept_wrapper(SYS_getdents64, fd, dirp, count);
+}
+
+int hook_mkdirat(int dirfd, const char* cpath, mode_t mode) {
+
+    LOG(DEBUG, "{}() called with dirfd: {}, path: \"{}\", mode: {}", __func__,
+        dirfd, cpath, mode);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_mkdirat, dirfd,
+                                                resolved.c_str(), mode);
+
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_mkdirat, dirfd, cpath,
+                                                mode);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            return with_errno(
+                    gaofs::syscall::gaofs_create(resolved, mode | S_IFDIR));
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+// 不支持
+int hook_fchmodat(int dirfd, const char* cpath, mode_t mode) {
+
+    LOG(DEBUG, "{}() called dirfd: {}, path: \"{}\", mode: {}", __func__, dirfd,
+        cpath, mode);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_fchmodat, dirfd, cpath,
+                                                mode);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_fchmodat, dirfd,
+                                                resolved.c_str(), mode);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            LOG(WARNING, "{}() operation not supported", __func__);
+            return -ENOTSUP;
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+// 不支持
+int hook_fchmod(unsigned int fd, mode_t mode) {
+
+    LOG(DEBUG, "{}() called with fd: {}, mode: {}", __func__, fd, mode);
+
+    if(CTX->file_map()->exist(fd)) {
+        LOG(WARNING, "{}() operation not supported", __func__);
+        return -ENOTSUP;
+    }
+    return syscall_no_intercept_wrapper(SYS_fchmod, fd, mode);
+}
+
+// 改变当前工作目录，也就是cd啦
+int hook_chdir(const char* path) {
+
+    LOG(DEBUG, "{}() called with path: \"{}\"", __func__, path);
+
+    std::string rel_path;
+    bool internal = CTX->relativize_path(path, rel_path);
+    if(internal) {
+        // path falls in our namespace
+        auto md = gaofs::utils::get_metadata(rel_path);
+        if(!md) {
+            LOG(ERROR, "{}() path {} errno {}", __func__, path, errno);
+            return -errno;
+        }
+
+        if(!S_ISDIR(md->mode())) {
+            LOG(ERROR, "{}() path is not a directory", __func__);
+            return -ENOTDIR;
+        }
+        // TODO get complete path from relativize_path instead of
+        // removing mountdir and then adding again here
+        rel_path.insert(0, CTX->mountdir());
+        if(gaofs::path::has_trailing_slash(rel_path)) {
+            // open_dir is '/'
+            rel_path.pop_back();
+        }
+    }
+    try {
+        gaofs::path::set_cwd(rel_path, internal);
+    } catch(const std::system_error& se) {
+        return -(se.code().value());
+    }
+    return 0;
+}
+
+// 和上面那个一样，只不过用文件描述符
+int hook_fchdir(unsigned int fd) {
+
+    LOG(DEBUG, "{}() called with fd: {}", __func__, fd);
+
+    if(CTX->file_map()->exist(fd)) {
+        auto open_dir = CTX->file_map()->get_dir(fd);
+        if(open_dir == nullptr) {
+            // Cast did not succeeded: open_file is a regular file
+            LOG(ERROR, "{}() file descriptor refers to a normal file",
+                __func__);
+            return -EBADF;
+        }
+
+        std::string new_path = CTX->mountdir() + open_dir->path();
+        if(gaofs::path::has_trailing_slash(new_path)) {
+            // open_dir is '/'
+            new_path.pop_back();
+        }
+        try {
+            gaofs::path::set_cwd(new_path, true);
+        } catch(const std::system_error& se) {
+            return -(se.code().value());
+        }
+    } else {
+        long ret = syscall_no_intercept_wrapper(SYS_fchdir, fd);
+        if(ret < 0) {
+            throw std::system_error(
+                    syscall_error_code(ret), std::system_category(),
+                    "Failed to change directory (fchdir syscall)");
+        }
+        gaofs::path::unset_env_cwd();
+        CTX->cwd(gaofs::path::get_sys_cwd());
+    }
+    return 0;
+}
+
+// 获取当前工作目录
+int hook_getcwd(char* buf, unsigned long size) {
+
+    LOG(DEBUG, "{}() called with buf: {}, size: {}", __func__, fmt::ptr(buf),
+        size);
+
+    if(CTX->cwd().size() + 1 > size) {
+        LOG(ERROR, "{}() buffer too small to host current working dir",
+            __func__);
+        return -ERANGE;
+    }
+
+    strcpy(buf, CTX->cwd().c_str());
+    return (CTX->cwd().size() + 1);
+}
+
+int hook_readlinkat(int dirfd, const char* cpath, char* buf, int bufsiz) {
+
+    LOG(DEBUG, "{}() called with dirfd: {}, path \"{}\", buf: {}, bufsize: {}",
+        __func__, dirfd, cpath, fmt::ptr(buf), bufsiz);
+
+    std::string resolved;
+    auto rstatus = CTX->relativize_fd_path(dirfd, cpath, resolved, false);
+    switch(rstatus) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            return syscall_no_intercept_wrapper(SYS_readlinkat, dirfd, cpath,
+                                                buf, bufsiz);
+
+        case gaofs::preload::RelativizeStatus::external:
+            return syscall_no_intercept_wrapper(SYS_readlinkat, dirfd,
+                                                resolved.c_str(), buf, bufsiz);
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            LOG(WARNING, "{}() not supported", __func__);
+            return -ENOTSUP;
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown: {}", __func__);
+            return -EINVAL;
+    }
+}
+
+
+int hook_fcntl(unsigned int fd, unsigned int cmd, unsigned long arg) {
+
+    LOG(DEBUG, "{}() called with fd: {}, cmd: {}, arg: {}", __func__, fd, cmd,
+        arg);
+
+    if(!CTX->file_map()->exist(fd)) {
+        return syscall_no_intercept_wrapper(SYS_fcntl, fd, cmd, arg);
+    }
+    int ret;
+    switch(cmd) {
+
+        case F_DUPFD:
+            LOG(DEBUG, "{}() F_DUPFD on fd {}", __func__, fd);
+            return with_errno(gaofs::syscall::gaofs_dup(fd));
+
+        case F_DUPFD_CLOEXEC:
+            LOG(DEBUG, "{}() F_DUPFD_CLOEXEC on fd {}", __func__, fd);
+            ret = gaofs::syscall::gaofs_dup(fd);
+            if(ret == -1) {
+                return -errno;
+            }
+            CTX->file_map()->get(fd)->set_flag(
+                    gaofs::filemap::OpenFile_flags::cloexec, true);
+            return ret;
+
+        case F_GETFD:
+            LOG(DEBUG, "{}() F_GETFD on fd {}", __func__, fd);
+            if(CTX->file_map()->get(fd)->get_flag(
+                    gaofs::filemap::OpenFile_flags::cloexec)) {
+                return FD_CLOEXEC;
+            }
+            return 0;
+
+        case F_GETFL:
+            LOG(DEBUG, "{}() F_GETFL on fd {}", __func__, fd);
+            ret = 0;
+            if(CTX->file_map()->get(fd)->get_flag(
+                    gaofs::filemap::OpenFile_flags::rdonly)) {
+                ret |= O_RDONLY;
+            }
+            if(CTX->file_map()->get(fd)->get_flag(
+                    gaofs::filemap::OpenFile_flags::wronly)) {
+                ret |= O_WRONLY;
+            }
+            if(CTX->file_map()->get(fd)->get_flag(
+                    gaofs::filemap::OpenFile_flags::rdwr)) {
+                ret |= O_RDWR;
+            }
+            return ret;
+
+        case F_SETFD:
+            LOG(DEBUG, "{}() [fd: {}, cmd: F_SETFD, FD_CLOEXEC: {}]", __func__,
+                fd, (arg & FD_CLOEXEC));
+            CTX->file_map()->get(fd)->set_flag(
+                    gaofs::filemap::OpenFile_flags::cloexec, (arg & FD_CLOEXEC));
+            return 0;
+
+
+        default:
+            LOG(ERROR, "{}() unrecognized command {} on fd {}", __func__, cmd,
+                fd);
+            return -ENOTSUP;
+    }
+}
+
+// 不支持
+int hook_renameat(int olddfd, const char* oldname, int newdfd, const char* newname,
+              unsigned int flags) {
+
+    LOG(DEBUG,
+        "{}() called with olddfd: {}, oldname: \"{}\", newfd: {}, "
+        "newname \"{}\", flags {}",
+        __func__, olddfd, oldname, newdfd, newname, flags);
+
+    const char* oldpath_pass;
+    std::string oldpath_resolved;
+    auto oldpath_status =
+            CTX->relativize_fd_path(olddfd, oldname, oldpath_resolved);
+    switch(oldpath_status) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            oldpath_pass = oldname;
+            break;
+
+        case gaofs::preload::RelativizeStatus::external:
+            oldpath_pass = oldpath_resolved.c_str();
+            break;
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            LOG(WARNING, "{}() not supported", __func__);
+            return -ENOTSUP;
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown", __func__);
+            return -EINVAL;
+    }
+
+    const char* newpath_pass;
+    std::string newpath_resolved;
+    auto newpath_status =
+            CTX->relativize_fd_path(newdfd, newname, newpath_resolved);
+    switch(newpath_status) {
+        case gaofs::preload::RelativizeStatus::fd_unknown:
+            newpath_pass = newname;
+            break;
+
+        case gaofs::preload::RelativizeStatus::external:
+            newpath_pass = newpath_resolved.c_str();
+            break;
+
+        case gaofs::preload::RelativizeStatus::fd_not_a_dir:
+            return -ENOTDIR;
+
+        case gaofs::preload::RelativizeStatus::internal:
+            LOG(WARNING, "{}() not supported", __func__);
+            return -ENOTSUP;
+
+        default:
+            LOG(ERROR, "{}() relativize status unknown", __func__);
+            return -EINVAL;
+    }
+
+    return syscall_no_intercept_wrapper(SYS_renameat2, olddfd, oldpath_pass,
+                                        newdfd, newpath_pass, flags);
+}
+
+int hook_statfs(const char* path, struct statfs* buf) {
+
+    LOG(DEBUG, "{}() called with path: \"{}\", buf: {}", __func__, path,
+        fmt::ptr(buf));
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path)) {
+        return with_errno(gaofs::syscall::gaofs_statfs(buf));
+    }
+    return syscall_no_intercept_wrapper(SYS_statfs, rel_path.c_str(), buf);
+}
+
+int hook_fstatfs(unsigned int fd, struct statfs* buf) {
+
+    LOG(DEBUG, "{}() called with fd: {}, buf: {}", __func__, fd, fmt::ptr(buf));
+
+    if(CTX->file_map()->exist(fd)) {
+        return with_errno(gaofs::syscall::gaofs_statfs(buf));
+    }
+    return syscall_no_intercept_wrapper(SYS_fstatfs, fd, buf);
+}
+
+/* The function should broadcast a flush message (pmem_persist i.e.) if the
+* application needs the capabilities*/
+// 如果应用程序需要这些功能，函数应该广播一个刷新消息(即pmem_persist)
+int hook_fsync(unsigned int fd) {
+
+    LOG(DEBUG, "{}() called with fd: {}", __func__, fd);
+
+    if(CTX->file_map()->exist(fd)) {
+        errno = 0;
+        return 0;
+    }
+
+    return syscall_no_intercept_wrapper(SYS_fsync, fd);
+}
+
+int hook_getxattr(const char* path, const char* name, void* value, size_t size) {
+
+    LOG(DEBUG, "{}() called with path '{}' name '{}' value '{}' size '{}'",
+        __func__, path, name, fmt::ptr(value), size);
+
+    std::string rel_path;
+    if(CTX->relativize_path(path, rel_path)) {
+        return -ENOTSUP;
+    }
+    return syscall_no_intercept_wrapper(SYS_getxattr, path, name, value, size);
+}
+
+} // namespace gaofs::hook

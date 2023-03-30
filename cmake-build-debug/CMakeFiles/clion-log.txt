@@ -1,6 +1,8 @@
 /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install -G "CodeBlocks - Unix Makefiles" /home/dwyaneli/gaofs
--- [gekkofs] File descriptors reserved for internal use: 256
--- [gekkofs] Maximum log message size in the client library: 1024
+-- [gaofs] Create checks parents: ON
+-- [gaofs] File descriptors reserved for internal use: 256
+-- [gaofs] Client logging output: ON
+-- [gaofs] Maximum log message size in the client library: 1024
 -- Version: 6.1.2
 -- Build type: Debug
 -- CXX_STANDARD: 17

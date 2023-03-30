@@ -295,6 +295,9 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Check parent directory existance before creating child node
+CREATE_CHECK_PARENTS:BOOL=ON
+
 //TRUE if we have the C++ filesystem headers
 CXX_FILESYSTEM_HAVE_FS:BOOL=TRUE
 
@@ -309,6 +312,9 @@ CXX_FILESYSTEM_NAMESPACE:STRING=std::filesystem
 
 //Path to a file.
 DATE_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
+
+//Enable logging messages
+ENABLE_CLIENT_LOG:BOOL=ON
 
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=/home/dwyaneli/gaofs/cmake-build-debug/_deps

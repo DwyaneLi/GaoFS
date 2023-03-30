@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gaofs_intercept.dir/__/common/rpc/rpc_util.cpp.o"
+  "CMakeFiles/gaofs_intercept.dir/gaofs_functions.cpp.o"
+  "CMakeFiles/gaofs_intercept.dir/hooks.cpp.o"
+  "CMakeFiles/gaofs_intercept.dir/intercept.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/logging.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
   "CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"

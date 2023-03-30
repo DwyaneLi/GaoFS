@@ -171,6 +171,114 @@ gaofs_intercept/fast:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/build
 .PHONY : gaofs_intercept/fast
 
+__/common/rpc/rpc_util.o: __/common/rpc/rpc_util.cpp.o
+
+.PHONY : __/common/rpc/rpc_util.o
+
+# target to build an object file
+__/common/rpc/rpc_util.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/__/common/rpc/rpc_util.cpp.o
+.PHONY : __/common/rpc/rpc_util.cpp.o
+
+__/common/rpc/rpc_util.i: __/common/rpc/rpc_util.cpp.i
+
+.PHONY : __/common/rpc/rpc_util.i
+
+# target to preprocess a source file
+__/common/rpc/rpc_util.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/__/common/rpc/rpc_util.cpp.i
+.PHONY : __/common/rpc/rpc_util.cpp.i
+
+__/common/rpc/rpc_util.s: __/common/rpc/rpc_util.cpp.s
+
+.PHONY : __/common/rpc/rpc_util.s
+
+# target to generate assembly for a file
+__/common/rpc/rpc_util.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/__/common/rpc/rpc_util.cpp.s
+.PHONY : __/common/rpc/rpc_util.cpp.s
+
+gaofs_functions.o: gaofs_functions.cpp.o
+
+.PHONY : gaofs_functions.o
+
+# target to build an object file
+gaofs_functions.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/gaofs_functions.cpp.o
+.PHONY : gaofs_functions.cpp.o
+
+gaofs_functions.i: gaofs_functions.cpp.i
+
+.PHONY : gaofs_functions.i
+
+# target to preprocess a source file
+gaofs_functions.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/gaofs_functions.cpp.i
+.PHONY : gaofs_functions.cpp.i
+
+gaofs_functions.s: gaofs_functions.cpp.s
+
+.PHONY : gaofs_functions.s
+
+# target to generate assembly for a file
+gaofs_functions.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/gaofs_functions.cpp.s
+.PHONY : gaofs_functions.cpp.s
+
+hooks.o: hooks.cpp.o
+
+.PHONY : hooks.o
+
+# target to build an object file
+hooks.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/hooks.cpp.o
+.PHONY : hooks.cpp.o
+
+hooks.i: hooks.cpp.i
+
+.PHONY : hooks.i
+
+# target to preprocess a source file
+hooks.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/hooks.cpp.i
+.PHONY : hooks.cpp.i
+
+hooks.s: hooks.cpp.s
+
+.PHONY : hooks.s
+
+# target to generate assembly for a file
+hooks.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/hooks.cpp.s
+.PHONY : hooks.cpp.s
+
+intercept.o: intercept.cpp.o
+
+.PHONY : intercept.o
+
+# target to build an object file
+intercept.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/intercept.cpp.o
+.PHONY : intercept.cpp.o
+
+intercept.i: intercept.cpp.i
+
+.PHONY : intercept.i
+
+# target to preprocess a source file
+intercept.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/intercept.cpp.i
+.PHONY : intercept.cpp.i
+
+intercept.s: intercept.cpp.s
+
+.PHONY : intercept.s
+
+# target to generate assembly for a file
+intercept.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/client/CMakeFiles/gaofs_intercept.dir/build.make src/client/CMakeFiles/gaofs_intercept.dir/intercept.cpp.s
+.PHONY : intercept.cpp.s
+
 logging.o: logging.cpp.o
 
 .PHONY : logging.o
@@ -508,6 +616,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... gaofs_intercept"
+	@echo "... __/common/rpc/rpc_util.o"
+	@echo "... __/common/rpc/rpc_util.i"
+	@echo "... __/common/rpc/rpc_util.s"
+	@echo "... gaofs_functions.o"
+	@echo "... gaofs_functions.i"
+	@echo "... gaofs_functions.s"
+	@echo "... hooks.o"
+	@echo "... hooks.i"
+	@echo "... hooks.s"
+	@echo "... intercept.o"
+	@echo "... intercept.i"
+	@echo "... intercept.s"
 	@echo "... logging.o"
 	@echo "... logging.i"
 	@echo "... logging.s"

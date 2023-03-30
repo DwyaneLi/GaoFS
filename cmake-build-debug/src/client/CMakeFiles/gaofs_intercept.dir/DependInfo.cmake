@@ -11,6 +11,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
+  "GAOFS_ENABLE_LOGGING"
   "HERMES_DEBUG_BUILD"
   "HERMES_MARGO_COMPATIBLE_MODE"
   "LIBGAOFS_LOG_MESSAGE_SIZE=1024"
@@ -29,6 +30,10 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/dwyaneli/gaofs/src/common/rpc/rpc_util.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/__/common/rpc/rpc_util.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/gaofs_functions.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/gaofs_functions.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/hooks.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/hooks.cpp.o"
+  "/home/dwyaneli/gaofs/src/client/intercept.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/intercept.cpp.o"
   "/home/dwyaneli/gaofs/src/client/logging.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/logging.cpp.o"
   "/home/dwyaneli/gaofs/src/client/open_dir.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_dir.cpp.o"
   "/home/dwyaneli/gaofs/src/client/open_file_map.cpp" "/home/dwyaneli/gaofs/cmake-build-debug/src/client/CMakeFiles/gaofs_intercept.dir/open_file_map.cpp.o"
@@ -45,6 +50,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "GAOFS_ENABLE_LOGGING"
   "HERMES_DEBUG_BUILD"
   "HERMES_MARGO_COMPATIBLE_MODE"
   "LIBGAOFS_LOG_MESSAGE_SIZE=1024"

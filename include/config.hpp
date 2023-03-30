@@ -10,6 +10,10 @@
 namespace gaofs::config {
 constexpr auto hostfile_path = "./gaofs_hosts.txt";
 
+namespace io {
+constexpr auto zero_buffer_before_read = false;
+} // namespace io
+
 namespace log {
 constexpr auto client_log_path = "/tmp/gaofs_client.log";
 constexpr auto client_log_level = "info,errors,critical,hermes";
@@ -33,6 +37,7 @@ constexpr auto implicit_data_removal = true;
 
 namespace rpc {
 constexpr auto chunksize = 524288; //chunk大小, 512kB
+constexpr auto dirents_buff_size = (8 * 1024 * 1024);
 } // namespace gaofs::config::rpc
 
 namespace rocksdb {

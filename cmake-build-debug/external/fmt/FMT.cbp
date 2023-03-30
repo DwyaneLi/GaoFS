@@ -26,6 +26,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -52,6 +53,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>

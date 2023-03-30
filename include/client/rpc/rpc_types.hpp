@@ -1768,7 +1768,7 @@ using self_type = trunc_data;
 using handle_type = hermes::rpc_handle<self_type>;
 using input_type = input;
 using output_type = output;
-using mercury_input_type = rpc_trunc_in_t;
+using mercury_input_type = rpc_trunc_data_in_t;
 using mercury_output_type = rpc_err_out_t;
 
 // RPC public identifier
@@ -1787,7 +1787,7 @@ constexpr static const auto requires_response = true;
 
 // Mercury callback to serialize input arguments
 constexpr static const auto mercury_in_proc_cb =
-        HG_GEN_PROC_NAME(rpc_trunc_in_t);
+        HG_GEN_PROC_NAME(rpc_trunc_data_in_t);
 
 // Mercury callback to serialize output arguments
 constexpr static const auto mercury_out_proc_cb =
@@ -1800,8 +1800,8 @@ class input {
     hermes::detail::post_to_mercury(ExecutionContext*);
 
 public:
-    input(const std::string& path, uint64_t length)
-            : m_path(path), m_length(length) {}
+    input(const std::string& path, uint64_t length, uint64_t host_id, uint64_t host_size)
+            : m_path(path), m_length(length), m_host_id(host_id), m_host_size(host_size) {}
 
     input(input&& rhs) = default;
 
@@ -1823,19 +1823,33 @@ public:
         return m_length;
     }
 
-    explicit input(const rpc_trunc_in_t& other)
-            : m_path(other.path), m_length(other.length) {}
+    uint64_t
+    host_id() const {
+        return m_host_id;
+    }
 
-    explicit operator rpc_trunc_in_t() {
+    uint64_t
+    host_size() const {
+        return m_host_size;
+    }
+
+    explicit input(const rpc_trunc_data_in_t& other)
+            : m_path(other.path), m_length(other.length), m_host_id(other.host_id), m_host_size(other.host_size) {}
+
+    explicit operator rpc_trunc_data_in_t() {
         return {
                 m_path.c_str(),
                 m_length,
+                m_host_id,
+                m_host_size,
         };
     }
 
 private:
     std::string m_path;
     uint64_t m_length;
+    uint64_t m_host_id;
+    uint64_t m_host_size;
 };
 
 class output {

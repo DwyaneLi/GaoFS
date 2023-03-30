@@ -1,5 +1,8 @@
 set(PRELOAD_SOURCES
     PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/intercept.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/hooks.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/gaofs_functions.cpp
         ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_data.cpp
         ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_metadata.cpp
         ${CMAKE_CURRENT_LIST_DIR}/rpc/forward_management.cpp
@@ -12,7 +15,11 @@ set(PRELOAD_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/preload_util.cpp
         ${CMAKE_CURRENT_LIST_DIR}/preload.cpp
         ${CMAKE_CURRENT_LIST_DIR}/preload_context.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/../common/rpc/rpc_util.cpp
     PUBLIC
+        ${INCLUDE_DIR}/client/intercept.hpp
+        ${INCLUDE_DIR}/client/hooks.hpp
+        ${INCLUDE_DIR}/client/gaofs_functions.hpp
         ${INCLUDE_DIR}/client/preload_util.hpp
         ${INCLUDE_DIR}/client/preload.hpp
         ${INCLUDE_DIR}/client/preload_context.hpp
@@ -34,6 +41,9 @@ set(PRELOAD_SOURCES
         ${INCLUDE_DIR}/client/syscalls/syscall.hpp
         ${INCLUDE_DIR}/client/syscalls/decoder.hpp
         ${INCLUDE_DIR}/client/syscalls/detail/syscall_info.h
+        ${INCLUDE_DIR}/common/common_defs.hpp
+        ${INCLUDE_DIR}/common/rpc/rpc_types.hpp
+        ${INCLUDE_DIR}/common/rpc/rpc_util.hpp
 )
 
 set(PRELOAD_LINK_LIBRARIES

@@ -86,6 +86,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -112,6 +113,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -139,6 +141,7 @@
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -166,6 +169,7 @@
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -192,6 +196,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -220,6 +225,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -248,6 +254,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -274,6 +281,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -300,6 +308,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
@@ -327,6 +336,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
@@ -354,6 +364,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
@@ -381,6 +392,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
@@ -408,6 +420,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -434,6 +447,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -460,6 +474,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -486,6 +501,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -512,6 +528,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
@@ -543,6 +560,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
@@ -575,6 +593,7 @@
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -605,6 +624,7 @@
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -634,6 +654,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -662,6 +683,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -690,6 +712,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -718,6 +741,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -746,6 +770,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -774,6 +799,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -802,6 +828,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DHERMES_DEBUG_BUILD"/>
 					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
@@ -835,6 +862,7 @@
 				<Compiler>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DHERMES_DEBUG_BUILD"/>
 					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
@@ -1202,6 +1230,15 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/client/env.hpp">
 			<Option target="gaofs_intercept"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/gaofs_functions.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/hooks.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/client/intercept.hpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/client/logging.hpp">
 			<Option target="gaofs_intercept"/>
 		</Unit>
@@ -1264,6 +1301,7 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/common_defs.hpp">
 			<Option target="storage"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/env_util.hpp">
 			<Option target="env_util"/>
@@ -1299,9 +1337,11 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_types.hpp">
 			<Option target="gaofs_daemon"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/rpc/rpc_util.hpp">
 			<Option target="gaofs_daemon"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/config.hpp">
 			<Option target="env_util"/>
@@ -1367,6 +1407,15 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/util.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/gaofs_functions.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/hooks.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/client/intercept.cpp">
+			<Option target="gaofs_intercept"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/client/logging.cpp">
 			<Option target="gaofs_intercept"/>
 		</Unit>
@@ -1423,6 +1472,7 @@
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/rpc_util.cpp">
 			<Option target="gaofs_daemon"/>
+			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/chunk_storage.cpp">
 			<Option target="storage"/>

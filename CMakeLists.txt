@@ -21,10 +21,13 @@ find_package(Filesystem REQUIRED)
 #
 find_package(Date REQUIRED)
 
+option(CREATE_CHECK_PARENTS "Check parent directory existance before creating child node" ON)
+message(STATUS "[gaofs] Create checks parents: ${CREATE_CHECK_PARENTS}")
+
 #设置内部用的文件描述符的数量
 set(MAX_INTERNAL_FDS 256 CACHE STRING "Number of file descriptors reserved for internal use")
 add_definitions(-DMAX_INTERNAL_FDS=${MAX_INTERNAL_FDS})
-message(STATUS "[gekkofs] File descriptors reserved for internal use: ${MAX_INTERNAL_FDS}")
+message(STATUS "[gaofs] File descriptors reserved for internal use: ${MAX_INTERNAL_FDS}")
 
 #获取一个进程最大可以打开的文件数量
 #todo: 搞懂
@@ -37,10 +40,16 @@ if (NOT GETCONF_MAX_FDS)
 endif ()
 add_definitions(-DMAX_OPEN_FDS=${GETCONF_MAX_FDS})
 
+option(ENABLE_CLIENT_LOG "Enable logging messages" ON)
+if (ENABLE_CLIENT_LOG)
+    add_definitions(-DGAOFS_ENABLE_LOGGING)
+endif ()
+message(STATUS "[gaofs] Client logging output: ${ENABLE_CLIENT_LOG}")
+
 #设置最长log大小
 set(CLIENT_LOG_MESSAGE_SIZE 1024 CACHE STRING "Maximum size of a log message in the client library")
 add_definitions(-DLIBGAOFS_LOG_MESSAGE_SIZE=${CLIENT_LOG_MESSAGE_SIZE})
-message(STATUS "[gekkofs] Maximum log message size in the client library: ${CLIENT_LOG_MESSAGE_SIZE}")
+message(STATUS "[gaofs] Maximum log message size in the client library: ${CLIENT_LOG_MESSAGE_SIZE}")
 mark_as_advanced(CLIENT_LOG_MESSAGE_SIZE)
 
 #选项，使用哪个数据库，默认使用rocks db
