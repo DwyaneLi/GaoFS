@@ -50,7 +50,7 @@ inline gaofs::syscall::info get_current_syscall_info() {
  */
 inline int hook_internal(long syscall_number, long arg0, long arg1, long arg2, long arg3,
                          long arg4, long arg5, long* result) {
-// todo  gaofs_enable_logging   GAOFS_DEBUG_BUILD
+// gaofs_enable_logging   GAOFS_DEBUG_BUILD
 #if defined(GAOFS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
     const long args[gaofs::syscall::MAX_ARGS] = {arg0, arg1, arg2,
                                                 arg3, arg4, arg5};
@@ -406,7 +406,7 @@ inline int hook_internal(long syscall_number, long arg0, long arg1, long arg2, l
 inline int hook(long syscall_number, long arg0, long arg1, long arg2, long arg3, long arg4,
                 long arg5, long* result) {
 
-    // todo  gaofs_enable_logging   GAOFS_DEBUG_BUILD
+    // gaofs_enable_logging   GAOFS_DEBUG_BUILD
 #if defined(GAOFS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
     const long args[gaofs::syscall::MAX_ARGS] = {arg0, arg1, arg2,
                                                 arg3, arg4, arg5};

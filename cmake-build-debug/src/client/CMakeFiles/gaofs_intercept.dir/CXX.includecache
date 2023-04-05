@@ -324,8 +324,10 @@ stdexcept
 unordered_map
 -
 
-../include/client/env.hpp
-config.hpp
+../include/client/gaofs_functions.hpp
+client/open_file_map.hpp
+-
+common/metadata.hpp
 -
 
 ../include/client/logging.hpp
@@ -412,6 +414,8 @@ type_traits
 optional
 -
 
+../include/client/rpc/forward_data.hpp
+
 ../include/client/rpc/forward_metadata.hpp
 string
 -
@@ -488,12 +492,6 @@ client/syscalls/errno.hpp
 client/syscalls/detail/syscall_info.h
 -
 
-../include/common/common_defs.hpp
-
-../include/common/env_util.hpp
-string
--
-
 ../include/common/metadata.hpp
 config.hpp
 -
@@ -504,74 +502,40 @@ sys/stat.h
 string
 -
 
-../include/common/rpc/distributor.hpp
-config.hpp
+../include/common/path_util.hpp
+string
 -
 vector
--
-string
--
-numeric
--
-unordered_map
--
-fstream
--
-map
--
-
-../include/common/rpc/rpc_util.hpp
-string
--
-mercury_types.h
--
-mercury_proc_string.h
 -
 
 ../include/config.hpp
 
-/home/dwyaneli/gaofs/src/client/open_file_map.cpp
-client/open_file_map.hpp
+/home/dwyaneli/gaofs/src/client/gaofs_functions.cpp
+client/gaofs_functions.hpp
 -
-client/open_dir.hpp
--
-client/logging.hpp
+config.hpp
 -
 client/preload_util.hpp
--
-fcntl.h
--
-
-/home/dwyaneli/gaofs/src/client/preload_util.cpp
-client/preload_util.hpp
--
-client/env.hpp
 -
 client/logging.hpp
 -
 client/rpc/forward_metadata.hpp
 -
-common/rpc/distributor.hpp
+client/rpc/forward_data.hpp
 -
-common/rpc/rpc_util.hpp
+client/open_dir.hpp
 -
-common/env_util.hpp
+common/path_util.hpp
 -
-common/common_defs.hpp
+dirent.h
 -
-hermes.hpp
+linux/kernel.h
 -
-fstream
+sys/statfs.h
 -
-sstream
+sys/statvfs.h
 -
-regex
--
-csignal
--
-random
--
-sys/sysmacros.h
+sys/uio.h
 -
 
 /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/boost/preprocessor.hpp
@@ -2952,17 +2916,7 @@ rpc/xdr.h
 mercury_proc.h
 /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc.h
 
-/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc_string.h
-mercury_proc.h
-/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_proc.h
-mercury_string_object.h
-/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_string_object.h
-
 /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_queue.h
-
-/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_string_object.h
-mercury_types.h
-/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_types.h
 
 /home/dwyaneli/gekkofs_test/gekkofs_deps/install/include/mercury_thread_annotation.h
 

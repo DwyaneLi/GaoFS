@@ -13,6 +13,33 @@ target_sources(distributor
         ${CMAKE_CURRENT_LIST_DIR}/rpc/distributor.cpp
         )
 
+#编译statistic静态库
+add_library(statistics STATIC)
+set_property(TARGET statistics PROPERTY POSITION_INDEPENDENT_CODE ON)
+target_sources(statistics
+        PUBLIC
+        ${INCLUDE_DIR}/common/statistics/stats.hpp
+        PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/statistics/stats.cpp
+        )
+
+if(GKFS_ENABLE_PROMETHEUS)
+    find_package(CURL REQUIRED)
+    find_package(prometheus-cpp REQUIRED)
+    set(PROMETHEUS_LINK_LIBRARIES
+            prometheus-cpp::pull
+            prometheus-cpp::push
+            prometheus-cpp::core
+            curl)
+    #如果要用pormethus就要包含对应头文件
+    target_include_directories(statistics PRIVATE ${prometheus-cpp_INCLUDE_DIR})
+endif()
+
+target_link_libraries(statistics
+        PRIVATE
+        ${PROMETHEUS_LINK_LIBRARIES}
+        )
+
 # 编译path_util库
 add_library(path_util STATIC)
 set_property(TARGET path_util PROPERTY POSITION_INDEPENDENT_CODE ON)

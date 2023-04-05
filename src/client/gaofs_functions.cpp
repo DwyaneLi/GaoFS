@@ -153,7 +153,7 @@ int gaofs_open(const std::string& path, mode_t mode, int flags) {
         }
         md = *md_;
     }
-// TODO: SYMLINKS
+// SYMLINKS
 #ifdef HAS_SYMLINKS
     if(md.is_link()) {
         if(flags & O_NOFOLLOW) {
@@ -429,7 +429,7 @@ int gaofs_truncate(const std::string& path, off_t old_size, off_t new_size) {
 // 截断操作
 int gaofs_truncate(const std::string& path, off_t offset) {
     if(offset < 0) {
-        LOG(DEBUG, "Length is negative: {}", length);
+        LOG(DEBUG, "Length is negative: {}", offset);
         errno = EINVAL;
         return -1;
     }
@@ -441,7 +441,7 @@ int gaofs_truncate(const std::string& path, off_t offset) {
 
     auto size = md->size();
     if(static_cast<unsigned long>(offset) > size) {
-        LOG(DEBUG, "Length is greater then file size: {} > {}", length, size);
+        LOG(DEBUG, "Length is greater then file size: {} > {}", offset, size);
         errno = EINVAL;
         return -1;
     }

@@ -57,7 +57,7 @@ int gaofs_dup(int oldfd);
 
 int gaofs_dup2(int oldfd, int newfd);
 
-// TODO SYMLINKS
+// SYMLINKS
 #ifdef HAS_SYMLINKS
 
 int gaofs_mk_symlink(const std::string& path, const std::string& target_path);

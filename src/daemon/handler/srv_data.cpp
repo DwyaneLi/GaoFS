@@ -5,6 +5,8 @@
 #include <daemon/handler/rpc_defs.hpp>
 #include <daemon/handler/rpc_util.hpp>
 
+#include <common/statistics/stats.hpp>
+
 #include <common/rpc/rpc_types.hpp>
 
 // TODO: agios
@@ -202,7 +204,12 @@ hg_return_t rpc_srv_write(hg_handle_t handle) {
      * */
     GAOFS_DATA->spdlogger()->debug("{}() Sending output response {}", __func__, out.err);
     auto hret = gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
-    // TODO Statistic
+
+    // tatistic
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_size(
+                gaofs::utils::Stats::SizeOp::write_size, bulk_size);
+    }
     return hret;
 }
 
@@ -286,8 +293,10 @@ hg_return_t rpc_srv_read(hg_handle_t handle) {
                                            __func__, chnk_id_file, host_id, chnk_id_curr);
             continue;
         }
-        // TODO： statistics
-
+        // statistics
+        if(GAOFS_DATA->enable_chunkstats()) {
+            GAOFS_DATA->stats()->add_read(in.path, chnk_id_file);
+        }
         // 保存到数组中
         chnk_ids_host[chnk_id_curr] = chnk_id_file;
         if(chnk_id_file == in.chunk_start && in.offset > 0) {
@@ -354,7 +363,11 @@ hg_return_t rpc_srv_read(hg_handle_t handle) {
     GAOFS_DATA->spdlogger()->debug("{}() Sending output response, err: {}",
                                    __func__, out.err);
     auto hret = gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
-    // TODO:statistics
+    // statistics
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_size(
+                gaofs::utils::Stats::SizeOp::read_size, bulk_size);
+    }
     return hret;
 }
 
@@ -419,10 +432,10 @@ hg_return_t rpc_srv_get_chunk_stat(hg_handle_t handle) {
 
 } // namespace
 
-DECLARE_MARGO_RPC_HANDLER(rpc_srv_get_chunk_stat)
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_chunk_stat)
 
-DECLARE_MARGO_RPC_HANDLER(rpc_srv_read)
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_read)
 
-DECLARE_MARGO_RPC_HANDLER(rpc_srv_truncat)
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_truncate)
 
-DECLARE_MARGO_RPC_HANDLER(rpc_srv_write)
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_write)

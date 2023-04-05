@@ -43,7 +43,7 @@ void PreloadContext::init_logging() {
     const std::string log_output = gaofs::env::get_var(
             gaofs::env::LOG_OUTPUT, gaofs::config::log::client_log_path);
 
-    // TODO: GAOFS_DEBUG_BUILD
+    // GAOFS_DEBUG_BUILD
 #ifdef GAOFS_DEBUG_BUILD
     // atoi returns 0 if no int conversion can be performed, which works
     // for us since if the user provides a non-numeric value we can just treat
@@ -265,8 +265,8 @@ int PreloadContext::register_internal_fd(int fd) {
     }
     internal_fds_.reset(pos);
 
-    // TODO GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
-#if defined(GAOS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
+    // GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
+#if defined(GAOFS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
     long args[gaofs::syscall::MAX_ARGS]{fd, pos + MIN_INTERNAL_FD, O_CLOEXEC};
 #endif
 
@@ -283,7 +283,7 @@ int PreloadContext::register_internal_fd(int fd) {
 
     assert(::syscall_error_code(ifd) == 0);
 
-// TODO GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
+// GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
 #if defined(GAOFS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
     long args2[gaofs::syscall::MAX_ARGS]{fd};
 #endif
@@ -293,7 +293,7 @@ int PreloadContext::register_internal_fd(int fd) {
         gaofs::syscall::not_executed,
         SYS_close, args2);
 
-// TODO GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
+// GAOS_ENABLE_LOGGING GAOFS_DEBUG_BUILD
 #if defined(GAOFS_ENABLE_LOGGING) && defined(GAOFS_DEBUG_BUILD)
     int rv = ::syscall_no_intercept(SYS_close, fd);
 #else

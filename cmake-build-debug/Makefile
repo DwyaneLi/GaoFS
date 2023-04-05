@@ -80,6 +80,17 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,17 +123,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -248,6 +248,19 @@ path_util/fast:
 .PHONY : path_util/fast
 
 #=============================================================================
+# Target rules for targets named statistics
+
+# Build rule for target.
+statistics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 statistics
+.PHONY : statistics
+
+# fast build rule for target.
+statistics/fast:
+	$(MAKE) -f src/common/CMakeFiles/statistics.dir/build.make src/common/CMakeFiles/statistics.dir/build
+.PHONY : statistics/fast
+
+#=============================================================================
 # Target rules for targets named distributor
 
 # Build rule for target.
@@ -346,10 +359,10 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... fmt"
 	@echo "... spdlog"
 	@echo "... log_util"
@@ -357,6 +370,7 @@ help:
 	@echo "... first_chunk"
 	@echo "... metadata"
 	@echo "... path_util"
+	@echo "... statistics"
 	@echo "... distributor"
 	@echo "... gaofs_daemon"
 	@echo "... metadata_db"

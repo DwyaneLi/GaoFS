@@ -15,10 +15,13 @@ set(DAEMON_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/ops/metadentry.cpp
         ${CMAKE_CURRENT_LIST_DIR}/ops/data.cpp
         PUBLIC
+        ${INCLUDE_DIR}/version.hpp
+        ${INCLUDE_DIR}/daemon/env.hpp
         ${INCLUDE_DIR}/daemon/handler/rpc_defs.hpp
         ${INCLUDE_DIR}/daemon/handler/rpc_util.hpp
         ${INCLUDE_DIR}/common/rpc/rpc_types.hpp
         ${INCLUDE_DIR}/common/rpc/rpc_util.hpp
+        ${INCLUDE_DIR}/common/common_defs.hpp
         ${INCLUDE_DIR}/daemon/util.hpp
         ${INCLUDE_DIR}/daemon/classes/fs_data.hpp
         ${INCLUDE_DIR}/daemon/classes/rpc_data.hpp
@@ -34,11 +37,13 @@ set(DAEMON_LINK_LIBRARIES
         metadata
         first_chunk
         metadata_db
+        storage
         distributor
+        statistics
         log_util
         env_util
         spdlog
-        # CLI11
+        CLI11
         fmt::fmt
         path_util
         # margo libs
@@ -53,9 +58,11 @@ set(DAEMON_LINK_LIBRARIES
 #设置需要包含的外部头文件
 set(DAEMON_INCLUDE_DIRS
         PRIVATE
+        ${ABT_INCLUDE_DIRS}
+        ${MARGO_INCLUDE_DIRS}
         )
 
-#生成gkfs_daemon可执行文件
+#生成gaofs_daemon可执行文件
 add_executable(gaofs_daemon)
 target_sources(gaofs_daemon ${DAEMON_SOURCES})
 target_link_libraries(gaofs_daemon ${DAEMON_LINK_LIBRARIES})

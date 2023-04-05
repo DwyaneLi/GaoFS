@@ -20,7 +20,7 @@ namespace gaofs::data {
 * ------------------------------------------------------------------------*/
 
 // 构造函数
-ChunkTruncateOperation::ChunkTruncateOperation(const string &path) : ChunkOperation(path,1) {};
+ChunkTruncateOperation::ChunkTruncateOperation(const string &path) : ChunkOperation(path,1) {}
 
 // 清除参数
 void ChunkTruncateOperation::clear_task_args() {

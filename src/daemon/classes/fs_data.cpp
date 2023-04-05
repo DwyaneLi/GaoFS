@@ -117,18 +117,102 @@ void FsData::storage(const std::shared_ptr<gaofs::data::ChunkStorage> &storage) 
     storage_ = storage;
 }
 
-// TODO: Parallax
+// Parallax
+unsigned long long FsData::parallax_size_md() const {
+    return parallax_size_md_;
+}
 
-// TODO: Statistics
+void FsData::parallax_size_md(unsigned int size_md) {
+    FsData::parallax_size_md_ = static_cast<unsigned long long>(
+            size_md * 1024ull * 1024ull * 1024ull);
+}
 
-// TODO: Prometheus
 
-// TODO: RPC management
+// Statistics
+const std::shared_ptr<gaofs::utils::Stats>& FsData::stats() const {
+    return stats_;
+}
+
+void FsData::stats(const std::shared_ptr<gaofs::utils::Stats>& stats) {
+    FsData::stats_ = stats;
+}
+
+void FsData::close_stats() {
+    stats_.reset();
+}
+
+bool FsData::enable_stats() const {
+    return enable_stats_;
+}
+
+void FsData::enable_stats(bool enable_stats) {
+    FsData::enable_stats_ = enable_stats;
+}
+
+bool FsData::enable_chunkstats() const {
+    return enable_chunkstats_;
+}
+
+void FsData::enable_chunkstats(bool enable_chunkstats) {
+    FsData::enable_chunkstats_ = enable_chunkstats;
+}
+
+const std::string& FsData::stats_file() const {
+    return stats_file_;
+}
+
+void FsData::stats_file(const std::string& stats_file) {
+    FsData::stats_file_ = stats_file;
+}
+
+// Prometheus
+bool FsData::enable_prometheus() const {
+    return enable_prometheus_;
+}
+
+const std::string& FsData::prometheus_gateway() const {
+    return prometheus_gateway_;
+}
+
+void FsData::prometheus_gateway(const std::string& prometheus_gateway) {
+    FsData::prometheus_gateway_ = prometheus_gateway;
+}
+
+void FsData::enable_prometheus(bool enable_prometheus) {
+    FsData::enable_prometheus_ = enable_prometheus;
+}
+
+// RPC management
 const std::string& FsData::hosts_file() const {
     return hosts_file_;
 }
 
 void FsData::hosts_file(const std::string &hosts_file) {
     hosts_file_ = hosts_file;
+
 }
+const std::string& FsData::rpc_protocol() const {
+    return rpc_protocol_;
+}
+
+void FsData::rpc_protocol(const std::string& rpc_protocol) {
+    rpc_protocol_ = rpc_protocol;
+}
+
+const std::string& FsData::bind_addr() const {
+    return bind_addr_;
+}
+
+void FsData::bind_addr(const std::string& addr) {
+    bind_addr_ = addr;
+}
+
+bool FsData::use_auto_sm() const {
+    return use_auto_sm_;
+}
+
+void FsData::use_auto_sm(bool use_auto_sm) {
+    use_auto_sm_ = use_auto_sm;
+}
+
 } // namespace gaofs::daemon

@@ -85,4 +85,12 @@ MERCURY_GEN_PROC(rpc_chunk_stat_in_t, ((hg_int32_t)(dummy)))
 MERCURY_GEN_PROC(rpc_chunk_stat_out_t, ((hg_int32_t)(err))((hg_uint64_t)(chunk_size))
         ((hg_uint64_t)(chunk_total))((hg_uint64_t)(chunk_free)))
 
+// SYMLINKS
+#ifdef HAS_SYMLINKS
+MERCURY_GEN_PROC(rpc_mk_symlink_in_t,
+                 ((hg_const_string_t)(path))((hg_const_string_t)(target_path)))
+
+#endif
+
+
 #endif //LFS_RPC_TYPES_HPP

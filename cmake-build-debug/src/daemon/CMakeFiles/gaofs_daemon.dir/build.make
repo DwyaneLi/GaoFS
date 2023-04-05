@@ -217,7 +217,9 @@ src/daemon/gaofs_daemon: src/daemon/CMakeFiles/gaofs_daemon.dir/build.make
 src/daemon/gaofs_daemon: src/common/libmetadata.a
 src/daemon/gaofs_daemon: src/common/libfirst_chunk.a
 src/daemon/gaofs_daemon: src/daemon/backend/metadata/libmetadata_db.a
+src/daemon/gaofs_daemon: src/daemon/backend/data/libstorage.a
 src/daemon/gaofs_daemon: src/common/libdistributor.a
+src/daemon/gaofs_daemon: src/common/libstatistics.a
 src/daemon/gaofs_daemon: src/common/liblog_util.a
 src/daemon/gaofs_daemon: src/common/libenv_util.a
 src/daemon/gaofs_daemon: external/spdlog/libspdlogd.a
@@ -232,6 +234,7 @@ src/daemon/gaofs_daemon: external/fmt/libfmtd.a
 src/daemon/gaofs_daemon: src/daemon/backend/metadata/libmetadata_module.a
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/librocksdb.a
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/liblz4.so
+src/daemon/gaofs_daemon: src/daemon/backend/data/libdata_module.a
 src/daemon/gaofs_daemon: external/spdlog/libspdlogd.a
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libna.so.2.1.0
 src/daemon/gaofs_daemon: /home/dwyaneli/gekkofs_test/gekkofs_deps/install/lib/libmercury_util.so.2.1.0

@@ -7,7 +7,8 @@
 #include <daemon/ops/metadentry.hpp>
 #include <daemon/backend/metadata/db.hpp> // exception
 #include <common/rpc/rpc_types.hpp>
-
+#include <daemon/ops/data.hpp>
+#include <common/statistics/stats.hpp>
 using namespace std;
 
 namespace {
@@ -57,8 +58,11 @@ hg_return_t rpc_srv_create(hg_handle_t handle) {
     margo_free_input(handle, &in);
     margo_destroy(handle);
 
-    // TODO: statistic
-
+    // statistics
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_iops(
+                gaofs::utils::Stats::IopsOp::iops_create);
+    }
     return HG_SUCCESS;
 }
 
@@ -106,8 +110,11 @@ hg_return_t rpc_srv_stat(hg_handle_t handle) {
     margo_free_input(handle, &in);
     margo_destroy(handle);
 
-    //TODO: statistics
-
+    //statistics
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_iops(
+                gaofs::utils::Stats::IopsOp::iops_stats);
+    }
     return HG_SUCCESS;
 }
 
@@ -223,8 +230,11 @@ hg_return_t rpc_srv_remove_metadata(hg_handle_t handle) {
     // 释放资源
     margo_free_input(handle, &in);
     margo_destroy(handle);
-    // TODO:statistics
-
+    // statistics
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_iops(
+                gaofs::utils::Stats::IopsOp::iops_remove);
+    }
     return HG_SUCCESS;
 }
 
@@ -234,7 +244,7 @@ hg_return_t rpc_srv_remove_metadata(hg_handle_t handle) {
 // 这个和metadata没关系
 // 这里应该也不需要对first chunk进行处理，因为在上面已经删掉了
 hg_return_t rpc_srv_remove_data(hg_handle_t handle) {
-    // TODO: first chunk
+    // first chunk
     // 初始化输入输出
     rpc_rm_node_in_t in{};
     rpc_err_out_t out{};
@@ -563,7 +573,11 @@ hg_return_t rpc_srv_get_dirents(hg_handle_t handle) {
     GAOFS_DATA->spdlogger()->debug(
             "{}() Sending output response err '{}' dirents_size '{}'. DONE",
             __func__, out.err, out.dirents_size);
-    // TODO statistic
+    // statistics
+    if(GAOFS_DATA->enable_stats()) {
+        GAOFS_DATA->stats()->add_value_iops(
+                gaofs::utils::Stats::IopsOp::iops_dirent);
+    }
     return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
 }
 
@@ -700,9 +714,52 @@ hg_return_t rpc_srv_get_dirents_extended(hg_handle_t handle) {
     GAOFS_DATA->spdlogger()->debug(
             "{}() Sending output response err '{}' dirents_size '{}'. DONE",
             __func__, out.err, out.dirents_size);
-    // TODO statistic
     return gaofs::rpc::cleanup_respond(&handle, &in, &out, &bulk_handle);
 }
+
+// SYMLINKS
+#ifdef HAS_SYMLINKS
+/*
+ * 创建软连接
+ */
+hg_return_t
+rpc_srv_mk_symlink(hg_handle_t handle) {
+    rpc_mk_symlink_in_t in{};
+    rpc_err_out_t out{};
+
+    auto ret = margo_get_input(handle, &in);
+    if(ret != HG_SUCCESS) {
+        GAOFS_DATA->spdlogger()->error(
+                "{}() Failed to retrieve input from handle", __func__);
+    }
+    GAOFS_DATA->spdlogger()->debug("{}() Got RPC with path '{}'", __func__,
+                                  in.path);
+
+    try {
+        gaofs::metadata::Metadata md = {gaofs::metadata::LINK_MODE,
+                                       in.target_path};
+        // create metadentry
+        gaofs::metadata::create(in.path, md);
+        out.err = 0;
+    } catch(const std::exception& e) {
+        GAOFS_DATA->spdlogger()->error("{}() Failed to create metadentry: '{}'",
+                                      __func__, e.what());
+        out.err = -1;
+    }
+    GAOFS_DATA->spdlogger()->debug("{}() Sending output err '{}'", __func__,
+                                  out.err);
+    auto hret = margo_respond(handle, &out);
+    if(hret != HG_SUCCESS) {
+        GAOFS_DATA->spdlogger()->error("{}() Failed to respond", __func__);
+    }
+
+    // Destroy handle when finished
+    margo_free_input(handle, &in);
+    margo_destroy(handle);
+    return HG_SUCCESS;
+}
+
+#endif
 
 } // namespace
 
@@ -725,3 +782,7 @@ DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_metadentry_size)
 DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_dirents)
 
 DEFINE_MARGO_RPC_HANDLER(rpc_srv_get_dirents_extended)
+
+#ifdef HAS_SYMLINKS
+DEFINE_MARGO_RPC_HANDLER(rpc_srv_mk_symlink)
+#endif

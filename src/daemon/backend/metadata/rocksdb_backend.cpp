@@ -146,9 +146,8 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
     rdb::ReadOptions readOptions;
     auto it = db_->NewIterator(readOptions);
 
-    auto root_dir_key = "/_m";
     for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
-        if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
+        if(it->key().size() == root_path.size()) {
             // 跳过root
             continue;
         }
@@ -160,11 +159,8 @@ std::vector<std::pair<std::string, bool>> RocksDBBackend::get_dirents_impl(const
             continue;
         }
 
-        if(it->key().ends_with("_f")) {
-            continue;
-        }
 
-        name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
+        name = name.substr(root_path.size());
 
         assert(!name.empty());
 
@@ -186,9 +182,8 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
     rdb::ReadOptions readOptions;
     auto it = db_->NewIterator(readOptions);
 
-    auto root_dir_key = "/_m";
     for(it->Seek(root_path); it->Valid() && it->key().starts_with(root_path); it->Next()) {
-        if(it->key().starts_with(root_dir_key) && it->key().size() == 3) {
+        if(it->key().size() == root_path.size()) {
             // 跳过root本身
             continue;
         }
@@ -199,12 +194,8 @@ std::vector<std::tuple<std::string, bool, size_t, time_t>> RocksDBBackend::get_d
             continue;
         }
 
-        if(it->key().ends_with("_f")) {
-            continue;
-        }
 
-
-        name = name.substr(root_path.size(), name.size() - root_path.size() - 2);
+        name = name.substr(root_path.size());
 
         assert(!name.empty());
 

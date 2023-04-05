@@ -47,7 +47,7 @@ std::pair<int, std::vector<std::tuple<const std::string, bool, size_t, time_t>>>
 forward_get_dirents_single(const std::string& path, int server);
 
 #ifdef HAS_SYMLINKS
-// TODO: has_symlinks
+// has_symlinks
 int forward_mk_symlink(const std::string& path, const std::string& target_path);
 #endif
 

@@ -72,7 +72,7 @@ bool init_hermes_client() {
     return true;
 }
 
-// todo:  GAOFS_ENABLE_FORWARDING
+// GAOFS_ENABLE_FORWARDING
 #ifdef GAOFS_ENABLE_FORWARDING
 void* forwarding_mapper(void* p) {
     struct timespec timeout;

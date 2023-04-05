@@ -232,6 +232,21 @@ path_util/fast:
 .PHONY : path_util/fast
 
 # Convenience name for target.
+src/common/CMakeFiles/statistics.dir/rule:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/statistics.dir/rule
+.PHONY : src/common/CMakeFiles/statistics.dir/rule
+
+# Convenience name for target.
+statistics: src/common/CMakeFiles/statistics.dir/rule
+
+.PHONY : statistics
+
+# fast build rule for target.
+statistics/fast:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/statistics.dir/build.make src/common/CMakeFiles/statistics.dir/build
+.PHONY : statistics/fast
+
+# Convenience name for target.
 src/common/CMakeFiles/distributor.dir/rule:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/distributor.dir/rule
 .PHONY : src/common/CMakeFiles/distributor.dir/rule
@@ -408,6 +423,33 @@ rpc/distributor.cpp.s:
 	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/distributor.dir/build.make src/common/CMakeFiles/distributor.dir/rpc/distributor.cpp.s
 .PHONY : rpc/distributor.cpp.s
 
+statistics/stats.o: statistics/stats.cpp.o
+
+.PHONY : statistics/stats.o
+
+# target to build an object file
+statistics/stats.cpp.o:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/statistics.dir/build.make src/common/CMakeFiles/statistics.dir/statistics/stats.cpp.o
+.PHONY : statistics/stats.cpp.o
+
+statistics/stats.i: statistics/stats.cpp.i
+
+.PHONY : statistics/stats.i
+
+# target to preprocess a source file
+statistics/stats.cpp.i:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/statistics.dir/build.make src/common/CMakeFiles/statistics.dir/statistics/stats.cpp.i
+.PHONY : statistics/stats.cpp.i
+
+statistics/stats.s: statistics/stats.cpp.s
+
+.PHONY : statistics/stats.s
+
+# target to generate assembly for a file
+statistics/stats.cpp.s:
+	cd /home/dwyaneli/gaofs/cmake-build-debug && $(MAKE) -f src/common/CMakeFiles/statistics.dir/build.make src/common/CMakeFiles/statistics.dir/statistics/stats.cpp.s
+.PHONY : statistics/stats.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -425,6 +467,7 @@ help:
 	@echo "... first_chunk"
 	@echo "... metadata"
 	@echo "... path_util"
+	@echo "... statistics"
 	@echo "... distributor"
 	@echo "... env_util.o"
 	@echo "... env_util.i"
@@ -444,6 +487,9 @@ help:
 	@echo "... rpc/distributor.o"
 	@echo "... rpc/distributor.i"
 	@echo "... rpc/distributor.s"
+	@echo "... statistics/stats.o"
+	@echo "... statistics/stats.i"
+	@echo "... statistics/stats.s"
 .PHONY : help
 
 

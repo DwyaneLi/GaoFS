@@ -43,6 +43,14 @@ void RPCData::distributor(const shared_ptr<gaofs::rpc::Distributor> &distributor
     distributor_ = distributor;
 }
 
+vector<ABT_xstream>& RPCData::io_streams() {
+    return io_streams_;
+}
+
+void RPCData::io_streams(const vector<ABT_xstream>& io_streams) {
+    RPCData::io_streams_ = io_streams;
+}
+
 } // namespace daemon
 
 } // namespace gaofs

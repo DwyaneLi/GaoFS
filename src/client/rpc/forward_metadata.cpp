@@ -487,7 +487,7 @@ forward_get_dirents_single(const string& path, int server) {
 
 }
 
-// TODO: HAS_SYMLINKS
+// HAS_SYMLINKS
 #ifdef HAS_SYMLINKS
  // 发送一个RPC请求来创建一个符号链接。
 int

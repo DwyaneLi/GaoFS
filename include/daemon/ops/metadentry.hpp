@@ -50,6 +50,8 @@ void remove_first_chunk(const std::string& path);
 
 bool exists_first_chunk(const std::string& path);
 
+void iterate_all();
+
 } //namespace gaofs::metadata
 
 #endif //GAOFS_METADENTRY_HPP

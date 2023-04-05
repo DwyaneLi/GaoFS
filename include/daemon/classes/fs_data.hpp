@@ -8,6 +8,8 @@
 #include <daemon/backend/metadata/db.hpp>
 #include <daemon/backend/data/chunk_storage.hpp>
 
+#include <common/statistics/stats.hpp>
+
 #include <unordered_map>
 #include <map>
 #include <functional>
@@ -31,8 +33,11 @@ private:
     std::string mountdir_{};
     std::string metadir_{};
 
-    // TODO: RPC management
+    // RPC management
     std::string hosts_file_{}; // 通信地址文档
+    std::string bind_addr_{};
+    std::string rpc_protocol_{};
+    bool use_auto_sm_;
 
     // Database
     std::shared_ptr<gaofs::metadata::MetadataDB> mdb_;
@@ -50,10 +55,15 @@ private:
     bool link_cnt_state_;
     bool blocks_state_;
 
-    // TODO: Statistics
+    // Statistics
+    std::shared_ptr<gaofs::utils::Stats> stats_;
+    bool enable_stats_ = false;
+    bool enable_chunkstats_ = false;
+    bool enable_prometheus_ = false;
+    std::string stats_file_;
 
-    // TODO: Prometheus
-
+    // Prometheus
+    std::string prometheus_gateway_ = gaofs::config::stats::prometheus_gateway;
 public:
 
     static FsData* getInstance() {
@@ -96,10 +106,22 @@ public:
 
     void close_mdb();
 
-    // TODO: RPC management
+    //RPC management
     const std::string& hosts_file() const;
 
     void hosts_file(const std::string& hosts_file);
+
+    const std::string& rpc_protocol() const;
+
+    void rpc_protocol(const std::string& rpc_protocol);
+
+    const std::string& bind_addr() const;
+
+    void bind_addr(const std::string& addr);
+
+    bool use_auto_sm() const;
+
+    void use_auto_sm(bool use_auto_sm);
 
     bool atime_state() const;
 
@@ -126,12 +148,41 @@ public:
 
     void storage(const std::shared_ptr<gaofs::data::ChunkStorage>& storage);
 
-    // TODO: Parallax
+    // Parallax
+    unsigned long long parallax_size_md_ = 8589934592ull;
 
-    // TODO: Statistics
+    // Statistics
+    const std::shared_ptr<gaofs::utils::Stats>& stats() const;
 
-    // TODO: Prometheus
+    void stats(const std::shared_ptr<gaofs::utils::Stats>& stats);
 
+    void close_stats();
+
+    bool enable_stats() const;
+
+    void enable_stats(bool enable_stats);
+
+    bool enable_chunkstats() const;
+
+    void enable_chunkstats(bool enable_chunkstats);
+
+    const std::string& stats_file() const;
+
+    void stats_file(const std::string& stats_file);
+
+    // Prometheus
+    bool enable_prometheus() const;
+
+    void enable_prometheus(bool enable_prometheus);
+
+    const std::string& prometheus_gateway() const;
+
+    void prometheus_gateway(const std::string& prometheus_gateway_);
+
+    //parallax
+    unsigned long long parallax_size_md() const;
+
+    void parallax_size_md(unsigned int size_md);
 
 };
 

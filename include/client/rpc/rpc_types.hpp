@@ -13,7 +13,7 @@
 
 #include <hermes.hpp>
 
-// TODO: HG_GEN_PROC_NAME
+// HG_GEN_PROC_NAME
 #ifndef HG_GEN_PROC_NAME
 #define HG_GEN_PROC_NAME(struct_type_name) hg_proc_##struct_type_name
 #endif

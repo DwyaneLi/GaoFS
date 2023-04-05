@@ -375,6 +375,9 @@ FMT_WERROR:BOOL=OFF
 //TRUE if we can run a program using std::filesystem
 Filesystem_FOUND:BOOL=TRUE
 
+//Enable AGIOS scheduling library
+GAOFS_ENABLE_AGIOS:BOOL=OFF
+
 //Enable ROCKSDB backend
 GAOFS_ENABLE_ROCKSDB:BOOL=ON
 
@@ -403,7 +406,14 @@ HERMES_DOC:BOOL=OFF
 HERMES_INSTALL:BOOL=OFF
 
 //Enable logging messages (using the fmt library)
-HERMES_LOGGING:BOOL=OFF
+HERMES_LOGGING:BOOL=ON
+
+//Use fmt library as header-only
+HERMES_LOGGING_FMT_HEADER_ONLY:BOOL=OFF
+
+//Use the fmt library bundled with hermes instead of the one installed
+// on the system
+HERMES_LOGGING_FMT_USE_BUNDLED:BOOL=OFF
 
 //Enable features for compatibility with Margo servers (not required
 // if Margo < v0.5.2)
@@ -420,6 +430,8 @@ JEMALLOC_INCLUDE_DIR:PATH=JEMALLOC_INCLUDE_DIR-NOTFOUND
 
 //Path to a library.
 JEMALLOC_LIBRARY:FILEPATH=JEMALLOC_LIBRARY-NOTFOUND
+
+LOGGING:BOOL=ON
 
 //Path to a file.
 LZ4_INCLUDE_DIR:PATH=/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include
@@ -589,6 +601,9 @@ SPDLOG_WCHAR_FILENAMES:BOOL=OFF
 
 //non supported option
 SPDLOG_WCHAR_SUPPORT:BOOL=OFF
+
+//Compile with support for symlinks
+SYMLINK_SUPPORT:BOOL=ON
 
 //The directory containing a CMake configuration file for Sanitizers.
 Sanitizers_DIR:PATH=Sanitizers_DIR-NOTFOUND

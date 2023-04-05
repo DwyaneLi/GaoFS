@@ -153,7 +153,8 @@ optional<gaofs::metadata::Metadata> get_metadata(const string& path, bool follow
         errno = err;
         return {};
     }
-    // TODO:  has_symlink
+
+// has_symlink
 #ifdef HAS_SYMLINKS
     if(follow_links) {
         gaofs::metadata::Metadata md{attr};
@@ -188,7 +189,7 @@ int metadata_to_stat(const std::string& path, const gaofs::metadata::Metadata& m
     memset(&attr.st_ctim, 0, sizeof(timespec));
 
     attr.st_mode = md.mode();
-    // TODO: HAS_SYMLINKS
+// HAS_SYMLINKS
 #ifdef HAS_SYMLINKS
     if(md.is_link())
         attr.st_size = md.target_path().size() + CTX->mountdir().size();

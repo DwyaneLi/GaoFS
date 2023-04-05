@@ -115,6 +115,10 @@ bool exists_first_chunk(const std::string& path) {
     return GAOFS_DATA->mdb()->exists_first_chunk(path);
 }
 
+void iterate_all() {
+    GAOFS_DATA->mdb()->iterate_all();
+}
+
 } // namespace gaofs::metadata
 
 

@@ -73,3 +73,10 @@ add_library(gaofs_intercept SHARED)
 target_sources(gaofs_intercept ${PRELOAD_SOURCES})
 target_link_libraries(gaofs_intercept PRIVATE ${PRELOAD_LINK_LIBRARIES})
 target_include_directories(gaofs_intercept PRIVATE ${PRELOAD_INCLUDE_DIRS})
+
+#安装在lib下
+install(TARGETS gaofs_intercept
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gaofs
+        )

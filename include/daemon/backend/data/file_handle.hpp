@@ -55,16 +55,16 @@ public:
     // 关闭文件，并把fd_回复默认
     bool close() noexcept {
         if(fd_ != init_value) {
-            if(::close(fd_) < 0) {
+            if (::close(fd_) < 0) {
                 GAOFS_DATA_MOD->log()->warn(
                         "{}() Failed to close file descriptor '{}' path '{}' errno '{}'",
                         __func__, fd_, path_, ::strerror(errno)
-                        );
+                );
                 return false;
             }
-            fd_ = init_value;
-            return true;
         }
+        fd_ = init_value;
+        return true;
     }
 
     // 析构函数

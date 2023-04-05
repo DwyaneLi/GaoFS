@@ -19,8 +19,10 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "CREATE_CHECK_PARENTS"
   "GAOFS_ENABLE_LOGGING"
   "GAOFS_ENABLE_ROCKSDB"
+  "HAS_SYMLINKS"
   "LIBGAOFS_LOG_MESSAGE_SIZE=1024"
   "MAX_INTERNAL_FDS=256"
   "MAX_OPEN_FDS=1024"
@@ -31,6 +33,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "../external/spdlog/include"
+  "../external"
   "../external/fmt/include"
   "/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"
   )
@@ -40,13 +43,16 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/metadata.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/first_chunk.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_db.dir/DependInfo.cmake"
+  "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/storage.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/distributor.dir/DependInfo.cmake"
+  "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/statistics.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/log_util.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/env_util.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/external/spdlog/CMakeFiles/spdlog.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/CMakeFiles/fmt.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/common/CMakeFiles/path_util.dir/DependInfo.cmake"
   "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/metadata/CMakeFiles/metadata_module.dir/DependInfo.cmake"
+  "/home/dwyaneli/gaofs/cmake-build-debug/src/daemon/backend/data/CMakeFiles/data_module.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

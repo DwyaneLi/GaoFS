@@ -6,6 +6,17 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
+set(WARNINGS_FLAGS "-Wall -Wextra --pedantic -Wno-unused-parameter -Wno-missing-field-initializers")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${WARNINGS_FLAGS} -g -O0 -DGAOFS_DEBUG_BUILD -DHERMES_DEBUG_BUILD")
+set(CMAKE_CXX_FLAGS_MEMCHECK "${WARNINGS_FLAGS} -g -O0 -fsanitize=address -fno-omit-frame-pointer")
+set(CMAKE_CXX_FLAGS_MAINTAINER "${WARNINGS_FLAGS} -g -O0 -pg -no-pie")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DNDEBUG -O3")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${WARNINGS_FLAGS} -g -O0 -DGAOFS_DEBUG_BUILD")
+set(CMAKE_C_FLAGS_MEMCHECK "${WARNINGS_FLAGS} -g -O0 -fsanitize=address -fno-omit-frame-pointer")
+set(CMAKE_C_FLAGS_MAINTAINER "${WARNINGS_FLAGS} -g -O0 -pg -no-pie")
+mark_as_advanced(CMAKE_CXX_FLAGS_MAINTAINER)
+
 # 设置CMAKE_MODULE_PATH，帮助找到.cmake文件
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
 
@@ -22,7 +33,19 @@ find_package(Filesystem REQUIRED)
 find_package(Date REQUIRED)
 
 option(CREATE_CHECK_PARENTS "Check parent directory existance before creating child node" ON)
+if (CREATE_CHECK_PARENTS)
+    add_definitions(-DCREATE_CHECK_PARENTS)
+endif ()
 message(STATUS "[gaofs] Create checks parents: ${CREATE_CHECK_PARENTS}")
+
+
+
+# 看是否支持软连接
+option(SYMLINK_SUPPORT "Compile with support for symlinks" ON)
+if (SYMLINK_SUPPORT)
+    add_definitions(-DHAS_SYMLINKS)
+endif ()
+message(STATUS "[gaofs] Symlink support: ${SYMLINK_SUPPORT}")
 
 #设置内部用的文件描述符的数量
 set(MAX_INTERNAL_FDS 256 CACHE STRING "Number of file descriptors reserved for internal use")
@@ -46,6 +69,13 @@ if (ENABLE_CLIENT_LOG)
 endif ()
 message(STATUS "[gaofs] Client logging output: ${ENABLE_CLIENT_LOG}")
 
+#选项，是否使用agios，默认关
+option(GAOFS_ENABLE_AGIOS "Enable AGIOS scheduling library" OFF)
+if (GAOFS_ENABLE_AGIOS)
+    find_package(AGIOS REQUIRED)
+endif ()
+
+
 #设置最长log大小
 set(CLIENT_LOG_MESSAGE_SIZE 1024 CACHE STRING "Maximum size of a log message in the client library")
 add_definitions(-DLIBGAOFS_LOG_MESSAGE_SIZE=${CLIENT_LOG_MESSAGE_SIZE})
@@ -53,17 +83,33 @@ message(STATUS "[gaofs] Maximum log message size in the client library: ${CLIENT
 mark_as_advanced(CLIENT_LOG_MESSAGE_SIZE)
 
 #选项，使用哪个数据库，默认使用rocks db
-# option(GKFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
+# option(GAOFS_ENABLE_PARALLAX "Enable Parallax db backend" OFF)
 option(GAOFS_ENABLE_ROCKSDB "Enable ROCKSDB backend" ON)
+
+
+# CLI11库编译
+add_library(CLI11 INTERFACE)
+# we cannot use target_include_directories with CMake < 3.11
+set_target_properties(CLI11
+        PROPERTIES
+        INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/external"
+        )
 
 
 # fmt components
 add_subdirectory(external/fmt)
 set_property(TARGET fmt PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+
 # spdlog components
 add_subdirectory(external/spdlog)
 set_property(TARGET spdlog PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+
+set(HERMES_LOGGING ON CACHE BOOL "" FORCE)
+option(HERMES_LOGGING_FMT_USE_BUNDLED "" OFF)
+option(HERMES_LOGGING_FMT_HEADER_ONLY "" OFF)
+
 
 # 选项，是否编译hermes rpc 库，默认开
 option(HERMES_MARGO_COMPATIBLE_RPCS "" ON)

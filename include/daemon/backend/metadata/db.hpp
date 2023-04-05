@@ -20,6 +20,8 @@
 namespace gaofs::metadata {
 
 constexpr auto rocksdb_backend = "rocksdb";
+// no use
+constexpr auto parallax_backend = "parallaxdb";
 
 class MetadataDB {
 

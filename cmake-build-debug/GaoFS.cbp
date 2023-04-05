@@ -37,6 +37,16 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="install">
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
 				<Option type="4"/>
@@ -67,16 +77,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="fmt">
 				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt/libfmtd.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/external/fmt"/>
@@ -84,6 +84,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -111,6 +113,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -139,6 +143,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -167,6 +173,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -194,6 +202,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -223,6 +233,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -252,6 +264,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -279,6 +293,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -306,6 +322,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -334,6 +352,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -362,6 +382,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -390,6 +412,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -418,6 +442,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -445,6 +471,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -465,6 +493,64 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="statistics">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libstatistics.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
+					<Add option="-DMAX_INTERNAL_FDS=256"/>
+					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 statistics"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="statistics/fast">
+				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libstatistics.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
+					<Add option="-DMAX_INTERNAL_FDS=256"/>
+					<Add option="-DMAX_OPEN_FDS=1024"/>
+					<Add option="-DGAOFS_ENABLE_LOGGING"/>
+					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
+					<Add directory="/home/dwyaneli/gaofs/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 statistics/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/dwyaneli/gaofs/cmake-build-debug/src/common/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="distributor">
 				<Option output="/home/dwyaneli/gaofs/cmake-build-debug/src/common/libdistributor.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/dwyaneli/gaofs/cmake-build-debug/src/common"/>
@@ -472,6 +558,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -499,6 +587,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -526,6 +616,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -534,6 +626,7 @@
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -558,6 +651,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -566,6 +661,7 @@
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
 					<Add directory="/home/dwyaneli/gaofs/external/spdlog/include"/>
+					<Add directory="/home/dwyaneli/gaofs/external"/>
 					<Add directory="/home/dwyaneli/gaofs/external/fmt/include"/>
 					<Add directory="/home/dwyaneli/gekkofs_test/gekkofs_deps/install/include"/>
 					<Add directory="/usr/include/c++/9"/>
@@ -591,6 +687,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -622,6 +720,8 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DGAOFS_ENABLE_ROCKSDB"/>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -652,6 +752,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -681,6 +783,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -710,6 +814,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -739,6 +845,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -768,6 +876,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -797,6 +907,8 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
@@ -826,11 +938,14 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DHERMES_DEBUG_BUILD"/>
+					<Add option="-DHERMES_ENABLE_LOGGING"/>
 					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
 					<Add option="-DUSE_OS_TZDB=1"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -860,11 +975,14 @@
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-DCREATE_CHECK_PARENTS"/>
+					<Add option="-DHAS_SYMLINKS"/>
 					<Add option="-DMAX_INTERNAL_FDS=256"/>
 					<Add option="-DMAX_OPEN_FDS=1024"/>
 					<Add option="-DGAOFS_ENABLE_LOGGING"/>
 					<Add option="-DLIBGAOFS_LOG_MESSAGE_SIZE=1024"/>
 					<Add option="-DHERMES_DEBUG_BUILD"/>
+					<Add option="-DHERMES_ENABLE_LOGGING"/>
 					<Add option="-DHERMES_MARGO_COMPATIBLE_MODE"/>
 					<Add option="-DUSE_OS_TZDB=1"/>
 					<Add directory="/home/dwyaneli/gaofs/include"/>
@@ -1300,6 +1418,7 @@
 			<Option target="gaofs_intercept"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/common/common_defs.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="storage"/>
 			<Option target="gaofs_intercept"/>
 		</Unit>
@@ -1343,6 +1462,10 @@
 			<Option target="gaofs_daemon"/>
 			<Option target="gaofs_intercept"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/common/statistics/stats.hpp">
+			<Option target="statistics"/>
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/config.hpp">
 			<Option target="env_util"/>
 			<Option target="first_chunk"/>
@@ -1350,6 +1473,7 @@
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/data/chunk_storage.hpp">
+			<Option target="gaofs_daemon"/>
 			<Option target="storage"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/backend/data/data_module.hpp">
@@ -1392,6 +1516,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/daemon.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/daemon/env.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/handler/rpc_defs.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
@@ -1405,6 +1532,9 @@
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/include/daemon/util.hpp">
+			<Option target="gaofs_daemon"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/include/version.hpp">
 			<Option target="gaofs_daemon"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/client/gaofs_functions.cpp">
@@ -1473,6 +1603,9 @@
 		<Unit filename="/home/dwyaneli/gaofs/src/common/rpc/rpc_util.cpp">
 			<Option target="gaofs_daemon"/>
 			<Option target="gaofs_intercept"/>
+		</Unit>
+		<Unit filename="/home/dwyaneli/gaofs/src/common/statistics/stats.cpp">
+			<Option target="statistics"/>
 		</Unit>
 		<Unit filename="/home/dwyaneli/gaofs/src/daemon/backend/data/chunk_storage.cpp">
 			<Option target="storage"/>

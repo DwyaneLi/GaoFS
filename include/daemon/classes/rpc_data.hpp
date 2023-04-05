@@ -59,7 +59,7 @@ public:
 
     std::vector<ABT_xstream>& io_streams();
 
-    void io_streams(std::vector<ABT_xstream>& io_streams);
+    void io_streams(const std::vector<ABT_xstream>& io_streams);
 
     const std::string& self_addr_str() const;
 
