@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstorage.a  CMakeFiles/storage.dir/chunk_storage.cpp.o
+/usr/bin/ranlib libstorage.a

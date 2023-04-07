@@ -1,0 +1,115 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_76249/fast && /usr/bin/make -f CMakeFiles/cmTC_76249.dir/build.make CMakeFiles/cmTC_76249.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_76249.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_76249.dir/src.c.o   -c /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_76249
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76249.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_76249.dir/src.c.o  -o cmTC_76249 
+/usr/bin/ld: CMakeFiles/cmTC_76249.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_76249.dir/build.make:87: cmTC_76249] Error 1
+make[1]: Leaving directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_76249/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_86b01/fast && /usr/bin/make -f CMakeFiles/cmTC_86b01.dir/build.make CMakeFiles/cmTC_86b01.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86b01.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_86b01.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_86b01
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86b01.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_86b01.dir/CheckFunctionExists.c.o  -o cmTC_86b01  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_86b01.dir/build.make:87: cmTC_86b01] Error 1
+make[1]: Leaving directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_86b01/fast] Error 2
+
+
+
+Determining if the strtod_l exist failed with the following output:
+Change Dir: /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_954c1/fast && /usr/bin/make -f CMakeFiles/cmTC_954c1.dir/build.make CMakeFiles/cmTC_954c1.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_954c1.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_954c1.dir/CheckSymbolExists.c.o   -c /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘strtod_l’ undeclared (first use in this function); did you mean ‘strtoull’?
+    8 |   return ((int*)(&strtod_l))[argc];
+      |                   ^~~~~~~~
+      |                   strtoull
+/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [CMakeFiles/cmTC_954c1.dir/build.make:66: CMakeFiles/cmTC_954c1.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_954c1/fast] Error 2
+
+
+File /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtod_l
+  return ((int*)(&strtod_l))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C++ SOURCE FILE Test HAS_LIBURING failed with the following output:
+Change Dir: /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6b90e/fast && /usr/bin/make -f CMakeFiles/cmTC_6b90e.dir/build.make CMakeFiles/cmTC_6b90e.dir/build
+make[1]: Entering directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6b90e.dir/src.cxx.o
+/usr/bin/c++    -DHAS_LIBURING -luring   -std=gnu++17 -o CMakeFiles/cmTC_6b90e.dir/src.cxx.o -c /home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/src.cxx
+/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp/src.cxx:2:18: fatal error: liburing.h: No such file or directory
+    2 |         #include <liburing.h>
+      |                  ^~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_6b90e.dir/build.make:66: CMakeFiles/cmTC_6b90e.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/dwyaneli/gaofs/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6b90e/fast] Error 2
+
+
+Source file was:
+
+        #include <liburing.h>
+        int main() {
+          struct io_uring ring;
+          io_uring_queue_init(1, &ring, 0);
+          return 0;
+        }
+        

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/client/syscalls/detail/syscall_info.h
+
+/home/dwyaneli/gaofs/src/client/syscalls/detail/syscall_info.c
+syscall.h
+-
+stdbool.h
+-
+stddef.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+string.h
+-
+stdlib.h
+-
+client/syscalls/detail/syscall_info.h
+-
+signal.h
+-
+

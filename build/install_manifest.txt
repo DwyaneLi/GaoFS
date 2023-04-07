@@ -1,0 +1,2 @@
+/home/dwyaneli/gaofs_test/bin/gaofs_daemon
+/home/dwyaneli/gaofs_test/lib/libgaofs_intercept.so

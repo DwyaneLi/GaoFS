@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmetadata_db.a  CMakeFiles/metadata_db.dir/db.cpp.o CMakeFiles/metadata_db.dir/rocksdb_backend.cpp.o CMakeFiles/metadata_db.dir/merge.cpp.o
+/usr/bin/ranlib libmetadata_db.a
